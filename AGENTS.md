@@ -1,0 +1,39 @@
+# AI Workshop — AGENTS.md
+
+## Context
+
+This is a remote AI workshop for a non-profit that teaches tech and software skills.
+
+**Audience:**
+- Migrants, marginalized communities, students, career switchers
+- Currently learning software skills (Frontend: HTML/React/CSS, Backend: Python, Data Science)
+- Mid-journey learners — they have some technical foundation but are not experts
+- Mixed technical backgrounds and comfort levels with AI
+
+**Goal:** Give participants the right mindset and practical approach to use and learn with AI effectively.
+
+## Writing Style Instructions
+
+- **Plain language.** No jargon without explanation. If a technical term is necessary, define it briefly in parentheses.
+- **Direct and concise.** Say what needs to be said, then stop. No filler, no motivational fluff, no over-explaining.
+- **Short sentences and paragraphs.** Break up dense information. Use bullet points and numbered lists over long paragraphs.
+- **Action-oriented.** Focus on what the audience should *do*, not abstract theory.
+- **Inclusive tone.** Assume intelligence, not prior knowledge. Never talk down. Avoid idioms or cultural references that don't translate globally.
+- **Use examples from their world.** Reference HTML, Python, CSS, React, or data tasks they'd recognize — not enterprise/advanced scenarios.
+- **Comprehensive but not verbose.** Cover what matters fully. Cut everything else.
+
+## File Structure
+
+```
+workshop.md              — Workshop details: schedule, structure, goal of each part
+requirements.md          — What the coordinator, teacher, and students need to prepare
+reference.md             — Research, articles, and sources used in the workshop
+contents/
+  01-what-ai-can-do.md        — What AI is, what it can and can't do
+  02-hands-on-cold-start.md   — Unguided activity before prompting instruction
+  03-what-research-shows.md   — Anthropic study findings, connects to cold start experience
+  04-how-to-learn-with-ai.md  — Integrated approach: prompting + learning strategies from cognitive science
+  05-hands-on-retry.md        — Retry with prompting and learning strategies applied
+  06-hands-on-own-track.md    — Open exercise on student's own track
+  07-dos-and-donts.md         — Practical guidelines and pitfalls
+```

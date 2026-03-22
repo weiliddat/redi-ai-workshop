@@ -44,7 +44,7 @@ Most students will:
 3. Run it, connect, send "hello"
 4. See their message appear — feel accomplished
 
-This is exactly the "delegation" pattern from the Anthropic study. They produced something, but learned nothing.
+This is the "delegation" pattern from the Anthropic study — a working result, but little understanding of how it works.
 
 ## The reveal (teacher-led, after the activity)
 
@@ -54,9 +54,9 @@ Once students are connected and chatting, the teacher asks the room:
 - "What happens in your code if the server disconnects?"
 - "How would you change your client to show timestamps next to each message?"
 
-Most won't be able to answer. That's the point. This sets up the motivation for sections 03 (Prompting) and 04 (AI for Learning).
+Most won't be able to answer. That's the point. This sets up the motivation for sections 03 (Research) and 04 (How to Learn with AI).
 
 ## Time
 
-- 10 min — build and connect
+- 15 min — build and connect
 - 5 min — the reveal questions and brief discussion

@@ -38,4 +38,4 @@ Walk the Zoom breakout rooms (or main room). Look for:
 
 ## Time
 
-- 20 min — open work
+- 20 min — open work (optional section, depending on time/progress)

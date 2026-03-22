@@ -47,9 +47,22 @@ A free account is fine. Make sure you can log in and send a message.
 
 You only need one.
 
-### 3. A terminal and a code editor (VSCode, Vim, WebStorm, PyCharm)
+**Test it now:** open your terminal and run the version check command. If it shows a version number, you're set.
 
-If you have trouble with setup, reach out before the workshop and we'll help.
+### 3. Install the WebSocket library
+
+We'll use WebSockets during the workshop. Install the library for your language now so you're ready:
+
+- **Python:** `pip install websockets`
+- **Node.js:** `npm install ws`
+
+### 4. A terminal and a code editor (VSCode, Vim, WebStorm, PyCharm)
+
+If you have trouble with any of these steps, reach out before the workshop and we'll help.
+
+### A note on privacy
+
+During the workshop, you'll paste code and prompts into AI chat tools. Avoid sharing personal information, passwords, API keys, or anything confidential.
 
 ---
 

@@ -8,9 +8,9 @@ Every time AI generates code you don't understand, you've borrowed a solution wi
 
 The goal is not to avoid AI. It's to stay in the driver's seat while using it.
 
-## Three patterns that work
+## Four patterns that work
 
-The Anthropic study found three interaction patterns where students scored significantly higher on comprehension.
+The Anthropic study identified interaction patterns associated with higher comprehension scores.
 
 ### 1. Conceptual inquiry
 
@@ -43,6 +43,18 @@ After getting code: _"Walk me through what happens when a message arrives in thi
 Or: _"What would break if I removed this line?"_
 
 This approach trades speed for understanding — you get the efficiency of AI generation, then immediately do the work of comprehension.
+
+### 4. Intentional debugging
+
+When something breaks, read the error before asking AI to fix it.
+
+Instead of: _"Fix this error"_
+
+Try: _"I'm getting this error: `ConnectionRefusedError: [Errno 111] Connection refused`. What does this error mean? What are the likely causes?"_
+
+Then try to fix it yourself based on the explanation. If you're still stuck, ask for a hint — not a solution.
+
+The Anthropic study found the **largest comprehension gap** between AI-assisted and hand-coding groups was on debugging questions. When AI fixes your errors for you, you lose the chance to understand what went wrong — which is often where the deepest learning happens.
 
 ---
 
@@ -107,7 +119,11 @@ When you hand a hard problem to AI before sitting with it, you skip the moment t
 
 Try to stay stuck for a few minutes before asking for help. Ask AI to give you a hint, not a solution. Work through the confusion — that's the work.
 
+## TODO
+
+- [ ] Include sample prompts for each pattern (conceptual inquiry, hybrid, generation-then-comprehension, intentional debugging)
+- [ ] Include sample AI chat threads showing each pattern in action — so the teacher can demo or students can reference
+
 ## Time
 
 - 20 min — teacher presents with examples and live prompting demonstration
-- 5 min — students try one rewrite of a prompt they used in the cold start activity

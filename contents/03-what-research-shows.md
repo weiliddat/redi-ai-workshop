@@ -39,9 +39,9 @@ Most couldn't answer. Not because you're not capable — but because the AI answ
 
 ## Why this happens
 
-The researchers identified three patterns that led to low scores:
+The researchers observed three patterns associated with lower scores:
 
-**Wholesale delegation** — paste the task, accept the output, move on. No thinking required. Nothing learned.
+**Wholesale delegation** — paste the task, accept the output, move on. No thinking required. Little retained.
 
 **Progressive reliance** — start by asking about concepts, but when it gets hard, hand the whole problem to the AI. You stop engaging right when the learning would happen.
 
@@ -53,14 +53,23 @@ These aren't mistakes. They're the natural path of least resistance when a capab
 
 Not all AI use is the same.
 
-The study found that _how_ you interact with AI determines what you learn — not whether you use it.
+The study found that _how_ you interact with AI is associated with how much you retain — not whether you use it.
 
 Participants who asked AI conceptual questions and resolved the code themselves scored the highest on the quiz. They also finished the fastest.
 
-"Cognitive effort — and even getting painfully stuck — is likely important for fostering mastery."
+> "Cognitive effort — and even getting painfully stuck — is likely important for fostering mastery."
 
-The struggle is the point.
+## What this study does and doesn't show
+
+The study is a strong signal, not a final verdict. A few things to keep in mind:
+
+- The participants were **junior developers with Python experience** — not complete beginners.
+- The quiz measured **short-term comprehension**, right after the task. Whether this predicts long-term skill development is an open question.
+- The interaction patterns (delegation, conceptual inquiry, etc.) are **observational, not causal**. They describe what higher- and lower-scoring participants did — not a guaranteed recipe.
+- The tool was a **sidebar chat assistant**, not an agentic coding tool. The effects of more autonomous AI tools are likely stronger.
+
+The takeaway still holds: how you use AI while learning appears to matter a great deal. But the research is early, and the details matter.
 
 ## Time
 
-- 10 min — teacher presents, references the cold start reveal
+- 12 min — teacher presents, references the cold start reveal

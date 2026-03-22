@@ -40,5 +40,5 @@ The rest of this workshop is about that difference.
 
 ## Time
 
-- 10 min — teacher presents and discusses
-- 5 min — questions and examples from students' own experience
+- 8 min — teacher presents and discusses
+- 4 min — questions and examples from students' own experience

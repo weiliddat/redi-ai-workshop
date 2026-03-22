@@ -46,5 +46,5 @@ The contrast between cold start and retry should speak for itself.
 
 ## Time
 
-- 12 min — build the feature
-- 3 min — debrief
+- 15 min — build the feature
+- 5 min — debrief

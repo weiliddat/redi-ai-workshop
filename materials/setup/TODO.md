@@ -95,7 +95,62 @@ Explanations should be correct and understandable. Minor imprecision is OK. Conf
 
 ---
 
-## Eval 3: Rate limits under workshop load
+## Eval 3: Novice-shaped prompts
+
+Students won't prompt cleanly. Test with messy, realistic prompts to see how models handle them.
+
+### Test prompts
+
+- [ ] "it works but i dont understand what await is here"
+- [ ] "can you make this show when people join but keep my code"
+- [ ] "why does it say refused??"
+- [ ] "i changed something and now nothing works" (paste broken code)
+- [ ] "what is this error" (paste just the traceback, no context)
+
+### What to check
+
+- [ ] Does the model ask clarifying questions or make reasonable assumptions?
+- [ ] Does it give a useful answer despite the vague prompt?
+- [ ] Does it avoid dumping a full rewrite when only a small fix is needed?
+- [ ] Does it stay at the right level — not too advanced, not patronizing?
+
+### Pass criteria
+
+The model should handle messy prompts gracefully. It doesn't need to be perfect — but it should not hallucinate causes, give irrelevant answers, or overwhelm students with jargon.
+
+---
+
+## Eval 4: Conversation continuity (section 05)
+
+The retry section depends on the model working with the student's existing code. Test whether the model can make small changes without rewriting everything.
+
+### Test prompts
+
+Paste a working chat client, then ask:
+
+- [ ] "Add timestamps next to each message. Change as little as possible."
+- [ ] "Add a /nick command. Don't rewrite the whole program — show only what changes and explain why."
+- [ ] "Now also show a notification when someone joins. Keep my existing code."
+
+Then test multi-turn continuity:
+
+- [ ] After 3-4 exchanges, does the model still remember the original code?
+- [ ] If you paste updated code, does it pick up from the new version correctly?
+- [ ] Does it avoid contradicting its own earlier explanations?
+
+### What to check
+
+- [ ] Does it make **minimal, targeted changes** instead of full rewrites?
+- [ ] Does it explain what changed and why?
+- [ ] Does it maintain context across multiple messages?
+
+### Pass criteria
+
+The model should modify existing code incrementally and explain each change. Full rewrites on simple feature additions are a fail — students need to see what changed, not start over.
+
+---
+
+## Eval 5: Rate limits under workshop load
 
 Can free models handle 20 students chatting simultaneously for ~60 minutes?
 
@@ -110,25 +165,50 @@ Can free models handle 20 students chatting simultaneously for ~60 minutes?
 
 After testing, fill in:
 
-| Model                   | Eval 1: Code works? | Eval 2: Explains correctly? | Eval 3: Rate limits OK? | Recommend? |
-| ----------------------- | ------------------- | --------------------------- | ----------------------- | ---------- |
-| MiniMax M2.5 (free)     |                     |                             |                         |            |
-| Nemotron 3 Super (free) |                     |                             |                         |            |
-| Step 3.5 Flash (free)   |                     |                             |                         |            |
-| MiniMax M2.7            |                     |                             |                         |            |
-| GLM 4.7 Flash           |                     |                             |                         |            |
-| MiMo-V2-Flash           |                     |                             |                         |            |
-| Qwen3.5 Flash           |                     |                             |                         |            |
-| Gemini (free)           |                     |                             |                         |            |
-| ChatGPT (free)          |                     |                             |                         |            |
-| Claude (free)           |                     |                             |                         |            |
+| Model                   | Eval 1: Code works? | Eval 2: Explains correctly? | Eval 3: Novice prompts? | Eval 4: Continuity? | Eval 5: Rate limits? | Recommend? |
+| ----------------------- | ------------------- | --------------------------- | ----------------------- | ------------------- | -------------------- | ---------- |
+| MiniMax M2.5 (free)     |                     |                             |                         |                     |                      |            |
+| Nemotron 3 Super (free) |                     |                             |                         |                     |                      |            |
+| Step 3.5 Flash (free)   |                     |                             |                         |                     |                      |            |
+| MiniMax M2.7            |                     |                             |                         |                     |                      |            |
+| GLM 4.7 Flash           |                     |                             |                         |                     |                      |            |
+| MiMo-V2-Flash           |                     |                             |                         |                     |                      |            |
+| Qwen3.5 Flash           |                     |                             |                         |                     |                      |            |
+| Gemini (free)           |                     |                             |                         |                     |                      |            |
+| ChatGPT (free)          |                     |                             |                         |                     |                      |            |
+| Claude (free)           |                     |                             |                         |                     |                      |            |
 
 ---
 
-## Outcome
+## General TODOs
 
-Based on results, update:
+### OpenRouter setup
 
-- [ ] `materials/setup/openrouter-setup.md` — adjust recommended models
-- [ ] `comms/participant-update-week-before.md` — fill in the AI tool setup section
-- [ ] `requirements.md` — finalize tool recommendations
+- [ ] Pick one validated primary model + one backup model based on eval results
+- [ ] Update `materials/setup/openrouter-setup.md` with the specific model names
+- [ ] Decide how to use the $100-200 budget — one cheap paid model as emergency rescue for teacher/stuck students, rather than spreading across many options
+- [ ] Test OpenRouter chat UI for setup friction: how long does sign-up → first message take for someone unfamiliar?
+- [ ] Add OpenRouter setup to pre-workshop comms so students arrive with a working account, not setting up live
+
+### Student environment preflight
+
+- [ ] Create a preflight checklist for students: verify Python or Node.js runs, install `websockets` (Python) or `ws` (Node), run a test script
+- [ ] Consider providing a `requirements.txt` and/or `package.json` so install is one command
+- [ ] Add preflight to pre-workshop comms
+
+### Server setup
+
+- [ ] Evaluate running WebSocket server on `wss://` (port 443) instead of `ws://` on a custom port — some networks block non-standard ports or insecure WebSocket traffic
+- [ ] Test server connectivity from a restricted network (e.g., mobile hotspot, corporate WiFi)
+
+---
+
+## After validation
+
+Based on eval results, update:
+
+- [ ] `materials/setup/openrouter-setup.md` — fill in validated model names
+- [ ] `comms/participant-update-week-before.md` — add OpenRouter setup instructions and preflight checklist
+- [ ] `requirements.md` — update student requirements to reflect OpenRouter as primary tool
+- [ ] `workshop.md` — adjust any tool references if needed
+- [ ] `contents/` files — update any sections that reference specific AI tools

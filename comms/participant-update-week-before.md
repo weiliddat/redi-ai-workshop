@@ -68,7 +68,7 @@ Reply with your answers. This helps us prepare for the group.
 
 ---
 
-**Name:** ___________
+**Name:**
 
 ---
 

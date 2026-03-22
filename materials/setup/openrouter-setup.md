@@ -1,6 +1,8 @@
-# Setting Up OpenRouter (Backup AI Tool)
+# Setting Up OpenRouter
 
-If your main AI tool (Gemini, ChatGPT, or Claude) runs out of free messages during the workshop, OpenRouter gives you access to free AI models through a simple web chat.
+OpenRouter gives you access to many AI models through a simple web chat — similar to ChatGPT or Claude, but you can switch between models freely.
+
+We use it for this workshop because it gives us more control: if one model is slow or unavailable, you just pick another.
 
 ---
 
@@ -8,42 +10,39 @@ If your main AI tool (Gemini, ChatGPT, or Claude) runs out of free messages duri
 
 1. Go to [openrouter.ai](https://openrouter.ai)
 2. Click **Sign Up** (top right)
-3. Sign in with your Google or GitHub account — no credit card required
+3. Sign in with your Google or GitHub account — no credit card needed
 
 ## Step 2: Open the chat
 
 1. Go to [openrouter.ai/chat](https://openrouter.ai/chat)
 2. You should see a chat interface similar to ChatGPT
 
-## Step 3: Pick a free model
+## Step 3: Pick a model
 
 1. Click the model selector (top of the chat)
-2. Filter by **Free** models
-3. Choose one of these (recommended):
-   - **MiniMax M2.5** — strong at code explanation and generation
-   - **Nemotron 3 Super** — good all-round model
-   - **Step 3.5 Flash** — fast, general-purpose
+2. Search for the model name your teacher shared with you
+3. If that model is unavailable, use the backup model your teacher listed
 
-Any free model will work for the workshop. If one feels slow or gives poor answers, switch to another.
+Don't pick a random model — stick to the ones listed for this workshop. They've been tested for the tasks we'll do.
 
-## Step 4: Start chatting
+## Step 4: Send a test message
 
-Type your question or paste code — same as ChatGPT or Claude. No special setup needed.
+Type something simple like "What is a WebSocket?" and confirm you get a response. This verifies your account and model are working.
 
 ---
 
 ## Good to know
 
-- **Free models are free because providers may use your prompts to improve their models.** For this workshop, that's fine — we're working with public code examples, not personal data.
-- **No rate limits to worry about.** Free models on OpenRouter don't have the tight per-hour caps that free ChatGPT or Claude have.
-- **You can switch models anytime.** If one model gives a confusing answer, try the same question on a different model.
+- **Free models have limits.** They may be slower or occasionally unavailable. If that happens, switch to the backup model your teacher listed.
+- **Free models may use your prompts to improve their models.** That's fine for this workshop — we're working with public code examples, not personal data. Don't paste passwords, keys, or personal information.
+- **You can switch models anytime.** If one model gives a confusing answer, try the same question on a different model from the workshop list.
 
 ---
 
 ## Troubleshooting
 
-**"No models available"** — Try refreshing the page. Free model availability can change.
+**"No models available"** — Try refreshing the page. If the model is still missing, switch to the backup model.
 
-**Model is slow** — Switch to a different free model. Some are faster than others.
+**Model is slow** — Switch to the backup model. Some models are faster than others.
 
-**Answer quality feels off** — Try MiniMax M2.5 first. If that doesn't work, switch to Nemotron 3 Super or Step 3.5 Flash.
+**Answer quality feels off** — Try the same question on the backup model. If both are bad, ask your teacher for help.

@@ -10,7 +10,7 @@ Students receive:
 - The API spec (below)
 - One instruction: **"Use AI to build a chat client that connects to this server. You should be able to see messages and send your own."**
 
-No guidance on *how* to use AI. No prompting tips. Just the task.
+No guidance on _how_ to use AI. No prompting tips. Just the task.
 
 ## API Spec (share with students)
 

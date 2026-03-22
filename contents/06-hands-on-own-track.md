@@ -32,9 +32,9 @@ If students need ideas:
 
 Walk the Zoom breakout rooms (or main room). Look for:
 
-- Students asking AI *why*, not just *what*
+- Students asking AI _why_, not just _what_
 - Students who can explain what their code does when you ask
-- Students falling back into delegation — gently redirect: *"Can you explain that line to me?"*
+- Students falling back into delegation — gently redirect: _"Can you explain that line to me?"_
 
 ## Time
 

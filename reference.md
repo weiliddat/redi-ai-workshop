@@ -6,7 +6,7 @@
 - **Link:** https://www.anthropic.com/research/AI-assistance-coding-skills
 - **Paper:** https://arxiv.org/abs/2601.20245
 
-A study showing that developers using AI scored 17% lower on comprehension — not because AI is bad for learning, but because *how* you use it determines how much you retain.
+A study showing that developers using AI scored 17% lower on comprehension — not because AI is bad for learning, but because _how_ you use it determines how much you retain.
 
 ---
 

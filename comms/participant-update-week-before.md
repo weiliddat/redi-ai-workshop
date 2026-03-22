@@ -10,7 +10,7 @@ We're one week away from the workshop and we're looking forward to seeing you th
 
 AI tools like ChatGPT, Claude, and Gemini can write code for you — but that's not always a good thing. Research shows that developers who rely on AI without the right approach score significantly lower on understanding their own code.
 
-This workshop is about learning **how to use AI in a way that actually builds your skills** — not just produces output. You'll leave with a practical approach you can apply immediately to your own learning, whatever track you're on.
+This workshop is about learning **how to use AI in a way that actually builds your skills** — not just producing output. You'll leave with a practical approach you can apply immediately to your own learning, whatever track you're on.
 
 ---
 
@@ -31,7 +31,9 @@ The session is 2 hours, fully remote via Zoom, and highly interactive. Expect to
 Please set these up **before the workshop** so we can jump straight into the activities.
 
 ### 1. Access to an AI chat tool
+
 Any of the following will work:
+
 - [Claude](https://claude.ai) (Anthropic)
 - [ChatGPT](https://chat.openai.com) (OpenAI)
 - [Gemini](https://gemini.google.com) (Google)
@@ -39,6 +41,7 @@ Any of the following will work:
 Make sure you can open it and type a message. A free account is fine.
 
 ### 2. Python or Node.js installed on your computer
+
 - **Python:** version 3.8 or higher — check with `python --version` or `python3 --version` in your terminal
 - **Node.js:** version 16 or higher — check with `node --version`
 
@@ -61,6 +64,7 @@ Reply to this message with your answers. No right or wrong — this just helps u
 - [ ] Frontend (HTML / CSS / React)
 - [ ] Backend (Python)
 - [ ] Data Science
+- [ ] Other
 
 How long: less than 1 month / 1–3 months / 3–6 months / 6+ months
 

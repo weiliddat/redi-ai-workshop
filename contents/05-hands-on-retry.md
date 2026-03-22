@@ -22,17 +22,17 @@ Students now know the high-scoring patterns:
 - **Hybrid code-explanation** — "Show me the code and explain each part"
 - **Generation-then-comprehension** — After getting code, ask "Walk me through what happens when a message arrives"
 
-The teacher can remind them: *"If you can't explain the change you made, you haven't learned it."*
+The teacher can remind them: _"If you can't explain the change you made, you haven't learned it."_
 
 ## What to watch for
 
 The difference should be visible:
 
-| Cold Start | Retry |
-|---|---|
+| Cold Start                           | Retry                                                                                                    |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------- |
 | "Make me a chat client" (one prompt) | "What library handles WebSockets in Python?" → "Show me how to connect" → "Now how do I send a message?" |
-| Accepted code without reading it | Asked AI to explain the code |
-| Got stuck on the modification | Can describe what they changed and why |
+| Accepted code without reading it     | Asked AI to explain the code                                                                             |
+| Got stuck on the modification        | Can describe what they changed and why                                                                   |
 
 ## The debrief (teacher-led)
 

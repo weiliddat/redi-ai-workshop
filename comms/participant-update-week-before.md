@@ -32,13 +32,9 @@ Set these up **before the workshop** so we can start straight away.
 
 ### 1. An AI chat tool
 
-Any of these works:
+<!-- TODO: Update with specific tool recommendations after survey results -->
 
-- [Claude](https://claude.ai) (Anthropic)
-- [ChatGPT](https://chat.openai.com) (OpenAI)
-- [Gemini](https://gemini.google.com) (Google)
-
-A free account is fine. Make sure you can log in and send a message.
+_Details coming in a follow-up message._
 
 ### 2. Python or Node.js
 
@@ -72,6 +68,10 @@ Reply with your answers. This helps us prepare for the group.
 
 ---
 
+**Name:** ___________
+
+---
+
 **1. Which track are you studying?**
 
 - [ ] Intro
@@ -101,12 +101,28 @@ Reply with your answers. This helps us prepare for the group.
 
 ---
 
-**4. Which type of AI tool do you usually use (select multiple)?**
+**4. Which AI tools do you use regularly (select all that apply)?**
 
-- [ ] Web-based chat (e.g. ChatGPT, Claude, Gemini)
-- [ ] In-editor assistant (e.g. Cursor, GitHub Copilot)
-- [ ] Terminal-based (e.g. Claude Code, Codex, OpenCode)
+- [ ] ChatGPT
+- [ ] Claude
+- [ ] Gemini
+- [ ] GitHub Copilot
+- [ ] Cursor
+- [ ] Other:
 - [ ] I don't use AI tools yet
+
+---
+
+**5. Do you have a paid subscription to any of these (select all that apply)?**
+
+- [ ] ChatGPT Plus / Pro
+- [ ] Claude Pro
+- [ ] Gemini Advanced
+- [ ] GitHub Copilot
+- [ ] Cursor Pro
+- [ ] Other:
+- [ ] No, I only use free tiers
+- [ ] I'm not sure
 
 ---
 

@@ -2,88 +2,99 @@
 
 Hi everyone,
 
-We're one week away from the workshop and we're looking forward to seeing you there. Here's everything you need to know to come prepared.
+The workshop is next week. Here's what you need to know and set up before you arrive.
 
 ---
 
 ## What This Workshop Is About
 
-AI tools like ChatGPT, Claude, and Gemini can write code for you — but that's not always a good thing. Research shows that developers who rely on AI without the right approach score significantly lower on understanding their own code.
+AI tools like ChatGPT, Claude, and Gemini can write code for you — but research shows that developers who rely on them _without the right approach_ learn and understand less of their code.
 
-This workshop is about learning **how to use AI in a way that actually builds your skills** — not just producing output. You'll leave with a practical approach you can apply immediately to your own learning, whatever track you're on.
+Research shows the problem isn't AI — it's how you use it. This workshop teaches you **how to use AI so you keep learning**, not just getting answers. You'll leave with a method you can apply right away, whatever track you're on.
 
 ---
 
 ## What You'll Learn
 
-- What AI can and can't do — and why it matters how you use it
-- Why some ways of using AI help you learn, and others quietly hold you back
-- How to prompt AI so you stay in control and actually understand what you're building
-- Strategies grounded in real research that you can apply to your day-to-day learning
-- Hands-on practice: you'll try these approaches live during the session
+- What AI can and can't do — and why it matters
+- Which ways of using AI help you learn, and which get in the way
+- How to prompt AI so you stay in control and understand what you're building
+- Research-backed strategies you can apply every day
+- Hands-on practice with real code during the session
 
-The session is 2 hours, fully remote via Zoom, and highly interactive. Expect to get your hands on code.
+2 hours, remote via Zoom, highly interactive.
 
 ---
 
-## What to Bring and Prepare
+## What to Prepare
 
-Please set these up **before the workshop** so we can jump straight into the activities.
+Set these up **before the workshop** so we can start straight away.
 
-### 1. Access to an AI chat tool
+### 1. An AI chat tool
 
-Any of the following will work:
+Any of these works:
 
 - [Claude](https://claude.ai) (Anthropic)
 - [ChatGPT](https://chat.openai.com) (OpenAI)
 - [Gemini](https://gemini.google.com) (Google)
 
-Make sure you can open it and type a message. A free account is fine.
+A free account is fine. Make sure you can log in and send a message.
 
-### 2. Python or Node.js installed on your computer
+### 2. Python or Node.js
 
-- **Python:** version 3.8 or higher — check with `python --version` or `python3 --version` in your terminal
-- **Node.js:** version 16 or higher — check with `node --version`
+- **Python 3.8+** — check with `python --version` or `python3 --version`
+- **Node.js 16+** — check with `node --version`
 
-Either one works. You only need one.
+You only need one.
 
-### 3. A working terminal and a text editor
+### 3. A terminal and a code editor (VSCode, Vim, WebStorm, PyCharm)
 
-If you run into setup issues before the workshop, reach out and we'll help you sort it out.
-
----
-
-## Quick Poll — Help Us Prepare for You
-
-Reply to this message with your answers. No right or wrong — this just helps us tailor the session.
+If you have trouble with setup, reach out before the workshop and we'll help.
 
 ---
 
-**1. Which track are you studying, and how long have you been in the program?**
+## Quick Poll
 
+Reply with your answers. This helps us prepare for the group.
+
+---
+
+**1. Which track are you studying?**
+
+- [ ] Intro
 - [ ] Frontend (HTML / CSS / React)
 - [ ] Backend (Python)
 - [ ] Data Science
-- [ ] Other
-
-How long: less than 1 month / 1–3 months / 3–6 months / 6+ months
-
----
-
-**2. How confident do you feel about what you've learned so far?**
-
-- [ ] Still finding my footing
-- [ ] I understand some things but struggle with others
-- [ ] I can work through most things on my own
+- [ ] UI / UX
+- [ ] Not a student
 
 ---
 
-**3. How often do you use AI tools (ChatGPT, Claude, Gemini, etc.)?**
+**2. How would you describe your experience level with programming?**
+
+- [ ] Just starting out — still getting to grips with the basics (less than 6 months)
+- [ ] Finding my footing — I understand some things but need support (6 months – 1 year)
+- [ ] Getting there — I can build things with some guidance (1 – 2 years)
+- [ ] Working independently — I can tackle most things on my own (2+ years)
+
+---
+
+**3. How often do you use AI tools?**
 
 - [ ] Never
-- [ ] Occasionally
-- [ ] Regularly (a few times a week or more)
+- [ ] A few times a month
+- [ ] A few times a week
+- [ ] Multiple times a day
 
 ---
 
-See you next week!
+**4. Which type of AI tool do you usually use (select multiple)?**
+
+- [ ] Web-based chat (e.g. ChatGPT, Claude, Gemini)
+- [ ] In-editor assistant (e.g. Cursor, GitHub Copilot)
+- [ ] Terminal-based (e.g. Claude Code, Codex, OpenCode)
+- [ ] I don't use AI tools yet
+
+---
+
+See you next week.

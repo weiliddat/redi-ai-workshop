@@ -119,11 +119,64 @@ When you hand a hard problem to AI before sitting with it, you skip the moment t
 
 Try to stay stuck for a few minutes before asking for help. Ask AI to give you a hint, not a solution. Work through the confusion — that's the work.
 
-## TODO
+## Live demos
 
-- [ ] Include sample prompts for each pattern (conceptual inquiry, hybrid, generation-then-comprehension, intentional debugging)
-- [ ] Include sample AI chat threads showing each pattern in action — so the teacher can demo or students can reference
+After presenting each pattern, the teacher demos it live using the chat client task. This shows students what the pattern looks like in practice — not just in theory.
+
+### Demo 1: Conceptual inquiry
+
+The teacher opens an AI chat and types:
+
+> _"What is a WebSocket? How is it different from a regular HTTP request?"_
+
+After reading the response, the teacher narrates: "Now I know enough to try connecting myself. I'm not going to ask for the code — I'm going to write it."
+
+The teacher writes a few lines of connection code, gets stuck, and asks:
+
+> _"I'm trying to connect to `ws://localhost:8765` in Python. What library should I use and what does the basic connection look like?"_
+
+Key point to highlight: two prompts, each specific, each building understanding. Not one big "build me a client."
+
+### Demo 2: Hybrid code-explanation
+
+The teacher types:
+
+> _"Show me how to send a message through a WebSocket in Python, and explain each step."_
+
+After reading the response, the teacher highlights the explanation part: "Notice I didn't just ask for the code. The explanation is what I'm paying attention to."
+
+The teacher reads each line out loud, pauses at one, and asks:
+
+> _"Why do I need to use `await` here? What happens if I leave it out?"_
+
+Key point to highlight: you got the code _and_ the explanation in one prompt. But you still have to read the explanation — it doesn't help if you skip it.
+
+### Demo 3: Intentional debugging
+
+The teacher runs code that produces an error (prepared in advance):
+
+```
+ConnectionRefusedError: [Errno 111] Connection refused
+```
+
+Instead of pasting the error and asking for a fix, the teacher types:
+
+> _"What does `ConnectionRefusedError: Connection refused` mean? What are the common causes?"_
+
+After reading, the teacher says: "OK — the server probably isn't running. Let me check." Then starts the server and retries.
+
+Key point to highlight: reading the error and understanding it took 30 seconds. Blindly asking "fix this" would have skipped the learning.
+
+### Demo 4: Generation-then-comprehension
+
+The teacher asks AI to generate a message-sending function, then immediately follows up:
+
+> _"Walk me through what happens line by line when I call `send_message`."_
+
+Then: _"What would break if I removed the `await` on line 3?"_
+
+Key point to highlight: the code is already written — now the work is understanding it. This is the minimum before pasting.
 
 ## Time
 
-- 20 min — teacher presents with examples and live prompting demonstration
+- 25 min — teacher presents patterns with live demos

@@ -17,23 +17,21 @@ A 120-minute remote workshop (Zoom) teaching students how to use AI effectively 
 
 ## Schedule
 
-| Time | Duration | Section                        | Goal                                                                                                             |
-| ---- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| 0:00 | 12 min   | 01 — What AI Can Do            | Set expectations: what AI is good at, where it fails, why _how_ you use it matters                               |
-| 0:12 | 20 min   | 02 — Hands-On: Cold Start      | Unguided activity — students try AI on an unfamiliar task with no instruction on how to use it well              |
-| 0:32 | 12 min   | 03 — What the Research Shows   | Anthropic study findings — connects to their cold start experience, shows why approach matters                   |
-| 0:44 | 20 min   | 04 — How to Learn with AI      | Approaches grounded in learning science and the study: how to prompt, stay engaged, and build real understanding |
-| 1:04 | 5 min    | Break                          | Reflection time — think about how you'll approach the retry differently                                          |
-| 1:09 | 20 min   | 05 — Hands-On: Retry           | Same or similar task, applying what they've learned — compare the difference                                     |
-| 1:29 | 20 min   | 06 — Hands-On: Own Track       | Open exercise on their own track (HTML/Python/Data Science) — optional, depending on first run                   |
-| 1:49 | 11 min   | 07 — Do's and Don'ts + Wrap-up | Concrete takeaways, Q&A                                                                                          |
+| Time | Duration | Section                        | Goal                                                                                                           |
+| ---- | -------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| 0:00 | 12 min   | 01 — What AI Can Do            | Set expectations: what AI is good at, where it fails, why _how_ you use it matters                             |
+| 0:12 | 20 min   | 02 — Hands-On: Cold Start      | Unguided activity — students try AI on an unfamiliar task with no instruction on how to use it well            |
+| 0:32 | 12 min   | 03 — What the Research Shows   | Anthropic study findings — connects to their cold start experience, shows why approach matters                 |
+| 0:44 | 25 min   | 04 — How to Learn with AI      | Approaches grounded in learning science and the study — with live demos of each pattern using sample scenarios |
+| 1:09 | 5 min    | Break                          | Reflection time — think about how you'll approach the retry differently                                        |
+| 1:14 | 30 min   | 05 — Hands-On: Retry           | Same or similar task, applying what they've learned — teacher demos one feature first, then students try       |
+| 1:44 | 16 min   | 06 — Do's and Don'ts + Wrap-up | Concrete takeaways, Q&A                                                                                        |
 
 ## Structure
 
 1. **Set the stage** (01) — Build a shared understanding of what AI can and can't do.
 2. **Experience the problem** (02) — Let students struggle with AI before teaching them how to use it. This creates motivation for what follows.
 3. **Name the pattern** (03) — Present the research. Students just felt the struggle — now they see the data: approach determines outcome.
-4. **Teach the approach** (04) — Integrate prompting with learning strategies from the study and cognitive science. Not "how to prompt" alone — how to stay in the driver's seat.
-5. **Apply and compare** (05) — Retry with intention. The before/after contrast teaches itself.
-6. **Practice independently** (06) — Open exercise on their own material so the skills transfer.
-7. **Lock it in** (07) — Memorable do's and don'ts they can take away.
+4. **Teach the approach** (04) — Demonstrate each learning pattern with sample scenarios and live prompting. Not "how to prompt" alone — how to stay in the driver's seat.
+5. **Apply and compare** (05) — Retry with intention. Teacher demos a pattern first, then students try. The before/after contrast teaches itself.
+6. **Lock it in** (06) — Memorable do's and don'ts they can take away.

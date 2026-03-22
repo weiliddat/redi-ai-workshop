@@ -27,8 +27,7 @@ contents/
   01-what-ai-can-do.md        — What AI is, what it can and can't do
   02-hands-on-cold-start.md   — Unguided activity before prompting instruction
   03-what-research-shows.md   — Anthropic study findings, connects to cold start experience
-  04-how-to-learn-with-ai.md  — Integrated approach: prompting + learning strategies from cognitive science
-  05-hands-on-retry.md        — Retry with prompting and learning strategies applied
-  06-hands-on-own-track.md    — Open exercise on student's own track
-  07-dos-and-donts.md         — Practical guidelines and pitfalls
+  04-how-to-learn-with-ai.md  — Integrated approach: prompting + learning strategies, with live demos of each pattern
+  05-hands-on-retry.md        — Retry with prompting and learning strategies applied, teacher-led demos
+  06-dos-and-donts.md         — Practical guidelines and pitfalls
 ```

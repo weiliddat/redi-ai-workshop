@@ -56,5 +56,5 @@ Do it once, and compare how you feel at the end versus the cold start activity. 
 
 ## Time
 
-- 7 min — teacher presents
-- 3 min — Q&A and close
+- 10 min — teacher presents
+- 6 min — Q&A and close

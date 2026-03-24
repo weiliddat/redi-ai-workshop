@@ -1,0 +1,10 @@
+{
+  "name": "chat-client",
+  "type": "module",
+  "scripts": {
+    "start": "node chat_client.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Client</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #1e1e2e;
+      color: #cdd6f4;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 12px 16px;
+      background: #181825;
+      border-bottom: 1px solid #313244;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .status {
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #f38ba8;
+    }
+
+    .status-dot.connected {
+      background: #a6e3a1;
+    }
+
+    /* Connect screen */
+    #connect-screen {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .connect-form {
+      background: #181825;
+      border: 1px solid #313244;
+      border-radius: 8px;
+      padding: 32px;
+      width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .connect-form h2 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .connect-form label {
+      font-size: 13px;
+      color: #a6adc8;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .connect-form input {
+      width: 100%;
+      padding: 8px 12px;
+      background: #1e1e2e;
+      border: 1px solid #313244;
+      border-radius: 4px;
+      color: #cdd6f4;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .connect-form input:focus {
+      border-color: #89b4fa;
+    }
+
+    .connect-form button {
+      padding: 10px 16px;
+      background: #89b4fa;
+      color: #1e1e2e;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .connect-form button:hover {
+      background: #74c7ec;
+    }
+
+    .connect-error {
+      color: #f38ba8;
+      font-size: 13px;
+      min-height: 18px;
+    }
+
+    /* Chat screen */
+    #chat-screen {
+      flex: 1;
+      display: none;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    #messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .msg {
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 2px 0;
+    }
+
+    .msg .name {
+      font-weight: 600;
+      color: #89b4fa;
+    }
+
+    .msg.system {
+      color: #6c7086;
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    .msg.error {
+      color: #f38ba8;
+    }
+
+    #input-bar {
+      padding: 12px 16px;
+      background: #181825;
+      border-top: 1px solid #313244;
+      display: flex;
+      gap: 8px;
+    }
+
+    #input-bar input {
+      flex: 1;
+      padding: 8px 12px;
+      background: #1e1e2e;
+      border: 1px solid #313244;
+      border-radius: 4px;
+      color: #cdd6f4;
+      font-size: 14px;
+      outline: none;
+    }
+
+    #input-bar input:focus {
+      border-color: #89b4fa;
+    }
+
+    #input-bar button {
+      padding: 8px 20px;
+      background: #89b4fa;
+      color: #1e1e2e;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #input-bar button:hover {
+      background: #74c7ec;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Chat</h1>
+    <div class="status">
+      <div class="status-dot" id="status-dot"></div>
+      <span id="status-text">Disconnected</span>
+    </div>
+  </header>
+
+  <div id="connect-screen">
+    <div class="connect-form">
+      <h2>Join chat</h2>
+      <div>
+        <label for="server-url">Server URL</label>
+        <input type="text" id="server-url" value="ws://localhost:3000">
+      </div>
+      <div>
+        <label for="name-input">Your name</label>
+        <input type="text" id="name-input" placeholder="Enter your name">
+      </div>
+      <div class="connect-error" id="connect-error"></div>
+      <button id="connect-btn">Connect</button>
+    </div>
+  </div>
+
+  <div id="chat-screen">
+    <div id="messages"></div>
+    <div id="input-bar">
+      <input type="text" id="msg-input" placeholder="Type a message…">
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <script>
+    // ---- Configuration ----
+    const DEFAULT_SERVER_URL = "ws://localhost:3000";
+
+    // ---- DOM elements ----
+    const connectScreen = document.getElementById("connect-screen");
+    const chatScreen = document.getElementById("chat-screen");
+    const serverUrlInput = document.getElementById("server-url");
+    const nameInput = document.getElementById("name-input");
+    const connectError = document.getElementById("connect-error");
+    const connectBtn = document.getElementById("connect-btn");
+    const messagesEl = document.getElementById("messages");
+    const msgInput = document.getElementById("msg-input");
+    const sendBtn = document.getElementById("send-btn");
+    const statusDot = document.getElementById("status-dot");
+    const statusText = document.getElementById("status-text");
+
+    let ws = null;
+
+    // ---- Connection ----
+
+    function connect() {
+      const name = nameInput.value.trim();
+      if (!name) {
+        connectError.textContent = "Please enter a name.";
+        return;
+      }
+
+      const serverUrl = serverUrlInput.value.trim();
+      if (!serverUrl) {
+        connectError.textContent = "Please enter a server URL.";
+        return;
+      }
+
+      connectError.textContent = "";
+      connectBtn.disabled = true;
+      connectBtn.textContent = "Connecting…";
+
+      const url = serverUrl + "?name=" + encodeURIComponent(name);
+
+      ws = new WebSocket(url);
+
+      ws.addEventListener("open", () => {
+        setConnected(true);
+        connectScreen.style.display = "none";
+        chatScreen.style.display = "flex";
+        msgInput.focus();
+      });
+
+      ws.addEventListener("message", (event) => {
+        let data;
+        try {
+          data = JSON.parse(event.data);
+        } catch {
+          return;
+        }
+        handleServerMessage(data);
+      });
+
+      ws.addEventListener("error", () => {
+        connectError.textContent = "Could not connect to server.";
+        connectBtn.disabled = false;
+        connectBtn.textContent = "Connect";
+      });
+
+      ws.addEventListener("close", (event) => {
+        setConnected(false);
+
+        // If we never got past the connect screen, show the error there
+        if (chatScreen.style.display === "none" || chatScreen.style.display === "") {
+          // Try to extract a reason from the close event
+          const reason = event.reason || "Connection closed.";
+          connectError.textContent = reason;
+          connectBtn.disabled = false;
+          connectBtn.textContent = "Connect";
+        } else {
+          addSystemMessage("Connection lost.");
+        }
+
+        ws = null;
+      });
+    }
+
+    function setConnected(connected) {
+      if (connected) {
+        statusDot.classList.add("connected");
+        statusText.textContent = "Connected";
+      } else {
+        statusDot.classList.remove("connected");
+        statusText.textContent = "Disconnected";
+      }
+    }
+
+    // ---- Messages ----
+
+    function handleServerMessage(data) {
+      switch (data.type) {
+        case "message":
+          addChatMessage(data.name, data.text);
+          break;
+        case "join":
+          addSystemMessage(`— ${data.name} joined —`);
+          break;
+        case "leave":
+          addSystemMessage(`— ${data.name} left —`);
+          break;
+        case "error":
+          // Server-sent error (e.g., name taken)
+          addErrorMessage(data.text || data.message || "Unknown error");
+          break;
+      }
+    }
+
+    function addChatMessage(name, text) {
+      const el = document.createElement("div");
+      el.className = "msg";
+      const nameSpan = document.createElement("span");
+      nameSpan.className = "name";
+      nameSpan.textContent = "[" + name + "] ";
+      el.appendChild(nameSpan);
+      el.appendChild(document.createTextNode(text));
+      appendMessage(el);
+    }
+
+    function addSystemMessage(text) {
+      const el = document.createElement("div");
+      el.className = "msg system";
+      el.textContent = text;
+      appendMessage(el);
+    }
+
+    function addErrorMessage(text) {
+      const el = document.createElement("div");
+      el.className = "msg error";
+      el.textContent = text;
+      appendMessage(el);
+    }
+
+    function appendMessage(el) {
+      messagesEl.appendChild(el);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    // ---- Sending ----
+
+    function sendMessage() {
+      const text = msgInput.value.trim();
+      if (!text || !ws || ws.readyState !== WebSocket.OPEN) return;
+
+      ws.send(JSON.stringify({ type: "message", text: text }));
+      msgInput.value = "";
+      msgInput.focus();
+    }
+
+    // ---- Event listeners ----
+
+    connectBtn.addEventListener("click", connect);
+    nameInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") connect();
+    });
+
+    sendBtn.addEventListener("click", sendMessage);
+    msgInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+
+    // Set default server URL from constant
+    serverUrlInput.value = DEFAULT_SERVER_URL;
+    nameInput.focus();
+  </script>
+</body>
+</html>

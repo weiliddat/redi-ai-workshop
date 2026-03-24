@@ -1,23 +1,50 @@
-// Chat Client — Node.js Skeleton
-//
-// This is a starting point. You'll use AI to help you fill in the missing parts.
-//
-// Before running:
-//   npm install ws
-//
-// To run:
-//   node chat_client.js
+import readline from "readline";
+import WebSocket from "ws";
 
-// TODO: import the ws library
+const SERVER_URL = process.env.SERVER_URL || "ws://localhost:3000";
 
-const SERVER_URL = "ws://REPLACE_WITH_SERVER_URL";
-const MY_NAME = "REPLACE_WITH_YOUR_NAME";
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-async function main() {
-  // TODO: connect to the WebSocket server at SERVER_URL
-  // TODO: send a join message or a first chat message
-  // TODO: listen for incoming messages and print them
-  // TODO: allow the user to type and send messages
-}
+rl.question("What is your name? ", (name) => {
+  const ws = new WebSocket(`${SERVER_URL}?name=${encodeURIComponent(name)}`);
 
-main();
+  ws.on("open", () => {
+    console.log(`Connected to ${SERVER_URL} as ${name}`);
+    rl.on("line", (text) => {
+      if (text.trim()) {
+        ws.send(JSON.stringify({ type: "message", text }));
+      }
+    });
+  });
+
+  ws.on("message", (data) => {
+    const msg = JSON.parse(data);
+    switch (msg.type) {
+      case "message":
+        console.log(`[${msg.name}] ${msg.text}`);
+        break;
+      case "join":
+        console.log(`--- ${msg.name} joined ---`);
+        break;
+      case "leave":
+        console.log(`--- ${msg.name} left ---`);
+        break;
+      case "error":
+        console.log(`Error: ${msg.message || msg.text}`);
+        break;
+    }
+  });
+
+  ws.on("close", () => {
+    console.log("Disconnected from server.");
+    process.exit(0);
+  });
+
+  ws.on("error", (err) => {
+    console.error(`Connection error: ${err.message}`);
+    process.exit(1);
+  });
+});

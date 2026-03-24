@@ -67,6 +67,7 @@ Once students are connected and chatting, the teacher asks the room:
 - "What happens in your code if the server disconnects?"
 - "How would you change your client to show timestamps next to each message?"
 - "What happens if two people join with the same name? What does the server store about you, and what does your client store? What does your client do if it gets an error back?"
+- "What happens if the server stops responding — not disconnects, just goes silent? Does your client notice?"
 
 Most won't be able to answer. That's the point. This sets up the motivation for sections 03 (Research) and 04 (How to Learn with AI).
 

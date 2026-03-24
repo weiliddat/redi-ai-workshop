@@ -29,21 +29,22 @@ Free-tier web chat (for comparison):
 
 ## Eval 1: Cold start task (section 02)
 
-Can the model produce a working WebSocket chat client from the API spec?
+Can the model produce a working browser chat client from the API spec?
 
 ### Test prompt
 
-Paste the API spec from `contents/02-hands-on-cold-start.md` and add:
-
-> "Use AI to build a chat client that connects to this server. You should be able to see messages and send your own."
+Use the API spec and the sample prompt from `contents/02-hands-on-cold-start.md`.
 
 ### What to check
+
+Use `agent-browser` for browser control during this eval so the run steps are consistent and reproducible.
 
 - [ ] Does the generated code run without errors?
 - [ ] Does it connect to the WebSocket server?
 - [ ] Does it send and receive messages correctly?
 - [ ] Does it handle the JSON message format from the spec?
-- [ ] Python and Node.js — test both
+- [ ] Does it work as a single HTML file with no install step?
+- [ ] Does it avoid frameworks and Socket.IO?
 
 ### Pass criteria
 

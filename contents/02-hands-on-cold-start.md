@@ -8,11 +8,52 @@ Students receive:
 
 - The server URL (e.g., `wss://workshop-server.example.com`)
 - The API spec (below)
-- One instruction: **"Use AI to build a chat client that connects to this server. You should be able to see messages and send your own."**
+- One instruction: **"Use AI to build a browser chat client that connects to this server. It should run as a single HTML file in the browser. You should be able to see messages and send your own."**
 
 No guidance on _how_ to use AI. No prompting tips. Just the task.
 
-<!-- TODO: Decide whether students use Node.js / Python CLI clients, or a simple browser-based starting point (HTML + native WebSocket API, no install needed). Browser avoids package installation friction and keeps the exercise focused on AI interaction, not setup. -->
+Use a browser-based client for the cold start activity.
+
+Why:
+
+- No package installation or Python/Node.js setup
+- Lower chance of students getting blocked on environment issues
+- Keeps the exercise focused on AI use and basic WebSocket behavior, not tooling
+
+Tell students they should ask AI for:
+
+- One self-contained `index.html` file
+- Plain HTML, CSS, and JavaScript
+- The browser's built-in `WebSocket` API
+- No frameworks
+- No build tools
+- No Socket.IO
+
+If students get stuck, the teacher can repeat this constraint out loud:
+
+> "Make it a single HTML file using the browser's built-in WebSocket API. No frameworks, no npm, no Socket.IO."
+
+Node.js and Python clients can remain fallback options for students who already have those environments working, but the default path for section 02 should be browser-only.
+
+## Sample Prompt
+
+This is the exact prompt the teacher can give students, and the same prompt we should use for model evaluation:
+
+> Build a browser chat client that connects to this WebSocket server.
+>
+> Requirements:
+>
+> - Return a single self-contained `index.html` file
+> - Use plain HTML, CSS, and JavaScript
+> - Use the browser's built-in `WebSocket` API
+> - Do not use frameworks
+> - Do not use build tools
+> - Do not use Socket.IO
+> - The user should be able to enter their name, connect, see messages, and send messages
+> - Handle these server message types: `error`, `message`, `join`, `leave`
+> - If the server sends an error, show it to the user
+>
+> Keep it simple and runnable by opening the HTML file in a browser.
 
 ## API Spec (share with students)
 
@@ -42,6 +83,15 @@ When someone joins:
 
 When someone leaves:
   {"type": "leave", "name": "their-name", "timestamp": "2025-06-15T14:30:05Z"}
+
+Errors from the server:
+  {"type": "error", "message": "error text"}
+
+  Your client should handle these server message types:
+  error, message, join, leave
+
+  If the server sends an error, show it to the user.
+  The server may close the connection after sending an error.
 
 All events are broadcast to every connected client (including the sender, when still connected).
 All messages from the server include a timestamp.

@@ -22,15 +22,23 @@ Additional Commands
 ===================
 
 Change your display name (/nick):
-  Send:    {"type": "nick", "name": "new-name"}
-  Others:  {"type": "nick", "oldName": "Alice", "name": "AliceNew", "timestamp": "2025-06-15T14:30:00Z"}
+
+  Client → Server:
+    {"type": "nick", "name": "new-name"}
+
+  Server → Client (broadcast to all):
+    {"type": "nick", "oldName": "Alice", "name": "AliceNew", "timestamp": "2025-06-15T14:30:00Z"}
 
   The new name must also be unique. If it's taken:
-  {"type": "error", "message": "name already taken"}
+    {"type": "error", "message": "name already taken"}
 
 List connected users (/list):
-  Send:    {"type": "list"}
-  You get: {"type": "list", "names": ["Alice", "Bob", "Charlie"], "timestamp": "2025-06-15T14:30:00Z"}
+
+  Client → Server:
+    {"type": "list"}
+
+  Server → Client (to you only):
+    {"type": "list", "names": ["Alice", "Bob", "Charlie"], "timestamp": "2025-06-15T14:30:00Z"}
 
   The list includes your own name. Order is not guaranteed.
 ```

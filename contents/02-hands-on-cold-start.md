@@ -49,7 +49,8 @@ This is the exact prompt the teacher can give students, and the same prompt we s
 > - Do not use frameworks
 > - Do not use build tools
 > - Do not use Socket.IO
-> - The user should be able to enter their name, connect, see messages, and send messages
+> - Include an input field for the server URL (default to `ws://localhost:3000`) and one for the user's name
+> - The user should be able to enter the server URL and their name, connect, see messages, and send messages
 > - Handle these server message types: `error`, `message`, `join`, `leave`
 > - If the server sends an error, show it to the user
 >
@@ -63,35 +64,43 @@ WebSocket Chat Server
 
 This server uses the standard WebSocket protocol (not Socket.IO).
 
+Connection
+----------
+
 Connect to: wss://[server-url]?name=your-name
 
   Your client should ask the user for a name on startup,
   then connect with that name in the URL.
 
   Names must be unique. If the name is already taken,
-  the server sends an error and closes the connection:
-  {"type": "error", "message": "name already taken"}
+  the server sends an error and closes the connection.
 
-To send a message:
+Client → Server
+----------------
+
+Send a message:
   {"type": "message", "text": "your message"}
 
-You will receive:
+Server → Client
+----------------
+
+Chat message:
   {"type": "message", "name": "sender-name", "text": "message text", "timestamp": "2025-06-15T14:30:00Z"}
 
-When someone joins:
+Someone joined:
   {"type": "join", "name": "their-name", "timestamp": "2025-06-15T14:30:00Z"}
 
-When someone leaves:
+Someone left:
   {"type": "leave", "name": "their-name", "timestamp": "2025-06-15T14:30:05Z"}
 
-Errors from the server:
+Error:
   {"type": "error", "message": "error text"}
-
-  Your client should handle these server message types:
-  error, message, join, leave
 
   If the server sends an error, show it to the user.
   The server may close the connection after sending an error.
+
+Notes
+-----
 
 All events are broadcast to every connected client (including the sender, when still connected).
 All messages from the server include a timestamp.

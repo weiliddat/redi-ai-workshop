@@ -11,8 +11,31 @@ The teacher gives a new goal:
 > - Show a timestamp next to each message
 > - Add a `/nick` command that changes your display name
 > - Show a notification when someone joins or leaves
+> - Add a `/list` command that shows who's currently in the chat
 >
 > **This time, before you accept any code from AI, make sure you can explain what it does and why.**
+
+## Extended API Spec (share with students)
+
+```
+Additional Commands
+===================
+
+Change your display name (/nick):
+  Send:    {"type": "nick", "name": "new-name"}
+  Others:  {"type": "nick", "oldName": "Alice", "name": "AliceNew", "timestamp": "2025-06-15T14:30:00Z"}
+
+  The new name must also be unique. If it's taken:
+  {"type": "error", "message": "name already taken"}
+
+List connected users (/list):
+  Send:    {"type": "list"}
+  You get: {"type": "list", "names": ["Alice", "Bob", "Charlie"], "timestamp": "2025-06-15T14:30:00Z"}
+
+  The list includes your own name. Order is not guaranteed.
+```
+
+Timestamps and join/leave notifications are already in the base spec from part 02 — students just need to handle them in their client.
 
 ## What's different this time
 
@@ -33,10 +56,10 @@ Before students begin, the teacher demos one feature addition live (5 min). This
 
 The teacher picks a pattern (e.g., hybrid code-explanation) and walks through it in real time:
 
-1. Types: _"How do I get the current time in Python and format it as HH:MM?"_
-2. Reads the response, writes the formatting line.
-3. Types: _"Show me how to prepend a timestamp to each message in my WebSocket client, and explain what each part does."_
-4. Reads the code and explanation, asks a follow-up: _"What does `strftime` stand for?"_
+1. Types: _"The server sends timestamps like `2025-06-15T14:30:00Z`. What format is that?"_
+2. Reads the response — learns it's ISO 8601 / UTC.
+3. Types: _"Show me how to parse that timestamp and display it as `14:30` next to each message in my WebSocket client. Explain each part."_
+4. Reads the code and explanation, asks a follow-up: _"What does the `Z` at the end mean? Will this show the right time in my timezone?"_
 5. Pastes the code and runs it.
 
 Narrate the thinking at each step: why you asked what you asked, what you understood, what you didn't.

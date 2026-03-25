@@ -6,7 +6,7 @@ The teacher starts a WebSocket chat server and shares the connection details wit
 
 Students receive:
 
-- The server URL (e.g., `wss://workshop-server.example.com`)
+- The server URL (e.g., `wss://quick-badly-amoeba.ngrok-free.app`)
 - The API spec (below)
 - One instruction: **"Use AI to build a browser chat client that connects to this server. It should run as a single HTML file in the browser. You should be able to see messages and send your own."**
 
@@ -43,7 +43,7 @@ Requirements:
 
 - A single, self-contained `index.html` file using plain HTML, CSS, and JavaScript — no external packages, frameworks, build tools, or Socket.IO
 - Use the browser's built-in `WebSocket` API
-- Include input fields for the server URL (default `ws://localhost:3000`) and the user's name
+- Include input fields for the server URL (default `wss://quick-badly-amoeba.ngrok-free.app`) and the user's name
 - Only display messages received from the server — do not add local echo (the server already broadcasts your messages back to you)
 - Display all chat messages the same way — no need to style your own messages differently from others
 - Keep the connection logic simple — just connected or disconnected, no intermediate states
@@ -105,8 +105,8 @@ Messages are plain text only.
 Most students will:
 
 1. Paste the API spec into ChatGPT / Claude
-2. Get a working script back
-3. Run it, connect, send "hello"
+2. Get a working HTML file back
+3. Open it in the browser, connect, send "hello"
 4. See their message appear — feel accomplished
 
 This is the "delegation" pattern from the Anthropic study — a working result, but little understanding of how it works.

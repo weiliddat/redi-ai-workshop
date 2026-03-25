@@ -65,7 +65,7 @@ Good prompting is not about magic words. It's about asking specific questions th
 **Be specific.** Vague questions produce vague answers.
 
 - Weak: "Fix my code"
-- Better: "I'm getting a `KeyError` on line 12. The dict is `{'name': 'Ali'}` and I'm trying to access `user['email']`. What's happening?"
+- Better: "I'm getting `Cannot read properties of undefined (reading 'text')` on line 12. The variable `data` is `{"type": "join", "name": "Ali"}` and I'm trying to access `data.text`. What's happening?"
 
 **Break the problem down.** Don't ask AI to solve the whole thing at once. Ask for one step at a time, then implement it.
 

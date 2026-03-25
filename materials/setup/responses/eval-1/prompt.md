@@ -3,7 +3,7 @@ Build a browser chat client that connects to a WebSocket server.
 Requirements:
 - A single, self-contained `index.html` file using plain HTML, CSS, and JavaScript — no external packages, frameworks, build tools, or Socket.IO
 - Use the browser's built-in `WebSocket` API
-- Include input fields for the server URL (default `ws://localhost:3000`) and the user's name
+- Include input fields for the server URL (default `wss://quick-badly-amoeba.ngrok-free.app`) and the user's name
 - Only display messages received from the server — do not add local echo (the server already broadcasts your messages back to you)
 - Display all chat messages the same way — no need to style your own messages differently from others
 - Keep the connection logic simple — just connected or disconnected, no intermediate states

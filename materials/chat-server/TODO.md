@@ -10,17 +10,17 @@ WebSocket chat server for the cold start and retry exercises.
 - [x] Send `leave` event when a client disconnects
 - [x] Add `timestamp` to outgoing messages
 - [x] Handle the message format from the API spec:
-  - Incoming: `{"type": "message", "name": "...", "text": "..."}`
+  - Incoming: `{"type": "message", "text": "..."}`
   - Outgoing: `{"type": "message", "name": "...", "text": "...", "timestamp": "..."}`
-  - Join: `{"type": "join", "name": "..."}`
-  - Leave: `{"type": "leave", "name": "..."}`
+  - Join: `{"type": "join", "name": "...", "timestamp": "..."}`
+  - Leave: `{"type": "leave", "name": "...", "timestamp": "..."}`
 
 Server also supports `nick` (rename) and `list` (list connected users) message types beyond the base spec.
 
 ## Hosting
 
 - [ ] Decide where to host (local machine, cloud VM, etc.)
-- [ ] Ensure the `ws://` URL is accessible to students on Zoom
+- [ ] Ensure the `wss://` URL is accessible to students on Zoom
 - [ ] Test with multiple simultaneous connections
 - [ ] Have a backup plan if the server goes down during the workshop
 

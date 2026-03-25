@@ -9,7 +9,7 @@
 ## Teacher
 
 - [ ] Contents
-- [ ] WebSocket chat server running and accessible to students (share the `ws://` URL at the start of section 02)
+- [ ] WebSocket chat server running and accessible to students (share the `wss://` URL at the start of section 02)
 - [ ] API spec ready to paste into Zoom chat
 
 ## Students

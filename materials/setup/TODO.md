@@ -45,7 +45,7 @@ Use the API spec and the sample prompt from `contents/02-hands-on-cold-start.md`
 - [x] Does it avoid frameworks and Socket.IO?
 - [ ] Use `agent-browser` for browser control during this eval so the run steps are consistent and reproducible.
 
-Results written up in `materials/setup/responses/evaluation.md`. Key findings added to teacher notes in `contents/02-hands-on-cold-start.md`.
+Results written up in `materials/setup/responses/eval-1/evaluation.md`. Key findings added to teacher notes in `contents/02-hands-on-cold-start.md`.
 
 ### Pass criteria
 

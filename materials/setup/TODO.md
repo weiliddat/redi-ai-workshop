@@ -2,6 +2,11 @@
 
 Before recommending free models to students, we need to verify they can actually handle the workshop tasks well enough. This is a mini eval — not a formal benchmark, but enough to catch deal-breakers.
 
+Store results in `materials/setup/responses/eval-N/` with:
+- `prompt.md` — the prompt used
+- One response file per model (e.g., `chatgpt-free.html`)
+- `evaluation.md` — per-model breakdown of results
+
 ---
 
 ## Models to test

@@ -37,26 +37,19 @@ Node.js and Python clients can remain fallback options for students who already 
 
 ## Sample Prompt
 
-This is the exact prompt the teacher can give students, and the same prompt we should use for model evaluation:
+Build a browser chat client that connects to a WebSocket server.
 
-> Build a browser chat client that connects to this WebSocket server.
->
-> Requirements:
->
-> - Return a single self-contained `index.html` file
-> - Use plain HTML, CSS, and JavaScript
-> - Use the browser's built-in `WebSocket` API
-> - Do not use frameworks
-> - Do not use build tools
-> - Do not use Socket.IO
-> - Include an input field for the server URL (default to `ws://localhost:3000`) and one for the user's name
-> - The user should be able to enter the server URL and their name, connect, see messages, and send messages
-> - Handle these server message types: `error`, `message`, `join`, `leave`
-> - If the server sends an error, show it to the user
->
-> Keep it simple and runnable by opening the HTML file in a browser.
+Requirements:
 
-## API Spec (share with students)
+- A single, self-contained `index.html` file using plain HTML, CSS, and JavaScript — no external packages, frameworks, build tools, or Socket.IO
+- Use the browser's built-in `WebSocket` API
+- Include input fields for the server URL (default `ws://localhost:3000`) and the user's name
+- Only display messages received from the server — do not add local echo (the server already broadcasts your messages back to you)
+- Display all chat messages the same way — no need to style your own messages differently from others
+- Keep the connection logic simple — just connected or disconnected, no intermediate states
+- Keep styling plain — no animations, loading indicators, or toast notifications
+
+## API Spec
 
 ```
 WebSocket Chat Server
@@ -129,6 +122,17 @@ Once students are connected and chatting, the teacher asks the room:
 - "What happens if the server stops responding — not disconnects, just goes silent? Does your client notice?"
 
 Most won't be able to answer. That's the point. This sets up the motivation for sections 03 (Research) and 04 (How to Learn with AI).
+
+### Teacher notes: what can go wrong with AI output
+
+During testing, different models produced code with bugs that students wouldn't be able to catch without understanding the underlying concepts:
+
+- **Duplicate messages.** Some models add "local echo" — showing your message immediately before the server sends it back. The server *also* broadcasts your message to you, so every sent message appears twice. A student who doesn't understand the server echo behavior can't diagnose this.
+- **Inverted UI state.** One model's `onopen` handler *disabled* the Send button instead of enabling it. The client connects successfully but the student can't type anything. The bug is one line, but you'd need to understand WebSocket lifecycle events to find it.
+- **Destructive error recovery.** One model replaced the connection form's HTML on connect, so if the server rejected the name (duplicate), the form was gone and the student had to reload the page.
+- **Over-engineering.** One model generated 350+ lines of CSS with a dark theme, custom fonts loaded from Google's CDN, and animated transitions — for a simple chat client. The student gets a polished-looking result but can't walk through the code when asked.
+
+These aren't edge cases. They came from models students are likely to use. The common thread: **if you can't read the code, you can't tell when the AI gets it wrong.** This is useful to reference during the section 03 discussion if students push back with "but my code works."
 
 ## Time
 

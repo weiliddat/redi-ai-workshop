@@ -4,16 +4,18 @@ WebSocket chat server for the cold start and retry exercises.
 
 ## Requirements
 
-- [ ] Accept WebSocket connections
-- [ ] Broadcast messages to all connected clients
-- [ ] Send `join` event when a client connects
-- [ ] Send `leave` event when a client disconnects
-- [ ] Add `timestamp` to outgoing messages
-- [ ] Handle the message format from the API spec:
+- [x] Accept WebSocket connections
+- [x] Broadcast messages to all connected clients
+- [x] Send `join` event when a client connects
+- [x] Send `leave` event when a client disconnects
+- [x] Add `timestamp` to outgoing messages
+- [x] Handle the message format from the API spec:
   - Incoming: `{"type": "message", "name": "...", "text": "..."}`
   - Outgoing: `{"type": "message", "name": "...", "text": "...", "timestamp": "..."}`
   - Join: `{"type": "join", "name": "..."}`
   - Leave: `{"type": "leave", "name": "..."}`
+
+Server also supports `nick` (rename) and `list` (list connected users) message types beyond the base spec.
 
 ## Hosting
 

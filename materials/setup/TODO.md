@@ -8,22 +8,22 @@ Before recommending free models to students, we need to verify they can actually
 
 Free on OpenRouter:
 
-- [ ] MiniMax M2.5
-- [ ] Nemotron 3 Super
-- [ ] Step 3.5 Flash
+- [x] MiniMax M2.5
+- [x] Nemotron 3 Super
+- [x] Step 3.5 Flash
 
 Cheap on OpenRouter:
 
-- [ ] MiniMax M2.7
-- [ ] GLM 4.7 Flash
-- [ ] MiMo-V2-Flash
-- [ ] Qwen3.5 Flash
+- [x] MiniMax M2.7
+- [x] GLM 4.7 Flash
+- [x] MiMo-V2-Flash
+- [x] Qwen3.5 Flash
 
 Free-tier web chat (for comparison):
 
-- [ ] Gemini (gemini.google.com, free tier)
-- [ ] ChatGPT (chatgpt.com, free tier)
-- [ ] Claude (claude.ai, free tier)
+- [x] Gemini (gemini.google.com, free tier)
+- [x] ChatGPT (chatgpt.com, free tier)
+- [x] Claude (claude.ai, free tier)
 
 ---
 
@@ -37,14 +37,15 @@ Use the API spec and the sample prompt from `contents/02-hands-on-cold-start.md`
 
 ### What to check
 
-Use `agent-browser` for browser control during this eval so the run steps are consistent and reproducible.
+- [x] Does the generated code run without errors?
+- [x] Does it connect to the WebSocket server?
+- [x] Does it send and receive messages correctly?
+- [x] Does it handle the JSON message format from the spec?
+- [x] Does it work as a single HTML file with no install step?
+- [x] Does it avoid frameworks and Socket.IO?
+- [ ] Use `agent-browser` for browser control during this eval so the run steps are consistent and reproducible.
 
-- [ ] Does the generated code run without errors?
-- [ ] Does it connect to the WebSocket server?
-- [ ] Does it send and receive messages correctly?
-- [ ] Does it handle the JSON message format from the spec?
-- [ ] Does it work as a single HTML file with no install step?
-- [ ] Does it avoid frameworks and Socket.IO?
+Results written up in `materials/setup/responses/evaluation.md`. Key findings added to teacher notes in `contents/02-hands-on-cold-start.md`.
 
 ### Pass criteria
 
@@ -168,16 +169,16 @@ After testing, fill in:
 
 | Model                   | Eval 1: Code works? | Eval 2: Explains correctly? | Eval 3: Novice prompts? | Eval 4: Continuity? | Eval 5: Rate limits? | Recommend? |
 | ----------------------- | ------------------- | --------------------------- | ----------------------- | ------------------- | -------------------- | ---------- |
-| MiniMax M2.5 (free)     |                     |                             |                         |                     |                      |            |
-| Nemotron 3 Super (free) |                     |                             |                         |                     |                      |            |
-| Step 3.5 Flash (free)   |                     |                             |                         |                     |                      |            |
-| MiniMax M2.7            |                     |                             |                         |                     |                      |            |
-| GLM 4.7 Flash           |                     |                             |                         |                     |                      |            |
-| MiMo-V2-Flash           |                     |                             |                         |                     |                      |            |
-| Qwen3.5 Flash           |                     |                             |                         |                     |                      |            |
-| Gemini (free)           |                     |                             |                         |                     |                      |            |
-| ChatGPT (free)          |                     |                             |                         |                     |                      |            |
-| Claude (free)           |                     |                             |                         |                     |                      |            |
+| MiniMax M2.5 (free)     | ✅ PASS             |                             |                         |                     |                      |            |
+| Nemotron 3 Super (free) | ✅ PASS             |                             |                         |                     |                      |            |
+| Step 3.5 Flash (free)   | ✅ PASS             |                             |                         |                     |                      |            |
+| MiniMax M2.7            | ⚠️ PASS on retry    |                             |                         |                     |                      |            |
+| GLM 4.7 Flash           | ❌ FAIL             |                             |                         |                     |                      |            |
+| MiMo-V2-Flash           | ✅ PASS             |                             |                         |                     |                      |            |
+| Qwen3.5 Flash           | ❌ FAIL             |                             |                         |                     |                      |            |
+| Gemini (free)           | ✅ PASS             |                             |                         |                     |                      |            |
+| ChatGPT (free)          | ✅ PASS             |                             |                         |                     |                      |            |
+| Claude (free)           | ⚠️ FUNCTIONAL       |                             |                         |                     |                      |            |
 
 ---
 

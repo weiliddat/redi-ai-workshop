@@ -50,7 +50,7 @@ When something breaks, read the error before asking AI to fix it.
 
 Instead of: _"Fix this error"_
 
-Try: _"I'm getting this error: `ConnectionRefusedError: [Errno 111] Connection refused`. What does this error mean? What are the likely causes?"_
+Try: _"I'm getting this error in the console: `WebSocket connection to 'ws://localhost:3000' failed`. What does this error mean? What are the likely causes?"_
 
 Then try to fix it yourself based on the explanation. If you're still stuck, ask for a hint — not a solution.
 
@@ -97,10 +97,10 @@ This is not about being slow. It's about not accumulating code you can't maintai
 - "What does `useState` return and why is it an array?"
 - "Show me how event delegation works in the DOM with an example"
 
-### Backend (Python)
+### Backend (Python / JavaScript)
 
 - "What is the difference between `return` and `yield` in a function?"
-- "Why do we use `with open(...)` instead of just `open(...)`?"
+- "What does `async` do in front of a function? When do I need it?"
 - "What does the `status_code` on this HTTP response tell me?"
 
 ### Data Science
@@ -133,7 +133,7 @@ After reading the response, the teacher narrates: "Now I know enough to try conn
 
 The teacher writes a few lines of connection code, gets stuck, and asks:
 
-> _"I'm trying to connect to `ws://localhost:8765` in Python. What library should I use and what does the basic connection look like?"_
+> _"I'm trying to connect to `ws://localhost:3000` in the browser. How does the built-in WebSocket API work?"_
 
 Key point to highlight: two prompts, each specific, each building understanding. Not one big "build me a client."
 
@@ -141,13 +141,13 @@ Key point to highlight: two prompts, each specific, each building understanding.
 
 The teacher types:
 
-> _"Show me how to send a message through a WebSocket in Python, and explain each step."_
+> _"Show me how to send a message through a WebSocket in JavaScript, and explain each step."_
 
 After reading the response, the teacher highlights the explanation part: "Notice I didn't just ask for the code. The explanation is what I'm paying attention to."
 
 The teacher reads each line out loud, pauses at one, and asks:
 
-> _"Why do I need to use `await` here? What happens if I leave it out?"_
+> _"Why do I need to set `ws.onmessage` to a function? What happens if I leave it out?"_
 
 Key point to highlight: you got the code _and_ the explanation in one prompt. But you still have to read the explanation — it doesn't help if you skip it.
 
@@ -156,12 +156,12 @@ Key point to highlight: you got the code _and_ the explanation in one prompt. Bu
 The teacher runs code that produces an error (prepared in advance):
 
 ```
-ConnectionRefusedError: [Errno 111] Connection refused
+WebSocket connection to 'ws://localhost:3000' failed
 ```
 
 Instead of pasting the error and asking for a fix, the teacher types:
 
-> _"What does `ConnectionRefusedError: Connection refused` mean? What are the common causes?"_
+> _"What does `WebSocket connection failed` mean in the browser console? What are the common causes?"_
 
 After reading, the teacher says: "OK — the server probably isn't running. Let me check." Then starts the server and retries.
 
@@ -173,7 +173,7 @@ The teacher asks AI to generate a message-sending function, then immediately fol
 
 > _"Walk me through what happens line by line when I call `send_message`."_
 
-Then: _"What would break if I removed the `await` on line 3?"_
+Then: _"What would break if I removed the `onmessage` handler?"_
 
 Key point to highlight: the code is already written — now the work is understanding it. This is the minimum before pasting.
 

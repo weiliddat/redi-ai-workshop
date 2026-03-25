@@ -34,7 +34,7 @@ Working code you don't understand is a liability. It will break at the worst mom
 Frustration and confusion aren't signs you're doing it wrong. They're signs you're at the edge of what you know — which is exactly where learning happens. Sit there a little longer before reaching for AI.
 
 **Don't use AI to avoid learning the fundamentals.**
-HTML structure, Python syntax, basic data manipulation — these are the building blocks. If AI is writing them all, you're not building a foundation. You're borrowing one.
+HTML structure, JavaScript syntax, basic data manipulation — these are the building blocks. If AI is writing them all, you're not building a foundation. You're borrowing one.
 
 ---
 

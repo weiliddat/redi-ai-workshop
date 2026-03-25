@@ -15,5 +15,5 @@
 ## Students
 
 - [ ] Access to an AI chat tool (ChatGPT, Claude, Gemini — any will work)
-- [ ] Python or Node.js installed on their machine
-- [ ] A terminal / command line they can run scripts from
+- [ ] A modern browser (Chrome, Firefox, Edge) that can open local HTML files
+- [ ] Know how to open the browser developer console (F12 or Ctrl+Shift+I)

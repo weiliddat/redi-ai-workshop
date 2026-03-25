@@ -9,9 +9,9 @@ They do not understand code the way you will after practice. They recognise patt
 ## What AI is good at
 
 - **Generating boilerplate** — scaffolding a new file, setting up a project structure
-- **Looking up syntax** — "how do I write a for loop in Python?"
+- **Looking up syntax** — "how do I write a for loop in JavaScript?"
 - **Explaining unfamiliar concepts** — "what is a WebSocket?"
-- **Translating between formats** — JSON to a Python dict, SQL to plain English
+- **Translating between formats** — JSON to a JavaScript object, SQL to plain English
 - **Spotting surface errors** — typos, missing brackets, wrong indentation
 - **Suggesting next steps** — "what should I do next in this function?"
 

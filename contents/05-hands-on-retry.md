@@ -49,7 +49,7 @@ Timestamps and join/leave notifications are already in the base spec from part 0
 
 Students now know the high-scoring patterns:
 
-- **Conceptual inquiry** — "What is the `on_message` callback doing?" / "Why do we use `json.loads` here?"
+- **Conceptual inquiry** — "What is the `onmessage` callback doing?" / "Why do we use `JSON.parse` here?"
 - **Hybrid code-explanation** — "Show me the code and explain each part"
 - **Generation-then-comprehension** — After getting code, ask "Walk me through what happens when a message arrives"
 - **Intentional debugging** — When something breaks, ask "What does this error mean?" before asking for a fix
@@ -80,7 +80,7 @@ The difference should be visible:
 
 | Cold Start                           | Retry                                                                                                    |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| "Make me a chat client" (one prompt) | "What library handles WebSockets in Python?" → "Show me how to connect" → "Now how do I send a message?" |
+| "Make me a chat client" (one prompt) | "How do WebSockets work in the browser?" → "Show me how to connect" → "Now how do I send a message?" |
 | Accepted code without reading it     | Asked AI to explain the code                                                                             |
 | Got stuck on the modification        | Can describe what they changed and why                                                                   |
 

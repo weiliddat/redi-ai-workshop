@@ -69,20 +69,20 @@ These simulate the kinds of questions students will ask during sections 04 and 0
 **Conceptual questions:**
 
 - [ ] "What is a WebSocket? How is it different from a normal HTTP request?"
-- [ ] "What does `async` mean in Python? Why do I need it for WebSockets?"
-- [ ] "What is JSON and why do we use `json.loads` instead of just reading the string?"
+- [ ] "What is a callback function? Why do I pass a function to `ws.onmessage` instead of just writing the code directly?"
+- [ ] "What is JSON and why do we use `JSON.parse` instead of just reading the string?"
 
 **Code explanation (paste the generated client from Eval 1, then ask):**
 
 - [ ] "Walk me through what happens line by line when a message arrives"
-- [ ] "What would break if I removed the `await` on this line?"
-- [ ] "Why do we need `json.dumps` when sending a message?"
+- [ ] "What would break if I removed the `onmessage` handler?"
+- [ ] "Why do we need `JSON.stringify` when sending a message?"
 
 **Debugging (use these common errors):**
 
-- [ ] "I'm getting `ConnectionRefusedError: [Errno 111] Connection refused`. What does this mean?"
+- [ ] "I'm getting `WebSocket connection to 'ws://localhost:3000' failed` in the console. What does this mean?"
 - [ ] "My code connects but I don't see any messages. What could be wrong?"
-- [ ] "I see `json.decoder.JSONDecodeError`. What is happening?"
+- [ ] "I see `Uncaught SyntaxError: Unexpected token` when a message arrives. What is happening?"
 
 **Feature extension (section 05 retry task):**
 
@@ -108,11 +108,11 @@ Students won't prompt cleanly. Test with messy, realistic prompts to see how mod
 
 ### Test prompts
 
-- [ ] "it works but i dont understand what await is here"
+- [ ] "it works but i dont understand what onmessage does here"
 - [ ] "can you make this show when people join but keep my code"
 - [ ] "why does it say refused??"
 - [ ] "i changed something and now nothing works" (paste broken code)
-- [ ] "what is this error" (paste just the traceback, no context)
+- [ ] "what is this error" (paste just the browser console error, no context)
 
 ### What to check
 
@@ -199,8 +199,7 @@ After testing, fill in:
 
 ### Student environment preflight
 
-- [ ] Create a preflight checklist for students: verify Python or Node.js runs, install `websockets` (Python) or `ws` (Node), run a test script
-- [ ] Consider providing a `requirements.txt` and/or `package.json` so install is one command
+- [ ] Create a preflight checklist for students: verify browser opens a local HTML file, browser dev console works (F12), test a simple WebSocket connection
 - [ ] Add preflight to pre-workshop comms
 
 ### Server setup

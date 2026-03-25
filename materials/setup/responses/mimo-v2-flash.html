@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser WebSocket Chat</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        header {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            background: #fafafa;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #serverUrl {
+            flex-grow: 1;
+            min-width: 200px;
+        }
+
+        #nameInput {
+            width: 150px;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        #chatLog {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .message {
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 0.8em;
+            margin-right: 8px;
+        }
+
+        .system-msg {
+            color: #888;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        .error-msg {
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        #inputArea {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            background: #fafafa;
+            display: flex;
+            gap: 10px;
+        }
+
+        #messageInput {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Status indicator */
+        #statusIndicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #dc3545; /* Red by default */
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        #statusIndicator.connected {
+            background-color: #28a745; /* Green when connected */
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <header>
+        <div>
+            <span id="statusIndicator"></span>
+            <span id="connectionText">Disconnected</span>
+        </div>
+        <input type="text" id="serverUrl" placeholder="ws://localhost:3000" value="ws://localhost:3000">
+        <input type="text" id="nameInput" placeholder="Your Name">
+        <button id="connectBtn">Connect</button>
+    </header>
+
+    <div id="chatLog">
+        <!-- Messages will appear here -->
+    </div>
+
+    <div id="inputArea">
+        <input type="text" id="messageInput" placeholder="Type a message..." disabled>
+        <button id="sendBtn" disabled>Send</button>
+    </div>
+</div>
+
+<script>
+    // DOM Elements
+    const serverUrlInput = document.getElementById('serverUrl');
+    const nameInput = document.getElementById('nameInput');
+    const connectBtn = document.getElementById('connectBtn');
+    const chatLog = document.getElementById('chatLog');
+    const messageInput = document.getElementById('messageInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const statusIndicator = document.getElementById('statusIndicator');
+    const connectionText = document.getElementById('connectionText');
+
+    let socket = null;
+
+    // --- Connection Logic ---
+
+    connectBtn.addEventListener('click', () => {
+        if (socket && socket.readyState === WebSocket.OPEN) {
+            socket.close();
+            return;
+        }
+
+        const url = serverUrlInput.value.trim();
+        const name = nameInput.value.trim();
+
+        if (!url || !name) {
+            alert('Please enter both server URL and name.');
+            return;
+        }
+
+        // Construct WebSocket URL with name query parameter
+        const wsUrl = `${url}?name=${encodeURIComponent(name)}`;
+        
+        try {
+            socket = new WebSocket(wsUrl);
+            setUIState('connecting');
+            
+            socket.addEventListener('open', () => {
+                setUIState('connected');
+                addSystemMessage(`Connected to server as "${name}"`);
+            });
+
+            socket.addEventListener('message', (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    handleServerMessage(data);
+                } catch (e) {
+                    console.error('Failed to parse message:', e);
+                    addSystemMessage(`Raw message: ${event.data}`);
+                }
+            });
+
+            socket.addEventListener('close', (event) => {
+                setUIState('disconnected');
+                let reason = 'Connection closed';
+                if (event.code === 1006) reason += ' (abnormal closure)';
+                addSystemMessage(reason);
+            });
+
+            socket.addEventListener('error', (error) => {
+                console.error('WebSocket error:', error);
+                addSystemMessage('Connection error occurred.');
+            });
+
+        } catch (e) {
+            alert('Invalid WebSocket URL');
+            setUIState('disconnected');
+        }
+    });
+
+    // --- Message Handling ---
+
+    function handleServerMessage(data) {
+        switch (data.type) {
+            case 'message': {
+                const time = formatTime(data.timestamp);
+                const msgHtml = `<div class="message">
+                    <span class="meta">[${time}]</span>
+                    <strong>${escapeHtml(data.name)}:</strong> ${escapeHtml(data.text)}
+                </div>`;
+                chatLog.innerHTML += msgHtml;
+                break;
+            }
+
+            case 'join':
+                addSystemMessage(`User "${data.name}" joined the chat.`);
+                break;
+
+            case 'leave':
+                addSystemMessage(`User "${data.name}" left the chat.`);
+                break;
+
+            case 'error':
+                addSystemMessage(`Error: ${data.message}`, true);
+                break;
+
+            default:
+                console.warn('Unknown message type:', data);
+                addSystemMessage(`Unknown message: ${JSON.stringify(data)}`);
+        }
+        
+        scrollToBottom();
+    }
+
+    // --- Sending Messages ---
+
+    sendBtn.addEventListener('click', sendMessage);
+    messageInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+        const text = messageInput.value.trim();
+        if (!text || !socket || socket.readyState !== WebSocket.OPEN) return;
+
+        const payload = {
+            type: 'message',
+            text: text
+        };
+
+        socket.send(JSON.stringify(payload));
+        messageInput.value = ''; // Clear input (no local echo required)
+    }
+
+    // --- UI Helpers ---
+
+    function setUIState(state) {
+        if (state === 'connected') {
+            statusIndicator.className = 'connected';
+            connectionText.textContent = 'Connected';
+            connectBtn.textContent = 'Disconnect';
+            connectBtn.disabled = false;
+            messageInput.disabled = false;
+            sendBtn.disabled = false;
+            nameInput.disabled = true;
+            serverUrlInput.disabled = true;
+        } else {
+            statusIndicator.className = '';
+            connectionText.textContent = 'Disconnected';
+            connectBtn.textContent = 'Connect';
+            connectBtn.disabled = false;
+            messageInput.disabled = true;
+            sendBtn.disabled = true;
+            nameInput.disabled = false;
+            serverUrlInput.disabled = false;
+        }
+    }
+
+    function addSystemMessage(text, isError = false) {
+        const div = document.createElement('div');
+        div.className = isError ? 'system-msg error-msg' : 'system-msg';
+        div.textContent = text;
+        chatLog.appendChild(div);
+        scrollToBottom();
+    }
+
+    function scrollToBottom() {
+        chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function formatTime(isoString) {
+        try {
+            const date = new Date(isoString);
+            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        } catch {
+            return isoString;
+        }
+    }
+
+    function escapeHtml(text) {
+        if (!text) return '';
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+</script>
+</body>
+</html>

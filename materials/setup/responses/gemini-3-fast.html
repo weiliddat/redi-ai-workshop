@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Chat</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; line-height: 1.5; }
+        #controls { margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px; }
+        #chat-window { border: 1px solid #000; height: 400px; overflow-y: scroll; padding: 10px; margin-bottom: 10px; background: #f9f9f9; }
+        .message { margin-bottom: 5px; }
+        .system { color: #666; font-style: italic; }
+        .error { color: red; font-weight: bold; }
+        .timestamp { font-size: 0.8em; color: #999; margin-right: 5px; }
+        input[type="text"] { padding: 5px; }
+        button { padding: 5px 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>WebSocket Chat</h2>
+
+    <div id="controls">
+        <input type="text" id="serverUrl" placeholder="Server URL" value="ws://localhost:3000">
+        <input type="text" id="userName" placeholder="Your Name">
+        <button id="connectBtn">Connect</button>
+        <button id="disconnectBtn" disabled>Disconnect</button>
+    </div>
+
+    <div id="chat-window"></div>
+
+    <div id="input-area">
+        <input type="text" id="messageInput" placeholder="Type a message..." style="width: 70%;" disabled>
+        <button id="sendBtn" disabled>Send</button>
+    </div>
+
+    <script>
+        let socket = null;
+
+        const serverUrlInput = document.getElementById('serverUrl');
+        const userNameInput = document.getElementById('userName');
+        const connectBtn = document.getElementById('connectBtn');
+        const disconnectBtn = document.getElementById('disconnectBtn');
+        const chatWindow = document.getElementById('chat-window');
+        const messageInput = document.getElementById('messageInput');
+        const sendBtn = document.getElementById('sendBtn');
+
+        function log(content, className = 'message') {
+            const div = document.createElement('div');
+            div.className = className;
+            div.innerHTML = content;
+            chatWindow.appendChild(div);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function formatTime(isoString) {
+            const date = new Date(isoString);
+            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
+
+        connectBtn.onclick = () => {
+            const url = serverUrlInput.value.trim();
+            const name = userNameInput.value.trim();
+
+            if (!url || !name) {
+                alert("Please enter both a Server URL and a Name.");
+                return;
+            }
+
+            // Connection URL with name parameter per spec
+            const fullUrl = `${url}?name=${encodeURIComponent(name)}`;
+            socket = new WebSocket(fullUrl);
+
+            socket.onopen = () => {
+                log("--- Connected to server ---", "system");
+                toggleUI(true);
+            };
+
+            socket.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                const time = data.timestamp ? `<span class="timestamp">[${formatTime(data.timestamp)}]</span>` : '';
+
+                switch (data.type) {
+                    case 'message':
+                        log(`${time} <strong>${data.name}:</strong> ${data.text}`);
+                        break;
+                    case 'join':
+                        log(`${time} <em>${data.name} joined the chat</em>`, "system");
+                        break;
+                    case 'leave':
+                        log(`${time} <em>${data.name} left the chat</em>`, "system");
+                        break;
+                    case 'error':
+                        log(`Error: ${data.message}`, "error");
+                        break;
+                }
+            };
+
+            socket.onclose = () => {
+                log("--- Disconnected from server ---", "system");
+                toggleUI(false);
+                socket = null;
+            };
+
+            socket.onerror = (error) => {
+                log("WebSocket Error occurred.", "error");
+            };
+        };
+
+        disconnectBtn.onclick = () => {
+            if (socket) socket.close();
+        };
+
+        function sendMessage() {
+            const text = messageInput.value.trim();
+            if (text && socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({
+                    type: "message",
+                    text: text
+                }));
+                messageInput.value = '';
+            }
+        }
+
+        sendBtn.onclick = sendMessage;
+        messageInput.onkeypress = (e) => { if (e.key === 'Enter') sendMessage(); };
+
+        function toggleUI(connected) {
+            connectBtn.disabled = connected;
+            serverUrlInput.disabled = connected;
+            userNameInput.disabled = connected;
+            
+            disconnectBtn.disabled = !connected;
+            messageInput.disabled = !connected;
+            sendBtn.disabled = !connected;
+
+            if (connected) messageInput.focus();
+        }
+    </script>
+</body>
+</html>

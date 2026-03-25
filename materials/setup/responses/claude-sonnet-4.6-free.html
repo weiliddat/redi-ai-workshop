@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0e0e;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --border-bright: #3d3d3d;
+    --text: #e8e8e8;
+    --text-dim: #666;
+    --text-muted: #444;
+    --accent: #00ff88;
+    --accent-dim: #00cc6a;
+    --error: #ff4d4d;
+    --join: #4d9fff;
+    --leave: #ff944d;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── CONNECT SCREEN ── */
+  #connect-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 24px;
+  }
+
+  .connect-box {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--border-bright);
+    background: var(--surface);
+  }
+
+  .connect-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .connect-header h1 {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .connect-header p {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    font-family: var(--mono);
+  }
+
+  .connect-body {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  input[type="text"] {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 9px 12px;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.15s;
+  }
+
+  input[type="text"]:focus {
+    border-color: var(--accent);
+  }
+
+  input[type="text"]::placeholder {
+    color: var(--text-muted);
+  }
+
+  .btn-connect {
+    margin-top: 4px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 10px 18px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.15s;
+  }
+
+  .btn-connect:hover { background: var(--accent-dim); }
+  .btn-connect:active { background: #00aa55; }
+
+  #connect-error {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--error);
+    display: none;
+    padding: 0 24px 16px;
+  }
+
+  /* ── CHAT SCREEN ── */
+  #chat-screen {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* Top bar */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 46px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    flex-shrink: 0;
+  }
+
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .topbar-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .status-dot.disconnected { background: var(--error); }
+
+  .topbar-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .btn-disconnect {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .btn-disconnect:hover {
+    border-color: var(--error);
+    color: var(--error);
+  }
+
+  /* Messages area */
+  #messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  #messages::-webkit-scrollbar { width: 4px; }
+  #messages::-webkit-scrollbar-track { background: transparent; }
+  #messages::-webkit-scrollbar-thumb { background: var(--border-bright); }
+
+  .msg {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 14px;
+    padding: 4px 0;
+    line-height: 1.55;
+  }
+
+  .msg-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 1px;
+  }
+
+  .msg-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .msg-time {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  .msg-text {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text);
+    word-break: break-word;
+  }
+
+  /* System events */
+  .msg.sys {
+    grid-template-columns: 140px 1fr;
+  }
+
+  .msg.sys .msg-text {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  .msg.join .msg-name { color: var(--join); }
+  .msg.leave .msg-name { color: var(--leave); }
+  .msg.err .msg-name { color: var(--error); }
+  .msg.err .msg-text { color: var(--error); }
+
+  /* Divider for new day or session start */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .divider-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* Input area */
+  .input-area {
+    flex-shrink: 0;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    padding: 12px 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  #msg-input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 300;
+    padding: 9px 12px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  #msg-input:focus { border-color: var(--accent); }
+  #msg-input:disabled { opacity: 0.4; cursor: not-allowed; }
+  #msg-input::placeholder { color: var(--text-muted); }
+
+  .btn-send {
+    background: var(--accent);
+    border: none;
+    color: #000;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 9px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+
+  .btn-send:hover { background: var(--accent-dim); }
+  .btn-send:disabled { opacity: 0.4; cursor: not-allowed; background: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- ── CONNECT SCREEN ── -->
+<div id="connect-screen">
+  <div class="connect-box">
+    <div class="connect-header">
+      <h1>WebSocket Chat</h1>
+      <p>Connect to a chat server</p>
+    </div>
+    <div class="connect-body">
+      <div class="field">
+        <label for="server-url">Server URL</label>
+        <input type="text" id="server-url" value="ws://localhost:3000" placeholder="ws://localhost:3000">
+      </div>
+      <div class="field">
+        <label for="user-name">Your Name</label>
+        <input type="text" id="user-name" placeholder="e.g. alice" maxlength="32">
+      </div>
+      <button class="btn-connect" id="btn-connect">Connect</button>
+    </div>
+    <div id="connect-error"></div>
+  </div>
+</div>
+
+<!-- ── CHAT SCREEN ── -->
+<div id="chat-screen">
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="status-dot" id="status-dot"></div>
+      <span class="topbar-title" id="topbar-url"></span>
+    </div>
+    <div class="topbar-left">
+      <span class="topbar-name" id="topbar-name"></span>
+      <button class="btn-disconnect" id="btn-disconnect">Disconnect</button>
+    </div>
+  </div>
+  <div id="messages"></div>
+  <div class="input-area">
+    <input type="text" id="msg-input" placeholder="Type a message…" disabled maxlength="2000">
+    <button class="btn-send" id="btn-send" disabled>Send</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  'use strict';
+
+  // Elements
+  const connectScreen = document.getElementById('connect-screen');
+  const chatScreen    = document.getElementById('chat-screen');
+  const serverUrlInput= document.getElementById('server-url');
+  const userNameInput = document.getElementById('user-name');
+  const btnConnect    = document.getElementById('btn-connect');
+  const connectError  = document.getElementById('connect-error');
+  const statusDot     = document.getElementById('status-dot');
+  const topbarUrl     = document.getElementById('topbar-url');
+  const topbarName    = document.getElementById('topbar-name');
+  const btnDisconnect = document.getElementById('btn-disconnect');
+  const messages      = document.getElementById('messages');
+  const msgInput      = document.getElementById('msg-input');
+  const btnSend       = document.getElementById('btn-send');
+
+  let ws = null;
+
+  // ── Helpers ──────────────────────────────────────────────
+
+  function fmtTime(ts) {
+    try {
+      const d = ts ? new Date(ts) : new Date();
+      return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    } catch { return ''; }
+  }
+
+  function scrollBottom() {
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function addDivider(label) {
+    const d = document.createElement('div');
+    d.className = 'divider';
+    d.innerHTML = `<div class="divider-line"></div><span class="divider-label">${label}</span><div class="divider-line"></div>`;
+    messages.appendChild(d);
+  }
+
+  function addMessage({ type = 'message', name = '', text = '', timestamp = null }) {
+    const row = document.createElement('div');
+    row.className = 'msg';
+
+    const time = fmtTime(timestamp);
+
+    if (type === 'message') {
+      row.innerHTML = `
+        <div class="msg-meta">
+          <span class="msg-name">${esc(name)}</span>
+          <span class="msg-time">${time}</span>
+        </div>
+        <div class="msg-text">${esc(text)}</div>`;
+    } else if (type === 'join') {
+      row.classList.add('sys', 'join');
+      row.innerHTML = `
+        <div class="msg-meta">
+          <span class="msg-name">${esc(name)}</span>
+          <span class="msg-time">${time}</span>
+        </div>
+        <div class="msg-text">joined the chat</div>`;
+    } else if (type === 'leave') {
+      row.classList.add('sys', 'leave');
+      row.innerHTML = `
+        <div class="msg-meta">
+          <span class="msg-name">${esc(name)}</span>
+          <span class="msg-time">${time}</span>
+        </div>
+        <div class="msg-text">left the chat</div>`;
+    } else if (type === 'error') {
+      row.classList.add('sys', 'err');
+      row.innerHTML = `
+        <div class="msg-meta">
+          <span class="msg-name">error</span>
+          <span class="msg-time">${time}</span>
+        </div>
+        <div class="msg-text">${esc(text)}</div>`;
+    }
+
+    messages.appendChild(row);
+    scrollBottom();
+  }
+
+  function esc(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function setConnected(on) {
+    statusDot.className = 'status-dot' + (on ? '' : ' disconnected');
+    msgInput.disabled   = !on;
+    btnSend.disabled    = !on;
+    if (on) msgInput.focus();
+  }
+
+  function showConnectError(msg) {
+    connectError.textContent = msg;
+    connectError.style.display = 'block';
+  }
+
+  function clearConnectError() {
+    connectError.textContent = '';
+    connectError.style.display = 'none';
+  }
+
+  // ── Connect ──────────────────────────────────────────────
+
+  function connect() {
+    const rawUrl = serverUrlInput.value.trim();
+    const name   = userNameInput.value.trim();
+
+    clearConnectError();
+
+    if (!rawUrl) { showConnectError('Enter a server URL.'); return; }
+    if (!name)   { showConnectError('Enter your name.'); return; }
+
+    // Build URL with name query param
+    let url;
+    try {
+      url = new URL(rawUrl);
+    } catch {
+      showConnectError('Invalid URL format.');
+      return;
+    }
+    url.searchParams.set('name', name);
+
+    btnConnect.disabled = true;
+    btnConnect.textContent = 'Connecting…';
+
+    try {
+      ws = new WebSocket(url.toString());
+    } catch (e) {
+      showConnectError('Failed to create WebSocket: ' + e.message);
+      btnConnect.disabled = false;
+      btnConnect.textContent = 'Connect';
+      return;
+    }
+
+    ws.addEventListener('open', () => {
+      // Switch to chat view
+      connectScreen.style.display = 'none';
+      chatScreen.style.display    = 'flex';
+
+      topbarUrl.textContent  = rawUrl;
+      topbarName.textContent = name;
+      setConnected(true);
+
+      messages.innerHTML = '';
+      addDivider('connected · ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+
+      btnConnect.disabled = false;
+      btnConnect.textContent = 'Connect';
+    });
+
+    ws.addEventListener('message', (event) => {
+      let data;
+      try { data = JSON.parse(event.data); }
+      catch { return; }
+
+      if (data.type === 'message') {
+        addMessage({ type: 'message', name: data.name, text: data.text, timestamp: data.timestamp });
+      } else if (data.type === 'join') {
+        addMessage({ type: 'join', name: data.name, timestamp: data.timestamp });
+      } else if (data.type === 'leave') {
+        addMessage({ type: 'leave', name: data.name, timestamp: data.timestamp });
+      } else if (data.type === 'error') {
+        addMessage({ type: 'error', text: data.message });
+      }
+    });
+
+    ws.addEventListener('close', () => {
+      setConnected(false);
+      if (chatScreen.style.display === 'flex') {
+        addDivider('disconnected');
+      } else {
+        // Closed before open — show error on connect screen
+        showConnectError('Connection closed. Check the server URL and name.');
+        btnConnect.disabled = false;
+        btnConnect.textContent = 'Connect';
+      }
+      ws = null;
+    });
+
+    ws.addEventListener('error', () => {
+      if (chatScreen.style.display !== 'flex') {
+        showConnectError('Could not connect to server.');
+        btnConnect.disabled = false;
+        btnConnect.textContent = 'Connect';
+      }
+      // The close event fires afterward and handles the rest
+    });
+  }
+
+  function disconnect() {
+    if (ws) {
+      ws.close();
+      ws = null;
+    }
+    setConnected(false);
+    chatScreen.style.display    = 'none';
+    connectScreen.style.display = 'flex';
+    clearConnectError();
+  }
+
+  // ── Send ─────────────────────────────────────────────────
+
+  function send() {
+    const text = msgInput.value.trim();
+    if (!text || !ws || ws.readyState !== WebSocket.OPEN) return;
+    ws.send(JSON.stringify({ type: 'message', text }));
+    msgInput.value = '';
+    msgInput.focus();
+  }
+
+  // ── Events ───────────────────────────────────────────────
+
+  btnConnect.addEventListener('click', connect);
+  btnDisconnect.addEventListener('click', disconnect);
+  btnSend.addEventListener('click', send);
+
+  msgInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+  });
+
+  userNameInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') connect();
+  });
+
+  serverUrlInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') connect();
+  });
+
+  // Auto-focus name on load
+  userNameInput.focus();
+})();
+</script>
+</body>
+</html>

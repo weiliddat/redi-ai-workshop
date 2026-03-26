@@ -1,0 +1,17 @@
+{
+  "name": "eval-harness",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "eval-2": "npx tsx eval-2/run.ts"
+  },
+  "dependencies": {
+    "@openrouter/sdk": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}

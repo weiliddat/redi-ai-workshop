@@ -3,6 +3,7 @@
 Before recommending free models to students, we need to verify they can actually handle the workshop tasks well enough. This is a mini eval — not a formal benchmark, but enough to catch deal-breakers.
 
 Store results in `materials/setup/responses/eval-N/` with:
+
 - `prompt.md` — the prompt used
 - One response file per model (e.g., `chatgpt-free.html`)
 - `evaluation.md` — per-model breakdown of results
@@ -64,30 +65,27 @@ Can the model explain concepts correctly when students ask follow-up questions?
 
 ### Test prompts
 
-These simulate the kinds of questions students will ask during sections 04 and 05. Test each one and check correctness.
+Consolidated to prompts that actually discriminate between models. See `eval-2/prompt.md` for full details.
 
-**Conceptual questions:**
+**Conceptual (sanity check):**
 
-- [ ] "What is a WebSocket? How is it different from a normal HTTP request?"
-- [ ] "What is a callback function? Why do I pass a function to `ws.onmessage` instead of just writing the code directly?"
-- [ ] "What is JSON and why do we use `JSON.parse` instead of just reading the string?"
+- [ ] C2: "What is a callback function? Why do I pass a function to `ws.onmessage` instead of just writing the code directly?"
 
-**Code explanation (paste the generated client from Eval 1, then ask):**
+**Code explanation (paste the baseline client, then ask):**
 
-- [ ] "Walk me through what happens line by line when a message arrives"
-- [ ] "What would break if I removed the `onmessage` handler?"
-- [ ] "Why do we need `JSON.stringify` when sending a message?"
+- [ ] E2: "What would break if I removed the `onmessage` handler?"
+- [ ] E3: "Why do we need `JSON.stringify` when sending a message? Can't I just send the object directly?"
 
-**Debugging (use these common errors):**
+**Debugging:**
 
-- [ ] "I'm getting `WebSocket connection to 'ws://localhost:3000' failed` in the console. What does this mean?"
-- [ ] "My code connects but I don't see any messages. What could be wrong?"
-- [ ] "I see `Uncaught SyntaxError: Unexpected token` when a message arrives. What is happening?"
+- [ ] D1: "I'm getting `WebSocket connection to 'ws://localhost:3000' failed` in the console. What does this mean?"
+- [ ] D3: "I see `Uncaught SyntaxError: Unexpected token` when a message arrives. What is happening?"
+- [ ] D4: "When I send a message, it appears twice in my chat window. Why?" (paste baseline client — harder discriminator, weak models hallucinate the cause)
 
-**Feature extension (section 05 retry task):**
+**Feature extension (paste baseline client + extended API spec):**
 
-- [ ] "How do I show a timestamp next to each message? Explain each step."
-- [ ] "How do I add a `/nick` command that changes my display name? Walk me through what needs to change."
+- [ ] F1: "How do I show a timestamp next to each message? Explain each step." (trap: baseline already formats timestamps)
+- [ ] F2: "How do I add a `/nick` command that changes my display name? Walk me through what needs to change."
 
 ### What to check
 
@@ -102,88 +100,22 @@ Explanations should be correct and understandable. Minor imprecision is OK. Conf
 
 ---
 
-## Eval 3: Novice-shaped prompts
-
-Students won't prompt cleanly. Test with messy, realistic prompts to see how models handle them.
-
-### Test prompts
-
-- [ ] "it works but i dont understand what onmessage does here"
-- [ ] "can you make this show when people join but keep my code"
-- [ ] "why does it say refused??"
-- [ ] "i changed something and now nothing works" (paste broken code)
-- [ ] "what is this error" (paste just the browser console error, no context)
-
-### What to check
-
-- [ ] Does the model ask clarifying questions or make reasonable assumptions?
-- [ ] Does it give a useful answer despite the vague prompt?
-- [ ] Does it avoid dumping a full rewrite when only a small fix is needed?
-- [ ] Does it stay at the right level — not too advanced, not patronizing?
-
-### Pass criteria
-
-The model should handle messy prompts gracefully. It doesn't need to be perfect — but it should not hallucinate causes, give irrelevant answers, or overwhelm students with jargon.
-
----
-
-## Eval 4: Conversation continuity (section 05)
-
-The retry section depends on the model working with the student's existing code. Test whether the model can make small changes without rewriting everything.
-
-### Test prompts
-
-Paste a working chat client, then ask:
-
-- [ ] "Add timestamps next to each message. Change as little as possible."
-- [ ] "Add a /nick command. Don't rewrite the whole program — show only what changes and explain why."
-- [ ] "Now also show a notification when someone joins. Keep my existing code."
-
-Then test multi-turn continuity:
-
-- [ ] After 3-4 exchanges, does the model still remember the original code?
-- [ ] If you paste updated code, does it pick up from the new version correctly?
-- [ ] Does it avoid contradicting its own earlier explanations?
-
-### What to check
-
-- [ ] Does it make **minimal, targeted changes** instead of full rewrites?
-- [ ] Does it explain what changed and why?
-- [ ] Does it maintain context across multiple messages?
-
-### Pass criteria
-
-The model should modify existing code incrementally and explain each change. Full rewrites on simple feature additions are a fail — students need to see what changed, not start over.
-
----
-
-## Eval 5: Rate limits under workshop load
-
-Can free models handle 20 students chatting simultaneously for ~60 minutes?
-
-- [ ] Check OpenRouter free model rate limits (per-user? per-IP? global?)
-- [ ] Estimate messages per student: ~20-30 messages across sections 02, 04, 05
-- [ ] Test: send 10 rapid messages in a row — does it throttle?
-- [ ] If using OpenRouter chat UI: does each student's account get independent limits?
-
----
-
 ## Decision matrix
 
 After testing, fill in:
 
-| Model                   | Eval 1: Code works? | Eval 2: Explains correctly? | Eval 3: Novice prompts? | Eval 4: Continuity? | Eval 5: Rate limits? | Recommend? |
-| ----------------------- | ------------------- | --------------------------- | ----------------------- | ------------------- | -------------------- | ---------- |
-| MiniMax M2.5 (free)     | ✅ PASS             |                             |                         |                     |                      |            |
-| Nemotron 3 Super (free) | ✅ PASS             |                             |                         |                     |                      |            |
-| Step 3.5 Flash (free)   | ✅ PASS             |                             |                         |                     |                      |            |
-| MiniMax M2.7            | ⚠️ PASS on retry    |                             |                         |                     |                      |            |
-| GLM 4.7 Flash           | ❌ FAIL             |                             |                         |                     |                      |            |
-| MiMo-V2-Flash           | ✅ PASS             |                             |                         |                     |                      |            |
-| Qwen3.5 Flash           | ❌ FAIL             |                             |                         |                     |                      |            |
-| Gemini (free)           | ✅ PASS             |                             |                         |                     |                      |            |
-| ChatGPT (free)          | ✅ PASS             |                             |                         |                     |                      |            |
-| Claude (free)           | ⚠️ FUNCTIONAL       |                             |                         |                     |                      |            |
+| Model                   | Eval 1: Code works? | Eval 2: Explains correctly? | Recommend? |
+| ----------------------- | ------------------- | --------------------------- | ---------- |
+| MiniMax M2.5 (free)     | ✅ PASS             |                             |            |
+| Nemotron 3 Super (free) | ✅ PASS             |                             |            |
+| Step 3.5 Flash (free)   | ✅ PASS             |                             |            |
+| MiniMax M2.7            | ⚠️ PASS on retry    |                             |            |
+| GLM 4.7 Flash           | ❌ FAIL             |                             |            |
+| MiMo-V2-Flash           | ✅ PASS             |                             |            |
+| Qwen3.5 Flash           | ❌ FAIL             |                             |            |
+| Gemini (free)           | ✅ PASS             |                             |            |
+| ChatGPT (free)          | ✅ PASS             |                             |            |
+| Claude (free)           | ⚠️ FUNCTIONAL       |                             |            |
 
 ---
 

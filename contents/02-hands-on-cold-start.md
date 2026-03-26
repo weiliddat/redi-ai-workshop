@@ -104,7 +104,7 @@ Messages are plain text only.
 
 Most students will:
 
-1. Paste the API spec into ChatGPT / Claude
+1. Paste the API spec into ChatGPT, Gemini, Claude, or another AI chat tool they already use
 2. Get a working HTML file back
 3. Open it in the browser, connect, send "hello"
 4. See their message appear — feel accomplished

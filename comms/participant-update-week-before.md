@@ -32,9 +32,17 @@ Set these up **before the workshop** so we can start straight away.
 
 ### 1. An AI chat tool
 
-<!-- TODO: Update with specific tool recommendations after survey results -->
+Use one of these as your main AI chat tool:
 
-_Details coming in a follow-up message._
+- **ChatGPT** (free web) — best default choice for this workshop
+- **Gemini** (free web) — also a strong choice
+- **Claude** (free web) — OK if you already use it, but it often gives more complex code than we want for this session
+
+Optional backup:
+
+- **OpenRouter with `Step 3.5 Flash`** — use this if the main tools are unavailable or you hit a free-tier limit
+
+You only need one main tool. If you set up OpenRouter as well, treat it as your fallback.
 
 ### 2. Python or Node.js
 

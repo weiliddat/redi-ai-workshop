@@ -1,8 +1,8 @@
 # Setting Up OpenRouter
 
-OpenRouter gives you access to many AI models through a simple web chat — similar to ChatGPT or Claude, but you can switch between models freely.
+OpenRouter is the backup option for this workshop.
 
-We use it for this workshop because it gives us more control: if one model is slow or unavailable, you just pick another.
+Most students should use ChatGPT, Gemini, or Claude first. Use OpenRouter if those tools are unavailable, rate-limited, or not working for you.
 
 ---
 
@@ -20,10 +20,10 @@ We use it for this workshop because it gives us more control: if one model is sl
 ## Step 3: Pick a model
 
 1. Click the model selector (top of the chat)
-2. Search for the model name your teacher shared with you
-3. If that model is unavailable, use the backup model your teacher listed
+2. Search for `Step 3.5 Flash`
+3. Select it before you start chatting
 
-Don't pick a random model — stick to the ones listed for this workshop. They've been tested for the tasks we'll do.
+Don't pick a random model. `Step 3.5 Flash` is the validated OpenRouter backup for this workshop.
 
 ## Step 4: Send a test message
 
@@ -33,16 +33,17 @@ Type something simple like "What is a WebSocket?" and confirm you get a response
 
 ## Good to know
 
-- **Free models have limits.** They may be slower or occasionally unavailable. If that happens, switch to the backup model your teacher listed.
+- **OpenRouter is a backup, not the default.** If ChatGPT or Gemini is working for you, stay there.
+- **Free models have limits.** They may be slower or occasionally unavailable. If `Step 3.5 Flash` is unavailable, switch back to ChatGPT, Gemini, or Claude instead of picking a random OpenRouter model.
 - **Free models may use your prompts to improve their models.** That's fine for this workshop — we're working with public code examples, not personal data. Don't paste passwords, keys, or personal information.
-- **You can switch models anytime.** If one model gives a confusing answer, try the same question on a different model from the workshop list.
+- **You can switch tools anytime.** If one tool gives a confusing answer, try the same question in one of the other validated tools.
 
 ---
 
 ## Troubleshooting
 
-**"No models available"** — Try refreshing the page. If the model is still missing, switch to the backup model.
+**"No models available"** — Try refreshing the page. If `Step 3.5 Flash` is still missing, switch back to ChatGPT, Gemini, or Claude.
 
-**Model is slow** — Switch to the backup model. Some models are faster than others.
+**Model is slow** — Wait a moment or switch back to ChatGPT, Gemini, or Claude.
 
-**Answer quality feels off** — Try the same question on the backup model. If both are bad, ask your teacher for help.
+**Answer quality feels off** — Try the same question in ChatGPT or Gemini. If the answer is still not helpful, ask your teacher for help.

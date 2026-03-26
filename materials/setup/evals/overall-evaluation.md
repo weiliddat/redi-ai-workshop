@@ -11,18 +11,18 @@ D4 and F1 are the hard discriminators in Eval 2. D4 tests whether the model read
 
 ## Combined Results
 
-| Model | Eval 1 | Eval 2 | D4 | F1 | Verdict |
-|---|---|---|---|---|---|
-| ChatGPT (free web) | ✅ Cleanest output | 8/8 | ✅ | ✅ | ⭐ Recommend |
-| Gemini (free web) | ✅ Pass (minor XSS caveat) | 8/8 | ✅ | ✅ | ⭐ Recommend |
-| Step 3.5 Flash (free) | ✅ Pass | 7/8 | ✅ | ✅ | ⭐ Recommend |
-| Claude (free web) | ⚠️ Over-engineered | 8/8 | ✅ | ✅ | Usable with caveats |
-| MiniMax M2.5 (free) | ✅ Pass | 6/8 | ✅ | ❌ | Not recommended |
-| MiniMax M2.7 (cheap) | ⚠️ Pass on retry | 7/8 | ❌ | ✅ | Not recommended |
-| Nemotron 3 Super (free) | ✅ Pass | 6/8 | ❌ | ❌ | Not recommended |
-| MiMo-V2-Flash (cheap) | ✅ Pass | 5/8 | ❌ | ❌ | Not recommended |
-| GLM 4.7 Flash (cheap) | ❌ Fail both rounds | 7/8 | ✅ | ✅ | Not recommended |
-| Qwen3.5 Flash (cheap) | ❌ Fail both rounds | 7/8 | ✅ | ✅ | Not recommended |
+| Model                   | Eval 1                     | Eval 2 | D4  | F1  | Verdict             |
+| ----------------------- | -------------------------- | ------ | --- | --- | ------------------- |
+| ChatGPT (free web)      | ✅ Cleanest output         | 8/8    | ✅  | ✅  | ⭐ Recommend        |
+| Gemini (free web)       | ✅ Pass (minor XSS caveat) | 8/8    | ✅  | ✅  | ⭐ Recommend        |
+| Step 3.5 Flash (free)   | ✅ Pass                    | 7/8    | ✅  | ✅  | ⭐ Recommend        |
+| Claude (free web)       | ⚠️ Over-engineered         | 8/8    | ✅  | ✅  | Usable with caveats |
+| MiniMax M2.5 (free)     | ✅ Pass                    | 6/8    | ✅  | ❌  | Not recommended     |
+| MiniMax M2.7 (cheap)    | ⚠️ Pass on retry           | 7/8    | ❌  | ✅  | Not recommended     |
+| Nemotron 3 Super (free) | ✅ Pass                    | 6/8    | ❌  | ❌  | Not recommended     |
+| MiMo-V2-Flash (cheap)   | ✅ Pass                    | 5/8    | ❌  | ❌  | Not recommended     |
+| GLM 4.7 Flash (cheap)   | ❌ Fail both rounds        | 7/8    | ✅  | ✅  | Not recommended     |
+| Qwen3.5 Flash (cheap)   | ❌ Fail both rounds        | 7/8    | ✅  | ✅  | Not recommended     |
 
 ## Recommendations
 

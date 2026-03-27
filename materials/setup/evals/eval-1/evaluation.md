@@ -101,21 +101,22 @@ Full spec adherence. Feature-rich compared to the other free models.
 
 ### GLM 4.7 Flash
 
-**Result: FAIL (both rounds)**
+**Result: FAIL (Round 1 and Round 2) → FAIL (Round 3, with reasoning enabled)**
 
 **Round 1 issue: hard blocker.** State machine inversion — `onopen` _disabled_ the Send button and message input instead of enabling them. Also double-encoded the `?name=` parameter.
 
 **Round 2 issue: still broken.** `handleOpen()` replaces the setup panel's `innerHTML` with a "Connected to server" message and a "New Connection" button that calls `location.reload()`. If the server rejects the connection (e.g., duplicate name), the setup form is destroyed and the user has to reload the entire page to try again.
 
-**Approach:** Two-panel design (setup panel and chat panel) with show/hide toggling. Uses a `textarea` instead of an `input` for message entry, with auto-resize on input.
+**Round 3 (reasoning enabled):** Fixed the Round 1 and 2 issues — UI state is correct, no destructive DOM manipulation, `resetToSetup()` cleanly restores the setup form. Uses `textContent` for all rendering (XSS-safe), `createElement` instead of `innerHTML +=`, Enter key works. However, a new blocker: **broken URL construction.** The default input value is `quick-badly-amoeba.ngrok-free.app` (no `wss://` prefix). The code strips `http://` and `https://` prefixes, then tries to normalize `ws://`/`wss://` — but if neither prefix exists (which is the default), no protocol is added. The `WebSocket` constructor requires an absolute URL with `ws:` or `wss:` scheme, so a student clicking Connect with the default value gets a connection error.
+
+**Approach (Round 3):** Two-screen design (setup screen / chat screen) with show/hide toggling. Well-structured message rendering with separate `addChatMessage` and `addSystemMessage` functions. Uses `createElement` and `textContent` throughout.
 
 **Failure modes:**
 
-- **Round 1:** Inverted UI state — connecting makes the client _less_ functional
-- **Round 2:** Destructive DOM manipulation — `setupPanel.innerHTML = ...` nukes the form, making error recovery impossible without a page reload
-- Uses `innerHTML +=` for chat messages (replaces entire chat log on every message, losing event listeners and scroll position)
+- **Rounds 1–2:** Previously documented (inverted UI state, destructive DOM)
+- **Round 3:** Default URL value lacks `wss://` prefix, and the URL construction code doesn't add it — connection fails immediately unless the student manually types the full URL
 
-**Why this fails for students:** A student who gets this code won't be able to send messages (Round 1) or recover from a name conflict (Round 2). Both require debugging beyond what a 15-minute exercise allows. The bugs aren't obvious from reading the code — they only surface at runtime.
+**Why this still fails for students:** The URL bug in Round 3 is subtler than the previous issues but just as blocking. A student who clicks Connect with the default value gets a silent failure (the `WebSocket` constructor throws, caught by `try/catch`, and `addSystemMessage` fires — but the student is still on the setup screen where the message isn't visible). Fixing it requires understanding URL scheme requirements, which is beyond a 15-minute cold start exercise.
 
 ---
 
@@ -146,7 +147,7 @@ Solid one-shot output both times. Stayed simple, avoided complex state machines.
 
 ### Qwen3.5 Flash
 
-**Result: FAIL (both rounds)**
+**Result: FAIL (Round 1 and Round 2) → PASS (Round 3, with reasoning enabled)**
 
 **Round 1 issues:**
 
@@ -158,15 +159,24 @@ Solid one-shot output both times. Stayed simple, avoided complex state machines.
 - Fixed the duplicate messages, but introduced a **syntax typo**: `e/key` instead of `e.key`, breaking the Enter key entirely.
 - **Join/leave rendering bug:** Displays "Alice: Alice joined the chat." — the name appears twice because `createMessageElement` concatenates `name + ': ' + text`, and the text already includes the name.
 
-**Approach:** Uses CSS custom properties (`var(--bg-color)`, etc.) and a more structured layout with control bar, chat container, and footer bar. Has a `createMessageElement` helper that formats all message types.
+**Round 3 (reasoning enabled):** All previous issues fixed. No local echo — `sendMessage` clears the input and explicitly does not add to the chat log. No syntax errors. Join/leave events render correctly ("System: Alice joined"). Uses `innerText` for all rendering (XSS-safe). Correct `?name=` with `encodeURIComponent`. Handles all four message types with correct field mapping.
 
-**Failure modes:**
+**Approach (Round 3):** CSS custom properties (`var(--bg-color)`, etc.) with a config bar, chat log, and message input area. Separate Connect and Disconnect buttons. `handleMessage` function with if/else chain per message type. `addLog` uses `innerText` for safe rendering.
 
-- Round 1: Every message appears twice — immediately confusing for a student
-- Round 2: Enter key is broken (syntax error), and join/leave messages read awkwardly ("Alice: Alice joined the chat.")
-- Both rounds produce code that needs manual fixes before it works correctly
+**Strengths (Round 3):**
 
-**Why this fails for students:** The duplicate message bug in Round 1 is exactly the kind of error that wastes the entire 15 minutes — a student sees messages appearing twice, can't figure out why, and the AI that generated the code may not explain the server-echo concept clearly. Round 2 fixes that but introduces new bugs. Neither output is reliable enough for a cold start exercise.
+- Clean recovery from previous failures — all Round 1 and 2 bugs eliminated
+- XSS-safe via `innerText` — no `innerHTML` with user data
+- `onDisconnected()` cleanly resets all UI state — recoverable after errors
+- Simple, readable code structure
+
+**Likely complications for students:**
+
+- **"Connecting…" intermediate state** (line 170) — the prompt asked to avoid this. Cosmetic, not a blocker.
+- **No Enter key on message input** — students must click the Send button. The Send button works, so it's usable, but most people expect Enter to send.
+- **`onDisconnected` called from error handler** — when the server sends an error, the code calls `onDisconnected()` which resets the UI. This is correct behavior, but the error message disappears from view because the chat log resets. A student who gets a "name taken" error would see it flash briefly, then the UI resets.
+
+**Failure modes:** None that prevent the client from working. The missing Enter key is an annoyance, not a blocker.
 
 ---
 
@@ -250,9 +260,9 @@ Connects and chats correctly. Spec adherence is fine — correct `?name=`, corre
 | Nemotron 3 Super (free) | ✅ PASS          | Cleanest of the free models                                            |
 | Step 3.5 Flash (free)   | ✅ PASS          | Adds own-vs-other styling; hidden status bar                           |
 | MiniMax M2.7 (cheap)    | ⚠️ PASS on retry | Round 1 had broken join/leave events                                   |
-| GLM 4.7 Flash (cheap)   | ❌ FAIL          | Inverted UI state (Round 1), destructive DOM (Round 2)                 |
+| GLM 4.7 Flash (cheap)   | ❌ FAIL          | Broken URL construction (Round 3); inverted UI (Round 1), destructive DOM (Round 2) |
 | MiMo-V2-Flash (cheap)   | ✅ PASS          | Uses `innerHTML +=` for chat log                                       |
-| Qwen3.5 Flash (cheap)   | ❌ FAIL          | Duplicate messages (Round 1), syntax error + double-name bug (Round 2) |
+| Qwen3.5 Flash (cheap)   | ⚠️ PASS on retry | Failed Rounds 1–2; passed Round 3 (reasoning enabled). No Enter key.   |
 | Gemini (free web)       | ✅ PASS          | XSS vulnerability via `innerHTML`                                      |
 | ChatGPT (free web)      | ✅ PASS          | Cleanest output overall                                                |
 | Claude (free web)       | ⚠️ FUNCTIONAL    | External font dependency, over-engineered, prompt violations           |

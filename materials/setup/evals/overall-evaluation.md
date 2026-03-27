@@ -21,8 +21,8 @@ D4 and F1 are the hard discriminators in Eval 2. D4 tests whether the model read
 | MiniMax M2.7 (cheap)    | ⚠️ Pass on retry           | 7/8    | ❌  | ✅  | Not recommended     |
 | Nemotron 3 Super (free) | ✅ Pass                    | 6/8    | ❌  | ❌  | Not recommended     |
 | MiMo-V2-Flash (cheap)   | ✅ Pass                    | 5/8    | ❌  | ❌  | Not recommended     |
-| GLM 4.7 Flash (cheap)   | ❌ Fail both rounds        | 7/8    | ✅  | ✅  | Not recommended     |
-| Qwen3.5 Flash (cheap)   | ❌ Fail both rounds        | 7/8    | ✅  | ✅  | Not recommended     |
+| GLM 4.7 Flash (cheap)   | ❌ Fail all rounds         | 7/8    | ✅  | ✅  | Not recommended     |
+| Qwen3.5 Flash (cheap)   | ⚠️ Pass on retry (Round 3) | 7/8    | ✅  | ✅  | Usable with caveats |
 
 ## Recommendations
 
@@ -37,13 +37,13 @@ These models passed both evals without major issues:
 ### Usable with caveats
 
 4. **Claude** (free web) — Explanations are flawless (8/8), but code gen is over-engineered: 350+ lines of CSS, external Google Fonts dependency, dark theme, and prompt violations. Students will spend more time reading CSS than JavaScript in sections 04/05. If students choose Claude, they should know the generated code will be harder to walk through.
+5. **Qwen3.5 Flash** (cheap on OpenRouter) — Failed Rounds 1–2 (duplicate messages, syntax errors), but passed Round 3 with reasoning enabled. Clean code, XSS-safe, correct spec adherence. Strong explanations (7/8, passed both hard discriminators). Caveats: required three attempts to get working code, and the output lacks Enter-key support on the message input. A reasonable backup if a student is already using OpenRouter.
 
 ### Not recommended
 
 **Failed code generation (Eval 1):**
 
-- **GLM 4.7 Flash** — Produced broken code in both rounds (inverted UI state, destructive DOM manipulation). Students would spend the entire exercise debugging instead of learning.
-- **Qwen3.5 Flash** — Duplicate messages in Round 1, syntax error and double-name bug in Round 2. Neither output works without manual fixes.
+- **GLM 4.7 Flash** — Failed all three rounds. Rounds 1–2 had inverted UI state and destructive DOM manipulation. Round 3 (with reasoning enabled) fixed those but introduced a broken URL construction — the default server URL lacks the `wss://` prefix, and the code doesn't add it, so the connection fails silently on first use.
 
 **Failed explanation quality (Eval 2):**
 

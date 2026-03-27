@@ -62,53 +62,43 @@ Messages are plain text only.
 
 ## Evaluation Criteria
 
-We evaluated model outputs across five areas. The goal: a student can open the file, connect to the teacher's server, and chat — without debugging.
+The goal: a student can open the file, connect to the teacher's server, and chat — without debugging.
 
-### 1. Spec Adherence
+### Pass/Fail Criteria
+
+These determine whether the output works in a 15-minute classroom exercise.
+
+**1. Spec adherence** — does it follow the API?
 
 - Connects with `?name=` query parameter
 - Sends `{"type": "message", "text": "..."}` format
 - Handles all four inbound types: `message`, `join`, `leave`, `error`
 - Reads the correct fields (`data.text` for messages, `data.message` for errors, `data.name` for sender)
 
-### 2. Server Compatibility
+**2. Server compatibility** — does it work with the server?
 
 - Uses the browser's built-in `WebSocket` API (not Socket.IO)
-- Works with the provided `server.js` — no field mismatches or broken flows
+- No field mismatches or broken message flows
 - Handles the server closing the connection after an error (e.g., duplicate name)
+
+**3. Requirements compliance** — does it follow the prompt constraints?
+
+- Single, self-contained `index.html` — no frameworks, build tools, npm, or external CDN imports
+- Includes input fields for server URL and user name
 - No local echo — the server broadcasts your own messages back, so adding them locally causes duplicates
 
-### 3. Requirements Compliance
+**4. No blockers** — can a student use it without debugging?
 
-- Single, self-contained `index.html` — no frameworks, build tools, or npm
-- Includes input fields for server URL (default `ws://localhost:3000`) and user name
-- No intermediate connection states (no "Connecting..." — just connected or disconnected)
-- Plain styling — no animations, toasts, dark themes, CSS transitions, or external font imports
+- No syntax or runtime errors that prevent the client from working
+- UI remains usable after errors — a failed connection (e.g., duplicate name) should not leave the client in a state where the student has to reload the page
+- Core controls (connect, disconnect, send) work when they should
 
-### 4. Code Quality (One-Shot)
+### Noted but Not Scored
 
-- **Security**: Uses `textContent` or escapes HTML — never `innerHTML` with untrusted server data (XSS risk)
-- **Usability**: Enter key sends messages (a `<form>` handles this natively); auto-scroll keeps latest messages visible
-- **Robustness**: Proper URL construction, safe disconnect handling
+These are worth documenting but don't affect the pass/fail result. In a controlled classroom with a known server, they won't prevent students from completing the exercise.
 
-### 5. Workshop Viability (Non-Technical)
-
-This is a classroom with mixed technical backgrounds. The output must work on first try with zero debugging.
-
-- **No over-engineering.** Extra features (dark mode, status dots, Google Fonts) violate the "plain" and "self-contained" constraints. They also add code that students didn't ask for and may not understand.
-- **No fragile patterns.** State machines that leave inputs disabled after a failed connection, or `innerHTML` that destroys the setup form, force students to debug framework-level problems instead of learning.
-- **Minimal complexity.** Uniform message rendering (no "own vs. other" styling), straightforward connect/disconnect logic. Less code means fewer places for things to break.
-
-### Failure Modes
-
-**Deal-breakers** — the chat client doesn't work:
-
-- UI lockout — inputs or buttons stuck disabled after a connection attempt
-- DOM destruction — `innerHTML` wiping the setup form or event listeners
-- Syntax errors — typos in event handlers (e.g., `e/key` instead of `e.key`)
-
-**Flaws, but still functional** — the client works, these are noted but not automatic fails:
-
-- Duplicate messages — local echo when the server already broadcasts (confusing, but chat still works)
-- XSS vulnerability — rendering untrusted data with `innerHTML` (security issue, but won't break the demo)
-- Over-styled output — dark themes, animations, external fonts (violates constraints, but client still connects and chats)
+- **XSS** — `innerHTML` with unsanitized server data is a bad practice, but won't break the demo. If a student sends `<script>` tags as a message, that's a teaching moment, not a failure.
+- **Missing Enter-key support** — annoying if absent, but the Send button still works.
+- **No auto-scroll** — minor usability issue in a 15-minute exercise.
+- **Over-styling** — dark themes, animations, intermediate "Connecting..." states, own-vs-other message styling. These violate prompt constraints and add code students didn't ask for, but the client still connects and chats.
+- **Code patterns** — `innerHTML +=`, `var` instead of `const`/`let`, IIFE wrappers. Not ideal, but functional.

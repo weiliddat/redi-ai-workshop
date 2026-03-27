@@ -3,412 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSocket Chat Client</title>
+    <title>WebSocket Chat</title>
     <style>
-        /* Basic Reset & Layout */
+        /* CSS Styling */
         body {
             margin: 0;
-            padding: 20px;
+            padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
+            background-color: #f4f4f4;
             color: #333;
             height: 100vh;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Container */
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background-color: #fff;
-            border: 1px solid #ccc;
             display: flex;
             flex-direction: column;
-            height: 80vh;
         }
 
-        /* Header */
-        header {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
+        /* Setup Screen */
+        #setup-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
             background-color: #fff;
-        }
-
-        h1 {
-            margin: 0 0 10px 0;
-            font-size: 18px;
-            font-weight: normal;
-        }
-
-        /* Forms & Inputs */
-        input[type="text"], textarea {
-            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: inherit;
+            z-index: 10;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            width: 300px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
             font-size: 14px;
         }
 
-        textarea {
-            resize: none;
-            overflow: hidden;
-            min-height: 44px;
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
         }
 
-        .form-row {
-            margin-bottom: 10px;
-        }
-
-        .form-row label {
-            display: block;
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 4px;
-        }
-
-        button {
-            padding: 8px 16px;
+        button#connect-btn {
+            width: 100%;
+            padding: 12px;
             background-color: #007bff;
             color: white;
             border: none;
             border-radius: 4px;
+            font-size: 16px;
             cursor: pointer;
-            font-size: 14px;
         }
 
-        button:hover {
+        button#connect-btn:hover {
             background-color: #0056b3;
         }
 
-        button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
+        /* Chat Interface */
+        #chat-screen {
+            display: none;
+            flex-direction: column;
+            height: 100%;
         }
 
-        /* Chat Area */
-        #chat-area {
-            flex: 1;
-            padding: 15px;
+        #header {
+            background-color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+        }
+
+        #status {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .status-connected {
+            color: #28a745;
+        }
+
+        .status-disconnected {
+            color: #dc3545;
+        }
+
+        #messages {
+            flex-grow: 1;
             overflow-y: auto;
-            background-color: #fafafa;
-            border-bottom: 1px solid #eee;
+            padding: 20px;
+            background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
-        /* Message Styles */
-        .message {
-            font-size: 14px;
-            line-height: 1.5;
+        .message-container {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            word-wrap: break-word;
         }
 
-        .message .sender {
-            font-weight: bold;
-            margin-bottom: 2px;
-        }
-
-        .message .time {
-            font-size: 11px;
-            color: #888;
-            margin-bottom: 2px;
-        }
-
-        .message .content {
-            color: #333;
-        }
-
-        /* Setup Panel */
-        #setup-panel {
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Status Bar */
-        #status-bar {
-            padding: 8px 15px;
-            background-color: #f9f9f9;
+        .message-header {
             font-size: 12px;
             color: #666;
-            border-top: 1px solid #eee;
+            margin-bottom: 4px;
             display: flex;
-            justify-content: space-between;
+            align-items: center;
         }
 
-        #status-indicator {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #ccc;
+        .timestamp {
+            margin-right: 8px;
+            font-family: monospace;
+        }
+
+        .sender {
+            font-weight: bold;
             margin-right: 5px;
         }
 
-        .status-connected #status-indicator {
-            background-color: #28a745;
+        .message-text {
+            font-size: 15px;
         }
 
-        .status-disconnected #status-indicator {
-            background-color: #dc3545;
+        /* System messages like join/leave */
+        .system-message {
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            margin: 10px 0;
+            border-bottom: 1px solid #eee;
         }
 
-        /* Utility */
-        .hidden {
-            display: none !important;
+        /* Input Area */
+        #input-area {
+            background-color: #fff;
+            padding: 15px;
+            border-top: 1px solid #ccc;
+            display: flex;
+            gap: 10px;
+        }
+
+        #message-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        #send-btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #send-btn:disabled {
+            background-color: #999;
+            cursor: not-allowed;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Setup Screen -->
-        <div id="setup-panel">
-            <h1>Connect to Chat</h1>
-            <div class="form-row">
-                <label for="server-url">Server URL</label>
-                <input type="text" id="server-url" value="ws://localhost:3000" placeholder="ws://localhost:3000">
-            </div>
-            <div class="form-row">
-                <label for="user-name">Your Name</label>
-                <input type="text" id="user-name" placeholder="Enter unique name">
-            </div>
-            <button id="connect-btn">Connect</button>
+    <!-- Setup Screen -->
+    <main id="setup-screen">
+        <h2 style="margin-bottom: 20px;">Enter Details</h2>
+        <div class="form-group">
+            <label for="server-url">Server URL</label>
+            <input type="text" id="server-url" placeholder="e.g. quick-badly-amoeba.ngrok-free.app" value="quick-badly-amoeba.ngrok-free.app">
+        </div>
+        <div class="form-group">
+            <label for="username">Your Name</label>
+            <input type="text" id="username" placeholder="Choose a name">
+        </div>
+        <button id="connect-btn">Connect</button>
+    </main>
+
+    <!-- Chat Screen -->
+    <main id="chat-screen">
+        <header id="header">
+            <span id="status">Disconnected</span>
+            <span style="font-size: 12px;">Your Name: <span id="display-name"></span></span>
+        </header>
+
+        <div id="messages">
+            <!-- Messages will be injected here -->
         </div>
 
-        <!-- Chat Screen (Initially Hidden) -->
-        <div id="chat-panel" class="hidden">
-            <header>
-                <div class="form-row">
-                    <label>Connected as <span id="display-name" style="font-weight:bold; color:#333;"></span></label>
-                </div>
-            </header>
-
-            <div id="chat-area">
-                <!-- Messages will appear here -->
-            </div>
-
-            <div id="input-area">
-                <textarea id="message-input" placeholder="Type a message..." rows="1"></textarea>
-                <div style="margin-top: 5px; text-align: right;">
-                    <button id="send-btn">Send</button>
-                </div>
-            </div>
-
-            <div id="status-bar" class="status-disconnected">
-                <span id="status-text">Disconnected</span>
-                <span id="socket-info"></span>
-            </div>
+        <div id="input-area">
+            <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+            <button id="send-btn">Send</button>
         </div>
-    </div>
+    </main>
 
     <script>
         // DOM Elements
-        const setupPanel = document.getElementById('setup-panel');
-        const chatPanel = document.getElementById('chat-panel');
-        const urlInput = document.getElementById('server-url');
-        const nameInput = document.getElementById('user-name');
+        const setupScreen = document.getElementById('setup-screen');
+        const chatScreen = document.getElementById('chat-screen');
+        const serverInput = document.getElementById('server-url');
+        const nameInput = document.getElementById('username');
         const connectBtn = document.getElementById('connect-btn');
-        
-        const displayNameSpan = document.getElementById('display-name');
-        const chatArea = document.getElementById('chat-area');
+        const statusEl = document.getElementById('status');
+        const messagesContainer = document.getElementById('messages');
         const messageInput = document.getElementById('message-input');
         const sendBtn = document.getElementById('send-btn');
-        
-        const statusBar = document.getElementById('status-bar');
-        const statusText = document.getElementById('status-text');
-        const socketInfo = document.getElementById('socket-info');
+        const displayNameEl = document.getElementById('display-name');
 
         let socket = null;
-        let currentUser = null;
 
-        // --- Connection Logic ---
-
-        function updateStatus(text, connected) {
-            statusText.textContent = text;
-            if (connected) {
-                statusBar.classList.remove('status-disconnected');
-                statusBar.classList.add('status-connected');
-            } else {
-                statusBar.classList.remove('status-connected');
-                statusBar.classList.add('status-disconnected');
-            }
-        }
-
-        function connect() {
-            const rawUrl = urlInput.value.trim();
+        // Connection Logic
+        connectBtn.addEventListener('click', () => {
+            const serverUrl = serverInput.value.trim();
             const name = nameInput.value.trim();
 
-            if (!rawUrl) return;
-            if (!name) {
-                nameInput.focus();
+            if (!serverUrl || !name) {
+                // Simple validation feedback (alert is plain, but to strictly follow "no toast notifications", 
+                // we will rely on the user reading the setup screen.
+                // For error messages, we use the chat log which allows reconnection).
                 return;
             }
 
-            // Ensure URL has a scheme
-            let serverUrl = rawUrl;
-            if (!serverUrl.startsWith('ws://') && !serverUrl.startsWith('wss://')) {
-                serverUrl = 'ws://' + serverUrl;
-            }
+            // Simple state logic: Connect
+            statusEl.textContent = 'Connecting...';
+            statusEl.className = 'status-disconnected'; // Visual feedback before open
 
-            // Update UI state to connecting
-            connectBtn.disabled = true;
-            connectBtn.textContent = 'Connecting...';
-            chatPanel.classList.add('hidden');
-            setupPanel.classList.add('hidden'); // Hide inputs during connection
-
-            // Construct WebSocket URL with name parameter
-            const wsUrl = `${serverUrl}?name=${encodeURIComponent(name)}`;
-            currentUser = name;
-            displayNameSpan.textContent = currentUser;
+            // Construct URL: wss://[server-url]?name=[name]
+            // Remove protocol if user included it to ensure we use WSS
+            let cleanUrl = serverUrl.replace(/^https?:\/\//, '');
+            // Ensure it starts with wss://
+            cleanUrl = cleanUrl.replace(/^wss?:\/\//, 'wss://');
             
-            updateStatus('Connecting...', false);
+            const connectionUrl = `${cleanUrl}?name=${encodeURIComponent(name)}`;
 
             try {
-                socket = new WebSocket(wsUrl);
-                socket.onopen = handleOpen;
-                socket.onmessage = handleMessage;
-                socket.onclose = handleClose;
-                socket.onerror = handleError;
+                socket = new WebSocket(connectionUrl);
             } catch (e) {
-                setupConnectionError('Failed to open socket.');
+                addSystemMessage("Failed to create WebSocket connection.");
+                resetToSetup();
             }
+
+            socket.onopen = () => {
+                statusEl.textContent = 'Connected';
+                statusEl.className = 'status-connected';
+                setupScreen.style.display = 'none';
+                chatScreen.style.display = 'flex';
+                displayNameEl.textContent = name;
+                messageInput.focus();
+                sendBtn.disabled = false;
+            };
+
+            socket.onclose = () => {
+                statusEl.textContent = 'Disconnected';
+                statusEl.className = 'status-disconnected';
+                resetToSetup();
+            };
+
+            socket.onerror = (error) => {
+                // Note: standard WebSocket errors usually don't provide detailed message in 'error' event data
+                // The server's JSON error will be sent via 'message' event if applicable
+                console.error("WebSocket Error:", error);
+            };
+
+            socket.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                handleServerMessage(data);
+            };
+        });
+
+        // Reset UI to setup screen
+        function resetToSetup() {
+            chatScreen.style.display = 'none';
+            setupScreen.style.display = 'flex';
+            statusEl.textContent = 'Disconnected';
+            statusEl.className = 'status-disconnected';
+            sendBtn.disabled = true;
+            messageInput.value = '';
         }
 
-        function handleOpen() {
-            updateStatus('Connected', true);
-            socketInfo.textContent = 'Secure: ' + (socket.url.startsWith('wss://') ? 'Yes' : 'No');
-            connectBtn.disabled = false;
-            connectBtn.textContent = 'Reconnect';
-            
-            // Show chat panel
-            setupPanel.classList.remove('hidden');
-            setupPanel.innerHTML = `<p>Connected to server. <button id="new-conn-btn" onclick="location.reload()">New Connection</button></p>`;
-            chatPanel.classList.remove('hidden');
-        }
-
-        function handleClose(event) {
-            updateStatus('Disconnected', false);
-            socketInfo.textContent = `Code: ${event.code}`;
-            connectBtn.disabled = false;
-            connectBtn.textContent = 'Connect';
-        }
-
-        function handleError(error) {
-            // Basic error handling usually just logs to console, 
-            // but onclose handles the specific logic for closures.
-            console.error('WebSocket Error:', error);
-            // If it errors out without closing cleanly, maybe prompt user
-            updateStatus('Connection Error', false);
-        }
-
-        // --- Messaging Logic ---
-
+        // Send Logic
         function sendMessage() {
             const text = messageInput.value.trim();
             if (text && socket && socket.readyState === WebSocket.OPEN) {
                 const payload = {
-                    type: 'message',
+                    type: "message",
                     text: text
                 };
                 socket.send(JSON.stringify(payload));
                 messageInput.value = '';
-                messageInput.style.height = 'auto'; // Reset height
             }
         }
 
-        // --- Render Logic ---
-
-        function addMessageToDOM(type, data) {
-            const div = document.createElement('div');
-            div.className = 'message';
-
-            // Determine content
-            let innerHtml = '';
-            
-            if (type === 'message') {
-                innerHtml += `<div class="sender">${escapeHtml(data.name)}:</div>`;
-                innerHtml += `<div class="time">${formatTimestamp(data.timestamp)}</div>`;
-                innerHtml += `<div class="content">${escapeHtml(data.text)}</div>`;
-            } else if (type === 'join') {
-                innerHtml = `<div class="content"><em>${escapeHtml(data.name)} joined.</em></div>`;
-            } else if (type === 'leave') {
-                innerHtml = `<div class="content"><em>${escapeHtml(data.name)} left.</em></div>`;
-            } else if (type === 'error') {
-                innerHtml = `<div class="content" style="color: #d9534f;">Error: ${escapeHtml(data.message)}</div>`;
-            }
-
-            div.innerHTML = innerHtml;
-            chatArea.appendChild(div);
-            
-            // Auto scroll to bottom
-            chatArea.scrollTop = chatArea.scrollHeight;
-        }
-
-        function handleMessage(event) {
-            try {
-                const data = JSON.parse(event.data);
-                switch (data.type) {
-                    case 'message':
-                    case 'join':
-                    case 'leave':
-                    case 'error':
-                        addMessageToDOM(data.type, data);
-                        break;
-                    default:
-                        console.warn('Unknown message type:', data.type);
-                }
-            } catch (e) {
-                console.error('Failed to parse message', event.data, e);
-                // If we can't parse JSON, show it as raw text
-                addMessageToDOM('message', { name: 'Unknown', timestamp: new Date().toISOString(), text: event.data });
-            }
-        }
-
-        // --- Utilities ---
-
-        function formatTimestamp(isoString) {
-            const date = new Date(isoString);
-            return date.toISOString().split('T')[1].split('.')[0]; // HH:MM:SS
-        }
-
-        function escapeHtml(text) {
-            if (!text) return text;
-            return text
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-
-        function setupConnectionError(msg) {
-            alert(msg); // Only used if JS throws during init
-        }
-
-        // --- Event Listeners ---
-
-        connectBtn.addEventListener('click', connect);
-        
         sendBtn.addEventListener('click', sendMessage);
-        
-        messageInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
                 sendMessage();
             }
         });
 
-        // Auto-resize textarea
-        messageInput.addEventListener('input', function() {
-            this.style.height = 'auto';
-            this.style.height = (this.scrollHeight) + 'px';
-        });
+        // Message Handling Logic
+        function handleServerMessage(data) {
+            switch (data.type) {
+                case "message":
+                    addChatMessage(data.name, data.text, data.timestamp);
+                    break;
+                case "join":
+                    addSystemMessage(`${data.name} joined the chat.`, data.timestamp);
+                    break;
+                case "leave":
+                    addSystemMessage(`${data.name} left the chat.`, data.timestamp);
+                    break;
+                case "error":
+                    addSystemMessage(`Error: ${data.message}`, new Date().toISOString());
+                    break;
+                default:
+                    // Ignore unknown types or log
+                    console.log("Unknown message type:", data.type);
+            }
+        }
 
+        function addChatMessage(name, text, timestamp) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'message-container';
+
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'message-header';
+
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'timestamp';
+            timeSpan.textContent = new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            const senderSpan = document.createElement('span');
+            senderSpan.className = 'sender';
+            senderSpan.textContent = name + ":";
+
+            headerDiv.appendChild(timeSpan);
+            headerDiv.appendChild(senderSpan);
+
+            const textDiv = document.createElement('div');
+            textDiv.className = 'message-text';
+            textDiv.textContent = text;
+
+            msgDiv.appendChild(headerDiv);
+            msgDiv.appendChild(textDiv);
+            
+            // Attach timestamp to div for easier sorting if needed later
+            msgDiv.dataset.timestamp = timestamp;
+
+            messagesContainer.appendChild(msgDiv);
+            scrollToBottom();
+        }
+
+        function addSystemMessage(text, timestamp) {
+            const div = document.createElement('div');
+            div.className = 'system-message';
+            div.textContent = `[${new Date(timestamp).toLocaleTimeString()}] ${text}`;
+            messagesContainer.appendChild(div);
+            scrollToBottom();
+        }
+
+        function scrollToBottom() {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
     </script>
 </body>
 </html>

@@ -44,23 +44,11 @@ Optional backup:
 
 You only need one main tool. If you set up OpenRouter as well, treat it as your fallback.
 
-### 2. Python or Node.js
+### 2. Google Chrome
 
-- **Python 3.8+** — check with `python --version` or `python3 --version`
-- **Node.js 16+** — check with `node --version`
+We'll use a browser-based chat client during the workshop. **Google Chrome** is recommended — download it at [google.com/chrome](https://www.google.com/chrome/) if you don't have it already.
 
-You only need one.
-
-**Test it now:** open your terminal and run the version check command. If it shows a version number, you're set.
-
-### 3. Install the WebSocket library
-
-We'll use WebSockets during the workshop. Install the library for your language now so you're ready:
-
-- **Python:** `pip install websockets`
-- **Node.js:** `npm install ws`
-
-### 4. A terminal and a code editor (VSCode, Vim, WebStorm, PyCharm)
+### 3. A code editor (VSCode, Vim, WebStorm, PyCharm)
 
 If you have trouble with any of these steps, reach out before the workshop and we'll help.
 

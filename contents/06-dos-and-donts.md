@@ -40,9 +40,13 @@ HTML structure, JavaScript syntax, basic data manipulation — these are the bui
 
 ## The one thing to remember
 
-> **If you can't explain it, you haven't learned it.**
+Learning happens when your brain works through something — not when your eyes pass over it. Reading code, watching a tutorial, or getting a working answer from AI can all feel productive. But if you didn't struggle with the problem, make decisions, or explain it back to yourself, very little sticks.
 
-That's the test. Apply it every time.
+It's how our memory works. Effort and active thinking are what move something from "I saw it" to "I know it."
+
+A good heuristic is trying to explain a concept to someone else.
+
+> **If you can't explain it, you haven't learned it.**
 
 ---
 

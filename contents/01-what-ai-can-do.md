@@ -4,7 +4,9 @@
 
 AI coding tools — Claude, ChatGPT, Gemini — are language models. They were trained on enormous amounts of text and code. They predict what text should come next based on patterns in that training data.
 
-They do not understand code the way you will after practice. They recognise patterns and generate plausible output. That distinction matters.
+They do not understand code the way you will after practice. They recognise patterns and generate plausible output.
+
+They also only know what you give them. In a web chat, the AI sees your message and nothing else — not your project, not your screen, not what you tried before. IDE tools like Copilot or Cursor can see your open files and project structure, which is why they sometimes give better answers. But even then, the AI is working from whatever context it has access to — not from understanding.
 
 ## What AI is good at
 

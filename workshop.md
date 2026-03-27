@@ -25,7 +25,8 @@ A 120-minute remote workshop (Zoom) teaching students how to use AI effectively 
 | 0:44 | 25 min   | 04 — How to Learn with AI      | Approaches grounded in learning science and the study — with live demos of each pattern using sample scenarios |
 | 1:09 | 5 min    | Break                          | Reflection time — think about how you'll approach the retry differently                                        |
 | 1:14 | 30 min   | 05 — Hands-On: Retry           | Same or similar task, applying what they've learned — teacher demos one feature first, then students try       |
-| 1:44 | 16 min   | 06 — Do's and Don'ts + Wrap-up | Concrete takeaways, Q&A                                                                                        |
+| 1:44 | 12 min   | 06 — Do's and Don'ts + Wrap-up | Concrete takeaways, Q&A                                                                                        |
+| 1:56 | 4 min    | 07 — Survey                    | Collect feedback on learning, useful sections, and whether they'd recommend it                                  |
 
 ## Structure
 
@@ -35,3 +36,4 @@ A 120-minute remote workshop (Zoom) teaching students how to use AI effectively 
 4. **Teach the approach** (04) — Demonstrate each learning pattern with sample scenarios and live prompting. Not "how to prompt" alone — how to stay in the driver's seat.
 5. **Apply and compare** (05) — Retry with intention. Teacher demos a pattern first, then students try. The before/after contrast teaches itself.
 6. **Lock it in** (06) — Memorable do's and don'ts they can take away.
+7. **Get feedback** (07) — Short survey before they leave: what they learned, what was useful, would they recommend it.

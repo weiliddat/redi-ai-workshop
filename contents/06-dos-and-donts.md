@@ -6,13 +6,13 @@
 "Why does this work?" teaches you more than "What is the answer?" You can use AI for both — but the first one builds skills you keep.
 
 **Break problems into steps.**
-Solve one piece at a time. Each step is a chance to understand before moving forward. One big prompt that returns one big solution gives you nothing to hold onto.
+Solving one step at a time gives you a chance to understand before moving forward. If you don't know how to move forward, ask "I'd like to break this down piece by piece before solving it".
 
 **Explain code back to yourself before using it.**
-Read every line of AI-generated code out loud or in your head. If you can't explain a line, ask about it before pasting it in.
+Read every line of AI-generated code out loud, in your head, or even back to AI. If you can't explain a line, try anyways and get a correction first.
 
 **Use AI to unstick yourself, not to think for you.**
-"I'm stuck here, give me a hint" is different from "just solve this for me." One moves you forward. The other moves the AI forward.
+"I'm stuck here, give me a hint" is different from "just solve this for me." One moves you forward; the other moves the AI forward.
 
 **Keep your hands on the code.**
 Type things out. Modify the examples. Break them intentionally and fix them. Active contact with code is how understanding gets built.
@@ -60,5 +60,5 @@ Do it once, and compare how you feel at the end versus the cold start activity. 
 
 ## Time
 
-- 10 min — teacher presents
-- 6 min — Q&A and close
+- 8 min — teacher presents
+- 4 min — Q&A and close

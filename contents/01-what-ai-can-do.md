@@ -1,5 +1,7 @@
 # What AI Can Do
 
+> **A note before we start:** This is the first time we're running this workshop. Some things might be rough around the edges. We're testing what works — so expect a bit of chaos, and bear with us. Your feedback at the end will help us make it better.
+
 ## What AI is
 
 AI coding tools — Claude, ChatGPT, Gemini — are language models. They were trained on enormous amounts of text and code. They predict what text should come next based on patterns in that training data.

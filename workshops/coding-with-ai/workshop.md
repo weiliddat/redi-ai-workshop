@@ -18,6 +18,15 @@ Some may work with mentors, teammates, clients, or open-source maintainers.
 
 A 120-minute remote workshop teaching participants how to use AI in project work.
 
+The hands-on work uses one prepared project.
+
+The project can be:
+
+- a small repo created for the workshop
+- a pinned commit from an open-source project
+
+This keeps the workshop manageable and realistic: participants first understand the codebase, then make a focused change, verify it, and commit in small steps.
+
 The workshop focuses on three habits:
 
 1. small version-controlled changes
@@ -29,12 +38,12 @@ The workshop focuses on three habits:
 | Time | Duration | Section | Goal |
 | ---- | -------- | ------- | ---- |
 | 0:00 | 10 min | 01 - AI in Project Work | Set the context: project work needs more than code that works once |
-| 0:10 | 20 min | 02 - Version Control as Your Safety Net | Teach small commits, focused branches, and rollback as normal workflow |
-| 0:30 | 20 min | 03 - Understand What You Accept | Connect the learning research to professional coding with AI |
-| 0:50 | 25 min | 04 - Build the Feedback Loop | Show how tests, browser checks, screenshots, and review make AI work safer |
-| 1:15 | 5 min | Break | Short pause |
-| 1:20 | 25 min | 05 - Improve the Working Agreement | Show how to update `AGENTS.md`, docs, checklists, or skills after a mistake or repeated friction |
-| 1:45 | 12 min | 06 - Practice | Participants apply the loop to a small change in a project or sample repo |
+| 0:10 | 18 min | 02 - Version Control as Your Safety Net | Teach small commits, focused branches, and rollback as normal workflow |
+| 0:28 | 17 min | 03 - Understand What You Accept | Connect the learning research to professional coding with AI |
+| 0:45 | 22 min | 04 - Build the Feedback Loop | Show how tests, browser checks, screenshots, and review make AI work safer |
+| 1:07 | 5 min | Break | Short pause |
+| 1:12 | 18 min | 05 - Improve the Working Agreement | Show how to update `AGENTS.md`, docs, checklists, or skills after a mistake or repeated friction |
+| 1:30 | 27 min | 06 - Practice | Participants apply the loop to a small change in the project |
 | 1:57 | 3 min | 07 - Wrap-up | Name the habits participants should repeat in their own projects |
 
 ## Structure

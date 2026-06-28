@@ -2,23 +2,26 @@
 
 ## Goal
 
-Participants practice the full workflow on a small task.
+Participants practice the full workflow on a small task in the project.
 
 The task should be small enough to finish in 20 minutes.
+
+Everyone starts from the same commit. This makes it easier to compare approaches, debug setup problems, and review commits together.
 
 ## Workflow
 
 Participants should follow this sequence:
 
-1. Create or confirm a branch
-2. Ask AI to inspect the relevant files
-3. Ask AI for a short plan
-4. Make one focused change
-5. Run the best available check
-6. Read the diff
-7. Ask AI to quiz them on the change
-8. Commit with a clear message
-9. Write one workflow improvement they would add to the project
+1. Confirm the starting commit
+2. Create or confirm a branch
+3. Ask AI to inspect the relevant files
+4. Ask AI for a short plan
+5. Make one focused change
+6. Run the best available check
+7. Read the diff
+8. Ask AI to quiz them on the change
+9. Commit with a clear message
+10. Write one workflow improvement they would add to the project
 
 ## Good Practice Tasks
 

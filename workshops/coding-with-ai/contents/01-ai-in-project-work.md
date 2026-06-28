@@ -8,6 +8,8 @@ In a small exercise, a task is often finished when the code works once.
 
 In a project, a task is finished when the change is useful, understandable, reviewed, and safe for the people who depend on it.
 
+During this workshop, everyone works in the same project. This lets the group practice a realistic workflow without the teacher needing to debug many different setups.
+
 ## Key Message
 
 AI can help with real project work, but it also increases your responsibility.

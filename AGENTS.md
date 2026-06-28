@@ -38,6 +38,10 @@ The audience may include current students, graduates, career switchers, external
 
 **Goal:** Teach participants a professional workflow for coding with AI on real projects.
 
+The hands-on workshop should use one shared project, not participant-owned projects. This can be a workshop-built repo or a pinned commit from an open-source project. Keep the setup common so the teacher can guide the group through one realistic workflow.
+
+The default coding agent is OpenCode. If cost or account access is a barrier, plan a fallback using OpenRouter with a shared API key and a lower-cost model.
+
 Main principles:
 
 1. **Use version control liberally.**  
@@ -98,4 +102,4 @@ workshops/
 - Put new AI coding workflow material under `workshops/coding-with-ai/`.
 - Keep shared repo-level files focused on navigation and contributor guidance.
 - Prefer small, focused content files over one large document.
-- When drafting exercises, use realistic project tasks: Git diffs, small bug fixes, tests, browser checks, review, project docs, and privacy constraints.
+- When drafting exercises, use the prepared project and realistic project tasks: Git diffs, small bug fixes, tests, browser checks, review, project docs, and privacy constraints.

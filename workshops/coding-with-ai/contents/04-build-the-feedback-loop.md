@@ -28,7 +28,7 @@ Use the strongest feedback available for the task:
 
 ## Demo
 
-Show a small bug fix.
+Show a small bug fix in the project.
 
 First, ask AI to fix it without running checks.
 

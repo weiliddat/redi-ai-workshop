@@ -13,14 +13,19 @@ We will focus on how to use AI in a professional workflow:
 - testing and checking changes before accepting them
 - improving project instructions so future work gets easier
 
+Everyone will use one workshop project. You do not need to bring your own project.
+
 ## Before the Workshop
 
 Please prepare:
 
-- access to a project repository, if allowed
 - Git installed on your computer
-- access to the AI tool approved for your project
-- one small task you are currently working on or recently worked on
+- an editor installed, such as VSCode
+- OpenCode installed and working
+- an OpenCode account, or the workshop OpenRouter setup if we provide one
+- the workshop repository cloned
+
+We plan to use OpenCode because it is more affordable than many coding agents. At the time of planning, the first month is about $5. If needed, we may provide access through OpenRouter and a shared API key with a lower-cost model.
 
 Important: do not paste private project or client data into an AI tool unless a mentor, teacher, coordinator, reviewer, or project owner has confirmed it is allowed.
 

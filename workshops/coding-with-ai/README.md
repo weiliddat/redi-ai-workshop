@@ -2,6 +2,10 @@
 
 This workshop is for people using AI to code on projects.
 
+Participants use one project during the workshop.
+
+This can be a small repo built for the workshop or a pinned commit from an open-source project. Using one project keeps everyone on the same task, setup, and debugging path.
+
 Project work is different from small class exercises:
 
 - the code may affect real users, clients, teammates, or your portfolio

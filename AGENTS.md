@@ -1,50 +1,101 @@
-# AI Workshop — AGENTS.md
+# REDI AI Workshops - AGENTS.md
 
 ## Context
 
-This is a remote AI workshop for a non-profit that teaches tech and software skills.
+This repo contains AI workshop material for REDI students and broader learner audiences.
 
-**Audience:**
+There are two workshop tracks:
 
-- Migrants, marginalized communities, students, career switchers
-- Currently learning software skills (Frontend: HTML/React/CSS, Backend: Python, Data Science)
-- Mid-journey learners — they have some technical foundation but are not experts
-- Mixed technical backgrounds and comfort levels with AI
+1. `workshops/learning-with-ai/`  
+   The original workshop for students who are still learning to program.
 
-**Goal:** Give participants the right mindset and practical approach to use and learn with AI effectively.
+2. `workshops/coding-with-ai/`  
+   The new workshop for students, graduates, and external learners who use AI to code on projects.
 
-## Why This Workshop Exists
+## Shared Audience
 
-AI tools make people faster — but faster doesn't mean learning happened. The Anthropic study (Shen & Tamkin, 2026 — see `reference.md`) ran a controlled experiment where developers learned a new Python library with and without AI assistance. Key findings:
+REDI students may include migrants, marginalized communities, students, and career switchers.
 
-- **AI users scored ~17% lower** on conceptual understanding, code reading, and debugging — with no significant speed gains on average.
-- The study identified **six AI interaction patterns**. Three led to poor learning (24–39% quiz scores): heavy delegation, copy-pasting generated code, and using AI to debug repeatedly without understanding. Three preserved learning (65–86% quiz scores): asking conceptual questions, requesting explanations, and writing your own code while using AI only for clarification.
-- The dividing line was **cognitive engagement**. Participants who let AI do the thinking learned less. Participants who stayed actively involved — thinking, questioning, writing — learned just as well as the no-AI group, sometimes faster.
-- Even self-perception shifted: the no-AI group reported *higher* self-reported learning, despite finding tasks harder.
+Assume intelligence and motivation. Do not assume expert-level comfort with AI, Git, tooling, or professional software workflows.
 
-The lesson isn't "don't use AI." It's that **how you use AI determines whether you learn.** This workshop teaches participants to use AI in ways that preserve and accelerate skill formation — not replace it.
+## Learning With AI Track
+
+This track is for mid-journey learners building programming skills.
+
+**Goal:** Give participants the right mindset and practical approach to use AI effectively as a learning tool.
+
+The key research source is the Anthropic study by Shen & Tamkin (2026), listed in `workshops/learning-with-ai/reference.md`.
+
+Main lesson:
+
+AI tools make people faster, but faster does not mean learning happened. Students learn more when they stay cognitively engaged: asking questions, reading code, writing code, and explaining what they accept.
+
+## Coding With AI Track
+
+This track is for people using AI to code in project work.
+
+The audience may include current students, graduates, career switchers, external learners, and people working with mentors, teammates, or clients.
+
+**Goal:** Teach participants a professional workflow for coding with AI on real projects.
+
+Main principles:
+
+1. **Use version control liberally.**  
+   Ask the agent to work in small steps and commit often. This builds the habit of focused work and makes changes easier to review, undo, and explain.
+
+2. **Build understanding while using AI.**  
+   Keep the useful lesson from the Anthropic learning paper: do not delegate the thinking. Ask for explanations, read diffs, and make sure participants understand the code they accept.
+
+3. **Build the loop as you go.**  
+   Use tests, browser checks, screenshots, logs, and review. When the participant or agent gets stuck, reflect on what happened and record the lesson in docs, `AGENTS.md`, checklists, or skills so the next task is easier.
+
+Also include the 2026 post "Humans Don't Just Sample" as a reference for long-horizon work, adaptation, project memory, and feedback loops.
 
 ## Writing Style Instructions
 
 Use the `/writing-style` skill when generating or editing workshop content.
 
+Apply the style with the coding-with-AI audience in mind when editing `workshops/coding-with-ai/`:
+
+- plain language
+- direct and concise
+- short sections
+- action-oriented examples
+- no unnecessary jargon
+- practical workflow over abstract AI theory
+
 ## File Structure
 
 ```
-workshop.md              — Workshop details: schedule, structure, goal of each part
-requirements.md          — What the coordinator, teacher, and students need to prepare
-reference.md             — Research, articles, and sources used in the workshop
-contents/
-  01-what-ai-can-do.md        — What AI is, what it can and can't do
-  02-hands-on-cold-start.md   — Unguided activity before prompting instruction
-  03-what-research-shows.md   — Anthropic study findings, connects to cold start experience
-  04-how-to-learn-with-ai.md  — Integrated approach: prompting + learning strategies, with live demos of each pattern
-  05-hands-on-retry.md        — Retry with prompting and learning strategies applied, teacher-led demos
-  06-dos-and-donts.md         — Practical guidelines and pitfalls
-comms/
-  participant-update-week-before.md — Pre-workshop communication to participants
-materials/
-  chat-client/                — Frontend chat client for hands-on exercises
-  chat-server/                — Backend chat server for hands-on exercises
-  setup/                      — Setup scripts and configuration
+README.md
+AGENTS.md
+
+workshops/
+  learning-with-ai/
+    README.md
+    workshop.md
+    requirements.md
+    reference.md
+    retro.md
+    contents/
+    comms/
+    materials/
+    slides/
+
+  coding-with-ai/
+    README.md
+    workshop.md
+    requirements.md
+    reference.md
+    contents/
+    comms/
+    materials/
 ```
+
+## Editing Guidance
+
+- Preserve the original workshop under `workshops/learning-with-ai/` unless the user explicitly asks to change it.
+- Put new AI coding workflow material under `workshops/coding-with-ai/`.
+- Keep shared repo-level files focused on navigation and contributor guidance.
+- Prefer small, focused content files over one large document.
+- When drafting exercises, use realistic project tasks: Git diffs, small bug fixes, tests, browser checks, review, project docs, and privacy constraints.

@@ -4,9 +4,20 @@ description: Apply the workshop writing style when generating or editing content
 user-invocable: true
 ---
 
-Apply the following writing style when generating or editing workshop content:
+Apply the following writing style when generating or editing workshop content.
 
-**Audience:** Migrants, marginalized communities, students, and career switchers who are mid-journey learners with some technical foundation but mixed AI comfort levels.
+## Audience
+
+This repo has two workshop audiences:
+
+1. Students who are still learning to program and need to use AI without losing the skills they are building.
+2. Students, graduates, and external learners who are using AI to code on projects.
+
+Both groups may include migrants, marginalized communities, students, and career switchers.
+
+Assume intelligence and motivation. Do not assume expert-level comfort with AI, Git, tooling, or professional software workflows.
+
+For coding-with-AI content, focus on professional habits: version control, understanding the code, feedback loops, review, and project documentation.
 
 ## Writing Style Rules
 
@@ -15,13 +26,13 @@ Apply the following writing style when generating or editing workshop content:
 - **Short sentences and paragraphs.** Break up dense information. Use bullet points and numbered lists over long paragraphs.
 - **Action-oriented.** Focus on what the audience should _do_, not abstract theory.
 - **Inclusive tone.** Assume intelligence, not prior knowledge. Never talk down. Avoid idioms or cultural references that don't translate globally.
-- **Use examples from their world.** Reference HTML, Python, CSS, React, or data tasks they'd recognize — not enterprise/advanced scenarios.
+- **Use examples from their world.** Reference HTML, Python, CSS, React, data tasks, Git commits, tests, browser checks, and code review.
 - **Comprehensive but not verbose.** Cover what matters fully. Cut everything else.
 
 ## Writing review process
 
 - Write an initial draft.
-- Evaluate if you there are alternative ways of saying the same thing, in the direction of conciseness or directness.
+- Evaluate if there are alternative ways of saying the same thing, in the direction of conciseness or directness.
 - Evaluate if there are metaphors or rhetoric that's unnecessary.
 - Evaluate for pace and rhythm. Not every sentence needs to be important.
 - Think and draft a few possible alternatives.

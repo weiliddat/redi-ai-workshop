@@ -19,6 +19,7 @@ async function runPrompt(
 	const result = client.callModel({
 		model: modelId,
 		provider: { sort: "throughput" },
+		reasoning: { enabled: true, effort: "medium" },
 		input: messages.map((m) => ({
 			role: m.role as "user" | "system",
 			content: m.content,

@@ -10,7 +10,7 @@ Participants should leave with a clear rule:
 
 ## Research Connection
 
-The Anthropic study found that developers who used AI scored lower on conceptual understanding when they let AI do the thinking.
+The Anthropic study found that developers understood less when they let AI do the thinking.
 
 The better pattern was active use:
 
@@ -19,6 +19,10 @@ The better pattern was active use:
 - read the generated code
 - write or modify parts yourself
 - debug with understanding, not repeated guessing
+
+In the 60-minute version, use one practical rule:
+
+> Read the diff and explain it before you commit.
 
 ## Project Translation
 
@@ -47,6 +51,8 @@ Ask them to write:
 - why it changed
 - what they would test
 - what they still do not understand
+
+In the 60-minute version, do this during pair review: each participant explains their diff to another person.
 
 ## Takeaway
 

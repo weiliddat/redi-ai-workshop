@@ -2,13 +2,13 @@
 
 ## Goal
 
-Participants practice the full workflow on a small task in the project.
+Participants practice the AI coding loop on one small project task.
 
-The task should be small enough to finish in 20 minutes.
+The task should be small enough to finish in 20 minutes, with a few minutes left to explain the diff to someone else.
 
 Everyone starts from the same commit. This makes it easier to compare approaches, debug setup problems, and review commits together.
 
-## Workflow
+## AI Coding Loop
 
 Participants should follow this sequence:
 
@@ -21,7 +21,21 @@ Participants should follow this sequence:
 7. Read the diff
 8. Ask AI to quiz them on the change
 9. Commit with a clear message
-10. Write one workflow improvement they would add to the project
+10. Write one lesson they would add to the project notes or instructions
+
+If participants are less comfortable with Git or the agent, they can ask the agent for the command or next step. The important part is that they understand what the step is for.
+
+## Pairing
+
+Participants who already know Git, agents, tests, or browser checks can pair with someone nearby.
+
+The helper should ask questions, not take over:
+
+- What is the smallest change?
+- What did the agent inspect?
+- What changed in the diff?
+- What check did you run?
+- What would your commit message be?
 
 ## Good Practice Tasks
 
@@ -46,4 +60,4 @@ Reviewers, mentors, or facilitators should watch for:
 
 The goal is not to finish a large feature.
 
-The goal is to practice a repeatable professional loop.
+The goal is to practice the AI coding loop until it feels repeatable.

@@ -8,6 +8,7 @@ The participant should not only produce code.
 
 They should show a professional workflow:
 
+- safe branch or safe starting point
 - small scoped changes
 - clear diffs
 - regular commits
@@ -23,6 +24,23 @@ They should show a professional workflow:
 - What did you run to check the change?
 - What could break because of this?
 - What should we document so this is easier next time?
+
+## Pairing Guidance
+
+At the start of the workshop, ask who already feels comfortable with Git, coding agents, tests, or browser checks.
+
+Invite those participants to pair with someone nearby during practice.
+
+Helpers should not take over the keyboard. They should help the participant use the AI coding loop:
+
+1. start from a safe branch
+2. ask the agent to inspect first
+3. make a short plan
+4. make one small change
+5. run or choose a check
+6. review the diff
+7. commit
+8. record one lesson
 
 ## When to Slow Down
 

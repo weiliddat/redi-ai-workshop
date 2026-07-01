@@ -28,12 +28,14 @@ For coding-with-AI content, focus on professional habits: version control, under
 - **Inclusive tone.** Assume intelligence, not prior knowledge. Never talk down. Avoid idioms or cultural references that don't translate globally.
 - **Use examples from their world.** Reference HTML, Python, CSS, React, data tasks, Git commits, tests, browser checks, and code review.
 - **Comprehensive but not verbose.** Cover what matters fully. Cut everything else.
+- **Use precise nouns and verbs.** Avoid using "shape" as a vague default word. Replace it with the specific meaning: structure, plan, format, task type, project setup, exercise design, schedule, or workflow.
 
 ## Writing review process
 
 - Write an initial draft.
 - Evaluate if there are alternative ways of saying the same thing, in the direction of conciseness or directness.
 - Evaluate if there are metaphors or rhetoric that's unnecessary.
+- Check for repeated vague words such as "shape" and replace them with the specific idea.
 - Evaluate for pace and rhythm. Not every sentence needs to be important.
 - Think and draft a few possible alternatives.
 - Compare the initial draft and alternatives. Eliminate those that are incomplete or more verbose.

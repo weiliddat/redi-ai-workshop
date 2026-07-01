@@ -25,7 +25,7 @@ Please prepare:
 - an OpenCode account, or the workshop OpenRouter setup if we provide one
 - the workshop repository cloned
 
-We plan to use OpenCode because it is more affordable than many coding agents. At the time of planning, the first month is about $5. If needed, we may provide access through OpenRouter and a shared API key with a lower-cost model.
+We plan to use OpenCode because it is one of the more affordable coding agents. We will confirm the exact setup before the workshop. If needed, we may provide access through OpenRouter with a lower-cost model.
 
 Important: do not paste private project or client data into an AI tool unless a mentor, teacher, coordinator, reviewer, or project owner has confirmed it is allowed.
 

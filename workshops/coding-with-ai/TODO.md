@@ -21,7 +21,7 @@ Remaining work to turn the Coding with AI scaffold into a runnable workshop.
   - Define acceptance criteria.
   - List likely files participants should inspect.
   - Define what should stay unchanged.
-  - Make sure the task is small enough for the 27-minute practice section.
+  - Make sure the task is small enough for the 22-minute practice section.
 
 - [ ] Write the participant exercise brief.
   - Include the starting commit.
@@ -36,6 +36,7 @@ Remaining work to turn the Coding with AI scaffold into a runnable workshop.
   - Include demo prompts.
   - Include common setup failures and fixes.
   - Include timing notes for each section.
+  - Include the room-check prompt for identifying participants who can help others.
 
 ## Research and Content
 

@@ -29,10 +29,12 @@ Before finishing:
 
 AI is useful when it helps you ship better work and become a stronger developer.
 
-Use it to move faster, but keep the loop:
+Use it to move faster, but keep the AI coding loop:
 
-1. small change
-2. clear understanding
-3. strong feedback
-4. useful commit
-5. better project instructions
+1. start from a safe branch
+2. ask AI to inspect before editing
+3. make one small change
+4. check the change
+5. review and explain the diff
+6. commit
+7. record one lesson

@@ -4,15 +4,18 @@
 
 Teach participants to ask AI for verification, not only implementation.
 
-Good AI coding is a loop:
+Good AI coding follows the AI coding loop:
 
-1. inspect
-2. plan
-3. change
-4. test
-5. review
-6. commit
-7. reflect
+1. branch
+2. inspect
+3. plan
+4. change
+5. check
+6. review the diff
+7. commit
+8. record one lesson
+
+The agent can help with routine steps: checking Git status, finding test commands, running tests, opening the app, checking a browser page, writing a TODO, or suggesting a commit message. The participant still decides what to accept.
 
 ## Feedback Sources
 
@@ -32,7 +35,7 @@ Show a small bug fix in the project.
 
 First, ask AI to fix it without running checks.
 
-Then repeat with a loop:
+Then repeat with the AI coding loop:
 
 - reproduce the bug
 - add or run a test
@@ -44,9 +47,11 @@ Then repeat with a loop:
 ## Prompts to Use
 
 - "Before editing, tell me how you will verify this."
+- "Find the most relevant test or check command for this change."
 - "Add the smallest useful test for this behavior."
 - "Run the app and check the page in the browser."
 - "Take a screenshot and compare it with the expected result."
+- "Update the TODO or project notes with the lesson from this task."
 - "If the test fails, explain the failure before changing code again."
 
 ## Takeaway

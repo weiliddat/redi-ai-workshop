@@ -18,7 +18,7 @@ Use this when you want full control over:
 
 Option 2: use a pinned commit from an open-source project.
 
-Use this when you want a more realistic simulation:
+Use this when you want a task that feels closer to real project work:
 
 - understand an unfamiliar codebase
 - identify the right files
@@ -52,7 +52,7 @@ Write down:
 - acceptance criteria
 - expected files participants may inspect
 
-## Good Task Shape
+## Good Practice Task
 
 The task should require understanding, not only editing one obvious line.
 

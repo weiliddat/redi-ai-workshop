@@ -16,7 +16,7 @@ Some may work with mentors, teammates, clients, or open-source maintainers.
 
 ## Overview
 
-A 120-minute remote workshop teaching participants how to use AI in project work.
+A 60-minute workshop teaching participants how to use AI in project work without losing control of the code.
 
 The hands-on work uses one prepared project.
 
@@ -27,31 +27,49 @@ The project can be:
 
 This keeps the workshop manageable and realistic: participants first understand the codebase, then make a focused change, verify it, and commit in small steps.
 
-The workshop focuses on three habits:
+The workshop focuses on one repeatable AI coding loop:
 
-1. small version-controlled changes
-2. active understanding while using AI
-3. feedback loops that make the project easier to work on over time
+1. create or confirm a branch
+2. ask AI to inspect before editing
+3. make a short plan
+4. make one small change
+5. run one useful check
+6. review and explain the diff
+7. commit
+8. record one lesson for future work
+
+This loop uses Git, AI agents, checks, and project notes. Participants do not need to memorize every command. They should learn what to ask for and how good AI-assisted work looks.
 
 ## Schedule
 
 | Time | Duration | Section | Goal |
 | ---- | -------- | ------- | ---- |
-| 0:00 | 10 min | 01 - AI in Project Work | Set the context: project work needs more than code that works once |
-| 0:10 | 18 min | 02 - Version Control as Your Safety Net | Teach small commits, focused branches, and rollback as normal workflow |
-| 0:28 | 17 min | 03 - Understand What You Accept | Connect the learning research to professional coding with AI |
-| 0:45 | 22 min | 04 - Build the Feedback Loop | Show how tests, browser checks, screenshots, and review make AI work safer |
-| 1:07 | 5 min | Break | Short pause |
-| 1:12 | 18 min | 05 - Improve the Working Agreement | Show how to update `AGENTS.md`, docs, checklists, or skills after a mistake or repeated friction |
-| 1:30 | 27 min | 06 - Practice | Participants apply the loop to a small change in the project |
-| 1:57 | 3 min | 07 - Wrap-up | Name the habits participants should repeat in their own projects |
+| 0:00 | 8 min | Why AI Coding Needs a Workflow | Set the context with the two research lessons: stay engaged and build feedback over time |
+| 0:08 | 7 min | The AI Coding Loop | Introduce the loop: branch, inspect, plan, change, check, review the diff, commit, record one lesson |
+| 0:15 | 5 min | Who Already Knows This? | Identify participants familiar with Git, agents, tests, or browser checks so they can pair and help |
+| 0:20 | 10 min | Facilitator Demo | Show one tiny AI-assisted change using the full AI coding loop |
+| 0:30 | 22 min | Practice | Participants apply the AI coding loop to a prepared task |
+| 0:52 | 5 min | Pair Review | Participants explain their diff, check, and commit message to someone else |
+| 0:57 | 3 min | Wrap-up | Leave with the checklist and one habit to use in their own projects |
 
 ## Structure
 
-1. **Set the context** (01) - AI work affects future maintainers, reviewers, users, and sometimes clients.
-2. **Make work reversible** (02) - Small commits make AI coding safer and easier to review.
-3. **Stay engaged** (03) - Participants use AI while still building their own understanding.
-4. **Create feedback** (04) - Participants learn to ask the agent to verify work, not just write code.
-5. **Improve the system** (05) - Participants record project-specific lessons so future work is smoother.
-6. **Practice the loop** (06) - Participants try a focused task using the full workflow.
-7. **Take it back to projects** (07) - Participants leave with a simple repeatable checklist.
+1. **Set the context** (01) - AI makes people faster, but speed is not the same as learning or good project work.
+2. **Teach the AI coding loop** (02, 03, 04, 05) - Participants see how Git, agent setup, checks, and project memory fit together.
+3. **Use the room** - Participants who already know parts of the AI coding loop help others during setup and practice.
+4. **Practice the AI coding loop** (06) - Participants make one focused change in the shared project.
+5. **Take it back to projects** (07) - Participants leave with a simple repeatable checklist.
+
+## Learning Outcomes
+
+By the end, participants should be able to:
+
+- ask an AI coding agent for one small, focused change
+- use a branch and commit to keep work reversible
+- inspect and explain the diff before accepting it
+- ask the agent to run or suggest one useful check
+- record one lesson that helps future work
+
+## Core Participant Message
+
+AI can help you code faster. Your job is to keep the work understandable, checked, and easy to continue.

@@ -8,6 +8,7 @@ Use this checklist when working with an AI coding agent.
 - [ ] I know the smallest useful change
 - [ ] I told the agent what should stay unchanged
 - [ ] I asked the agent to inspect before editing
+- [ ] I asked the agent for help with Git or setup commands if I was unsure
 
 ## During the Change
 

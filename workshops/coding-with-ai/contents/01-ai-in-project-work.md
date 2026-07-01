@@ -1,14 +1,26 @@
-# 01 - AI in Project Work
+# 01 - Why AI Coding Needs a Workflow
 
 ## Goal
 
-Help participants understand that project work is different from small class exercises.
+Help participants understand why AI coding needs a workflow, not only good prompts.
 
-In a small exercise, a task is often finished when the code works once.
+AI can make coding faster. Faster does not automatically mean better work or stronger learning.
 
-In a project, a task is finished when the change is useful, understandable, reviewed, and safe for the people who depend on it.
+In a project, a task is finished when the change is useful, understandable, checked, and safe for the people who depend on it.
 
-During this workshop, everyone works in the same project. This lets the group practice a realistic workflow without the teacher needing to debug many different setups.
+During this workshop, everyone works in the same project. This lets the group practice a realistic workflow while the teacher supports one setup.
+
+## Research in Plain Language
+
+Two references guide this workshop:
+
+1. **AI assistance and coding skills**  
+   AI can help people move faster, but people learn less when they let AI do the thinking. People learn more when they stay active: asking questions, reading code, explaining changes, and writing or adjusting parts themselves.
+
+2. **Humans Don't Just Sample**  
+   Strong long-term work is not one prompt and one answer. It depends on memory, feedback, reflection, and adaptation. In project work, that means tests, browser checks, reviews, commits, docs, and project instructions.
+
+We will not study the papers in detail during this hour. They are in the references for anyone who wants to read more.
 
 ## Key Message
 
@@ -22,14 +34,15 @@ You are still responsible for:
 - whether private data and project rules are respected
 - whether another person can review it
 
-## Discussion
+## Quick Room Check
 
 Ask participants:
 
-- What kinds of coding tasks have you used AI for?
-- What felt helpful?
-- What felt risky or confusing?
-- Have you ever accepted code and later realized you did not understand it?
+- Have you already used an AI coding agent on a real project?
+- Are you comfortable with branches, commits, and diffs?
+- Have you asked an agent to run tests or check a page in the browser?
+
+Participants who answer yes can help others during the practice section. They should not take over the keyboard. Their role is to help a partner use the AI coding loop: branch, inspect, plan, change, check, review the diff, commit, and record one lesson.
 
 ## Takeaway
 

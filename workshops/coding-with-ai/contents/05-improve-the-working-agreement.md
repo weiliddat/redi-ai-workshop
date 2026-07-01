@@ -15,9 +15,13 @@ This can go into:
 - review checklists
 - coding agent skills or rules
 
-The exact file name may change across tools. The principle stays the same:
+Different tools use different file names. The principle stays the same:
 
 > Put project knowledge where future you and future AI can use it.
+
+In the 60-minute version, keep this simple:
+
+> Write one note that would help future you, a teammate, or an AI agent do the next task better.
 
 ## Examples
 
@@ -44,8 +48,12 @@ After a task, ask:
 
 > What slowed us down, and what instruction or check would prevent this next time?
 
+Useful agent request:
+
+> Based on what happened in this task, suggest one small update to the project TODO, README, checklist, or agent instructions. Do not edit yet; show me the proposed note first.
+
 ## Takeaway
 
-Every stuck point can become an improvement to the project workflow.
+Every stuck point can improve the project workflow.
 
-This is how participants build skill, project memory, and better AI support at the same time.
+This helps participants build skill, project memory, and better AI support.

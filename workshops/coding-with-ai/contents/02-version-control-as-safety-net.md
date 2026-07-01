@@ -2,7 +2,7 @@
 
 ## Goal
 
-Teach participants to use Git as a normal part of coding with AI.
+We want participants to see Git as a safety net, not as an expert-only tool.
 
 Small commits make AI work safer because they make changes easier to inspect, explain, undo, and review.
 
@@ -10,7 +10,7 @@ This is not a full Git lesson. Participants need the idea of branches, diffs, an
 
 ## Core Habit
 
-Ask the agent to work in small steps.
+Ask the agent to work in small steps, and commit after each step that makes sense on its own.
 
 Good request:
 
@@ -45,7 +45,7 @@ Poor request:
 
 ## Demo
 
-Show the same task in two ways:
+If there is time, show the same task in two ways:
 
 1. one large AI-generated change
 2. three small commits with clear diffs
@@ -60,4 +60,4 @@ Compare:
 
 Frequent commits are not only for experts.
 
-They are how you protect yourself while learning and shipping real work.
+They are how you protect yourself while learning and shipping real work with AI.

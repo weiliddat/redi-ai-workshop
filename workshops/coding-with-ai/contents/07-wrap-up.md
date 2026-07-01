@@ -2,7 +2,7 @@
 
 ## Goal
 
-End with a simple checklist participants can use in project work.
+End with a simple checklist participants can use the next time they code with AI.
 
 ## The Checklist
 
@@ -29,7 +29,7 @@ Before finishing:
 
 AI is useful when it helps you ship better work and become a stronger developer.
 
-Use it to move faster, but keep the AI coding loop:
+You do not need to remember every prompt from today. Remember the loop:
 
 1. start from a safe branch
 2. ask AI to inspect before editing

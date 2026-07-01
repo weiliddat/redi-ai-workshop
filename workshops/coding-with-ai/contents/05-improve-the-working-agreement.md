@@ -2,7 +2,7 @@
 
 ## Goal
 
-Teach participants to improve how they work with AI over time.
+We want participants to see each task as a chance to make the next task easier.
 
 When a project has repeated friction, record the lesson.
 
@@ -24,6 +24,8 @@ In the 60-minute version, keep this simple:
 > Write one note that would help future you, a teammate, or an AI agent do the next task better.
 
 ## Examples
+
+This does not need to be a big documentation project. One useful note is enough.
 
 If the agent repeatedly breaks CSS layout:
 

@@ -2,9 +2,9 @@
 
 ## Goal
 
-Connect the learning research to project work.
+We want participants to stay mentally involved while AI helps them code.
 
-Participants should leave with a clear rule:
+The rule is simple:
 
 > Do not commit code you cannot explain.
 
@@ -26,7 +26,9 @@ In the 60-minute version, use one practical rule:
 
 ## Project Translation
 
-In projects, understanding matters because:
+In a project, understanding is not extra work. It is part of the work.
+
+It matters because:
 
 - you may need to maintain the code later
 - another person may ask why you changed something
@@ -34,6 +36,8 @@ In projects, understanding matters because:
 - future tasks build on today's decisions
 
 ## Prompts to Use
+
+These prompts are useful when a diff looks correct but still feels unclear:
 
 - "Explain this change at the level of a junior developer."
 - "What assumptions did you make?"
@@ -43,7 +47,7 @@ In projects, understanding matters because:
 
 ## Exercise
 
-Give participants an AI-generated diff.
+If this section is taught separately, give participants an AI-generated diff.
 
 Ask them to write:
 

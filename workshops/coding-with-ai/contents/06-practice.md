@@ -2,7 +2,7 @@
 
 ## Goal
 
-Participants practice the AI coding loop on one small project task.
+Now participants try the AI coding loop on one small project task.
 
 The task should be small enough to finish in 20 minutes, with a few minutes left to explain the diff to someone else.
 
@@ -10,7 +10,7 @@ Everyone starts from the same commit. This makes it easier to compare approaches
 
 ## AI Coding Loop
 
-Participants should follow this sequence:
+Use this sequence as a guide. The point is not to move perfectly. The point is to notice when you skip a step and return to the loop.
 
 1. Confirm the starting commit
 2. Create or confirm a branch
@@ -29,7 +29,7 @@ If participants are less comfortable with Git or the agent, they can ask the age
 
 Participants who already know Git, agents, tests, or browser checks can pair with someone nearby.
 
-The helper should ask questions, not take over:
+The helper should ask questions, not take over the keyboard:
 
 - What is the smallest change?
 - What did the agent inspect?

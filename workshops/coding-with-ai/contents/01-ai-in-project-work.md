@@ -2,37 +2,29 @@
 
 ## Goal
 
-Help participants understand why AI coding needs a workflow, not only good prompts.
+We want to help you understand why AI coding needs a workflow, for both an immediate productivity boost, and long term career growth.
 
-AI can make coding faster. Faster does not automatically mean better work or stronger learning.
+"AI can make coding faster. Especially initially. Yet, used without the right mindset and framework, soon your projects will get bogged down by unmaintainable code. At the same time, you lose the chance to build your own skills and judgement."
 
-In a project, a task is finished when the change is useful, understandable, checked, and safe for the people who depend on it.
+## Research references
 
-During this workshop, everyone works in the same project. This lets the group practice a realistic workflow while the teacher supports one setup.
-
-## Research in Plain Language
-
-Two references guide this workshop:
+AI (in the form of LLMs) is a relatively new phenomenon and so we're still studying how it affects our learning skills, or how they differ from humans. Here are two recent papers that inspired why we wanted to have this workshop.
 
 1. **AI assistance and coding skills**  
    AI can help people move faster, but people learn less when they let AI do the thinking. People learn more when they stay active: asking questions, reading code, explaining changes, and writing or adjusting parts themselves.
 
 2. **Humans Don't Just Sample**  
-   Strong long-term work is not one prompt and one answer. It depends on memory, feedback, reflection, and adaptation. In project work, that means tests, browser checks, reviews, commits, docs, and project instructions.
+   Strong long-term work is not one prompt and one answer. It depends on memory, feedback, reflection, and adaptation. In project work, that means tests, browser checks, reviews, commits, docs, and project instructions. Humans still have incredible long-term memory, malleability, and efficiency. Don't underestimate and underuse yourself!
 
 We will not study the papers in detail during this hour. They are in the references for anyone who wants to read more.
 
 ## Key Message
 
-AI can help with real project work, but it also increases your responsibility.
+At the end of each piece of work (feature, bugfix, small change), can you:
 
-You are still responsible for:
-
-- what code changes
-- why it changes
-- whether it works
-- whether private data and project rules are respected
-- whether another person can review it
+- explain what has changed, and how it works?
+- understand the assumptions, decisions, and tradeoffs involved?
+- come back tomorrow with an even better understanding and set up than today?
 
 ## Quick Room Check
 

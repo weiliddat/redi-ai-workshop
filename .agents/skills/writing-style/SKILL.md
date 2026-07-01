@@ -29,6 +29,11 @@ For coding-with-AI content, focus on professional habits: version control, under
 - **Use examples from their world.** Reference HTML, Python, CSS, React, data tasks, Git commits, tests, browser checks, and code review.
 - **Comprehensive but not verbose.** Cover what matters fully. Cut everything else.
 - **Use precise nouns and verbs.** Avoid using "shape" as a vague default word. Replace it with the specific meaning: structure, plan, format, task type, project setup, exercise design, schedule, or workflow.
+- **Sound natural, not mechanical.** Do not give every idea the same weight. Let the main idea carry the section. Use supporting ideas briefly.
+- **Use a human teaching voice.** It is okay to speak directly to participants with "we" and "you" when it makes the point clearer. Avoid sounding like a policy document.
+- **Vary the structure.** Not every section needs the same pattern of goal, message, exercise, and takeaway. Use the structure that fits the teaching moment.
+- **Make research feel useful.** Reference studies as motivation, not as academic proof. Summarize the practical lesson and point readers to the references for details.
+- **Prefer guiding questions for ownership.** When the goal is judgment or reflection, use questions participants can ask themselves instead of only rules they must follow.
 
 ## Writing review process
 
@@ -36,6 +41,8 @@ For coding-with-AI content, focus on professional habits: version control, under
 - Evaluate if there are alternative ways of saying the same thing, in the direction of conciseness or directness.
 - Evaluate if there are metaphors or rhetoric that's unnecessary.
 - Check for repeated vague words such as "shape" and replace them with the specific idea.
+- Check whether the section sounds natural when spoken aloud by a facilitator.
+- Check whether the most important idea is clearly more prominent than the supporting details.
 - Evaluate for pace and rhythm. Not every sentence needs to be important.
 - Think and draft a few possible alternatives.
 - Compare the initial draft and alternatives. Eliminate those that are incomplete or more verbose.

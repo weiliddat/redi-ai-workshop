@@ -73,3 +73,26 @@ By the end, participants should be able to:
 ## Core Participant Message
 
 AI can help you code faster. Your job is to keep the work understandable, checked, and easy to continue.
+
+## Writing and Teaching Guidance
+
+Use the workshop content as facilitator notes, not as a script where every sentence has equal weight.
+
+Each section should have one main job:
+
+- **Why AI Coding Needs a Workflow:** create motivation. Connect AI speed to maintainability, learning, and long-term career growth. Mention the research briefly and naturally.
+- **The AI Coding Loop:** give participants the repeatable model. Keep the sequence clear.
+- **Who Already Knows This?:** use the room. Let experienced participants help others without taking over.
+- **Facilitator Demo:** show the loop once. Do not explain every possible tool feature.
+- **Practice:** give participants time to try the loop on one small task.
+- **Pair Review:** make understanding visible by having participants explain the diff and check.
+- **Wrap-up:** send participants away with one habit they can repeat.
+
+When editing the section files:
+
+- sound like a person teaching, not a checklist generator
+- use "we" and "you" when it helps the content feel direct
+- let some ideas be short supporting notes instead of full sections
+- use questions when you want participants to reflect or take ownership
+- keep research references concise and practical
+- avoid over-standardizing every section into the same format

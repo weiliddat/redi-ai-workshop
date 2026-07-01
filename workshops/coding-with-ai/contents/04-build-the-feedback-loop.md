@@ -2,9 +2,17 @@
 
 ## Goal
 
-Teach participants to ask AI for verification, not only implementation.
+We want participants to ask AI for verification, not only implementation.
 
-Good AI coding follows the AI coding loop:
+The key question is:
+
+> How will we know this is correct?
+
+The agent can help with routine steps: checking Git status, finding test commands, running tests, opening the app, checking a browser page, writing a TODO, or suggesting a commit message. The participant still decides what to accept.
+
+## Where Checks Fit
+
+Checks are one part of the AI coding loop:
 
 1. branch
 2. inspect
@@ -14,8 +22,6 @@ Good AI coding follows the AI coding loop:
 6. review the diff
 7. commit
 8. record one lesson
-
-The agent can help with routine steps: checking Git status, finding test commands, running tests, opening the app, checking a browser page, writing a TODO, or suggesting a commit message. The participant still decides what to accept.
 
 ## Feedback Sources
 

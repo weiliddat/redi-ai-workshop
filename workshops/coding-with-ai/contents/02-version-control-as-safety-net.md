@@ -8,40 +8,27 @@ Small commits make AI work safer because they make changes easier to inspect, ex
 
 This is not a full Git lesson. Participants need the idea of branches, diffs, and commits. If they forget the exact command, they can ask the agent.
 
-## Core Habit
+## Core Message
 
 Ask the agent to work in small steps, and commit after each step that makes sense on its own.
 
-Good request:
-
-> Make only the validation change first. Do not refactor anything else. After the change, show me the diff and suggest a commit message.
-
-Poor request:
-
-> Improve this page and fix anything you find.
-
-## What Participants Should Do
-
-- Create a branch for the task
-- Ask the agent to inspect before editing
-- Change one topic at a time
-- Read the diff before committing
-- Commit after each meaningful step
-- Use commit messages that explain the reason, not only the file changed
-
-## Useful Agent Requests
-
-- "Check that I am on a safe branch for this task. If not, suggest the Git command."
-- "Before editing, inspect the relevant files and tell me what you found."
-- "Make only the smallest useful change. Do not refactor unrelated code."
-- "Show me the diff and explain it in plain language."
-- "Suggest a commit message that explains why this changed."
+During the demo, contrast one focused request with one broad request that asks the agent to change too much at once.
 
 ## Minimal Git Concepts
 
 - **Branch:** a safe workspace for one task.
 - **Diff:** the exact change before you accept it.
 - **Commit:** a checkpoint you can explain, review, and return to.
+
+## What to Show
+
+- Start from a branch.
+- Ask the agent to inspect before editing.
+- Keep the change focused.
+- Read the diff before committing.
+- Commit with a message that explains why the change was made.
+
+The [AI coding checklist](../materials/ai-coding-checklist.md) gives participants the full loop and useful agent requests during practice.
 
 ## Demo
 

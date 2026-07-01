@@ -96,3 +96,8 @@ When editing the section files:
 - use questions when you want participants to reflect or take ownership
 - keep research references concise and practical
 - avoid over-standardizing every section into the same format
+- keep simple words when they work; for example, use `Goal` for a section goal and `Requirements` for requirements instead of replacing them with explanatory labels
+- preserve the human role: participants bring context, judgment, memory, and responsibility for the code they accept
+- keep lesson-plan files focused on teaching intent, flow, timing, and facilitator decisions
+- put participant-shareable examples, prompt lists, worksheets, checklists, and task briefs in `materials/`
+- point from a section file to the relevant material instead of copying long reusable lists into the lesson plan

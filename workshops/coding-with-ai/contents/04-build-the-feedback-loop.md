@@ -10,30 +10,20 @@ The key question is:
 
 The agent can help with routine steps: checking Git status, finding test commands, running tests, opening the app, checking a browser page, writing a TODO, or suggesting a commit message. The participant still decides what to accept.
 
-## Where Checks Fit
-
-Checks are one part of the AI coding loop:
-
-1. branch
-2. inspect
-3. plan
-4. change
-5. check
-6. review the diff
-7. commit
-8. record one lesson
-
-## Feedback Sources
+## Checks to Consider
 
 Use the strongest feedback available for the task:
 
 - tests for logic
 - type checks and linters for code quality
-- browser checks for frontend behavior
-- screenshots for visual changes
+- browser checks or screenshots for frontend behavior
 - logs for backend behavior
 - human review for project judgment
 - acceptance criteria for usefulness
+
+In the workshop, choose one useful check. The point is not to teach every testing tool. The point is to ask, "How will we know this is correct?"
+
+The [AI coding checklist](../materials/ai-coding-checklist.md) covers where the check fits in the full loop.
 
 ## Demo
 
@@ -50,15 +40,9 @@ Then repeat with the AI coding loop:
 - inspect the diff
 - commit
 
-## Prompts to Use
+## Prompt Support
 
-- "Before editing, tell me how you will verify this."
-- "Find the most relevant test or check command for this change."
-- "Add the smallest useful test for this behavior."
-- "Run the app and check the page in the browser."
-- "Take a screenshot and compare it with the expected result."
-- "Update the TODO or project notes with the lesson from this task."
-- "If the test fails, explain the failure before changing code again."
+Use the verification prompts in the [AI coding checklist](../materials/ai-coding-checklist.md) during the demo and practice.
 
 ## Takeaway
 

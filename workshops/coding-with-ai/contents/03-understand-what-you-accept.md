@@ -24,7 +24,7 @@ In the 60-minute version, use one practical rule:
 
 > Read the diff and explain it before you commit.
 
-## Project Translation
+## Why It Matters
 
 In a project, understanding is not extra work. It is part of the work.
 
@@ -35,15 +35,9 @@ It matters because:
 - bugs may appear after a demo, release, or review
 - future tasks build on today's decisions
 
-## Prompts to Use
+## Prompt Support
 
-These prompts are useful when a diff looks correct but still feels unclear:
-
-- "Explain this change at the level of a junior developer."
-- "What assumptions did you make?"
-- "What could break because of this?"
-- "Ask me two questions to check whether I understand this diff."
-- "Point to the exact lines I should review carefully."
+Use the understanding prompts in the [AI coding checklist](../materials/ai-coding-checklist.md) when a diff looks correct but still feels unclear.
 
 ## Exercise
 

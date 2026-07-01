@@ -25,24 +25,9 @@ In the 60-minute version, keep this simple:
 
 ## Examples
 
-This does not need to be a big documentation project. One useful note is enough.
+Use one example from the chosen project. Keep it small: one setup note, one check command, or one instruction that would prevent the same problem next time.
 
-If the agent repeatedly breaks CSS layout:
-
-- add browser screenshot checks to the workflow
-- document the layout rules
-- ask the agent to verify mobile and desktop before finishing
-
-If setup keeps failing:
-
-- document the exact setup commands
-- record known environment variables
-- add a troubleshooting section
-
-If tests are slow or confusing:
-
-- document which tests to run for common changes
-- add a smaller focused test command if possible
+The [AI coding checklist](../materials/ai-coding-checklist.md) gives participants prompts they can reuse for project notes.
 
 ## Reflection Prompt
 
@@ -50,9 +35,7 @@ After a task, ask:
 
 > What slowed us down, and what instruction or check would prevent this next time?
 
-Useful agent request:
-
-> Based on what happened in this task, suggest one small update to the project TODO, README, checklist, or agent instructions. Do not edit yet; show me the proposed note first.
+Ask the agent for a proposed note before editing project docs.
 
 ## Takeaway
 

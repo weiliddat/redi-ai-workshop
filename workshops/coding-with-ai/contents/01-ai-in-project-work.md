@@ -2,31 +2,30 @@
 
 ## Goal
 
-We want to help you understand why AI coding needs a workflow, for both an immediate productivity boost, and long term career growth.
+Help participants see why AI coding needs a workflow, both for immediate productivity and long-term career growth.
 
-"AI can make coding faster. Especially initially. Yet, used without the right mindset and framework, soon your projects will get bogged down by unmaintainable code. At the same time, you lose the chance to build your own skills and judgement."
+AI can make coding faster. Without a workflow, projects can become harder to maintain, and participants miss chances to build their own skill and judgment.
 
-## Research references
+The agent can generate options. The participant connects the project context, checks the result, and decides what to keep.
 
-AI (in the form of LLMs) is a relatively new phenomenon and so we're still studying how it affects our learning skills, or how they differ from humans. Here are two recent papers that inspired why we wanted to have this workshop.
+## Research Notes
 
-1. **AI assistance and coding skills**  
-   AI can help people move faster, but people learn less when they let AI do the thinking. People learn more when they stay active: asking questions, reading code, explaining changes, and writing or adjusting parts themselves.
+Mention these briefly. Use the research to motivate the workflow, not to give a research lecture.
 
-2. **Humans Don't Just Sample**  
-   Strong long-term work is not one prompt and one answer. It depends on memory, feedback, reflection, and adaptation. In project work, that means tests, browser checks, reviews, commits, docs, and project instructions. Humans still have incredible long-term memory, malleability, and efficiency. Don't underestimate and underuse yourself!
+- **AI assistance and coding skills:** people can move faster with AI, but they learn more when they stay active: asking questions, reading code, explaining changes, and writing or adjusting parts themselves.
+- **Humans Don't Just Sample:** strong project work depends on memory, feedback, reflection, and adaptation. Humans bring long-term knowledge, judgment, and the ability to improve the workflow over time. That is why we use tests, browser checks, reviews, commits, docs, and project instructions.
 
-We will not study the papers in detail during this hour. They are in the references for anyone who wants to read more.
+The papers are in [`reference.md`](../reference.md) for anyone who wants to read more.
 
-## Key Message
+## Key Questions
 
 At the end of each piece of work (feature, bugfix, small change), can you:
 
 - explain what has changed, and how it works?
 - understand the assumptions, decisions, and tradeoffs involved?
-- come back tomorrow with an even better understanding and set up than today?
+- come back tomorrow with an even better understanding and setup than today?
 
-## Quick Room Check
+## Room Check
 
 Ask participants:
 
@@ -34,7 +33,7 @@ Ask participants:
 - Are you comfortable with branches, commits, and diffs?
 - Have you asked an agent to run tests or check a page in the browser?
 
-Participants who answer yes can help others during the practice section. They should not take over the keyboard. Their role is to help a partner use the AI coding loop: branch, inspect, plan, change, check, review the diff, commit, and record one lesson.
+Participants who answer yes can help during practice. Ask them to guide with questions, not take over the keyboard. Use the [reviewer and facilitator guide](../materials/reviewer-facilitator-guide.md) for the detailed helper role.
 
 ## Takeaway
 

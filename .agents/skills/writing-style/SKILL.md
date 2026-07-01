@@ -30,10 +30,13 @@ For coding-with-AI content, focus on professional habits: version control, under
 - **Comprehensive but not verbose.** Cover what matters fully. Cut everything else.
 - **Use precise nouns and verbs.** Avoid using "shape" as a vague default word. Replace it with the specific meaning: structure, plan, format, task type, project setup, exercise design, schedule, or workflow.
 - **Sound natural, not mechanical.** Do not give every idea the same weight. Let the main idea carry the section. Use supporting ideas briefly.
+- **Keep simple words when they work.** Do not replace clear everyday terms with more formal labels unless the new label is genuinely clearer. For example, keep "goal" instead of "job of this section," and keep "requirements" instead of restating the definition of requirements.
 - **Use a human teaching voice.** It is okay to speak directly to participants with "we" and "you" when it makes the point clearer. Avoid sounding like a policy document.
 - **Vary the structure.** Not every section needs the same pattern of goal, message, exercise, and takeaway. Use the structure that fits the teaching moment.
 - **Make research feel useful.** Reference studies as motivation, not as academic proof. Summarize the practical lesson and point readers to the references for details.
 - **Prefer guiding questions for ownership.** When the goal is judgment or reflection, use questions participants can ask themselves instead of only rules they must follow.
+- **Respect the file's job.** Lesson plans and facilitator notes should explain what to teach, why it matters, and how to run the section. Participant-shareable checklists, prompt lists, reusable examples, worksheets, and task briefs belong in `materials/` or another participant-facing file.
+- **Do not solve concision by thinning the lesson.** If a sentence carries the human role, project judgment, cognitive engagement, or long-term learning, preserve that emphasis in plain language.
 
 ## Writing review process
 
@@ -43,6 +46,8 @@ For coding-with-AI content, focus on professional habits: version control, under
 - Check for repeated vague words such as "shape" and replace them with the specific idea.
 - Check whether the section sounds natural when spoken aloud by a facilitator.
 - Check whether the most important idea is clearly more prominent than the supporting details.
+- Check whether examples or prompt lists belong in participant materials instead of the lesson-plan file.
+- Check whether concise edits accidentally removed the participant's role in understanding, judgment, or improving the workflow.
 - Evaluate for pace and rhythm. Not every sentence needs to be important.
 - Think and draft a few possible alternatives.
 - Compare the initial draft and alternatives. Eliminate those that are incomplete or more verbose.

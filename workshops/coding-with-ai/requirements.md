@@ -1,38 +1,41 @@
 # Requirements
 
-## Coordinator
+Keep this file focused on requirements for running the workshop.
 
-- [ ] Choose the workshop project
-- [ ] Decide whether to use a workshop-built repo or a pinned commit from an open-source project
-- [ ] Confirm the project can be shared with all participants
-- [ ] Prepare a fallback shared API key through OpenRouter if needed
-- [ ] Share setup instructions at least one week before the workshop
+Planning tasks belong in `TODO.md`. Project selection criteria belong in `materials/shared-project-guide.md`.
 
-## Mentor or Reviewer
+## Workshop Setup
 
-- [ ] Review the project and target task before the workshop
-- [ ] Prepare one small change participants can attempt safely
-- [ ] Review the participant's commits after the workshop
-- [ ] Help the participant decide what project instructions should be added or updated
+- One shared repository is ready for all participants.
+- The exact starting commit is pinned.
+- Setup has been tested on common participant laptops.
+- The practice task is small enough for the 22-minute practice section.
+- The task has clear acceptance criteria and one useful check.
+- A fallback is ready if the AI tool, account setup, or local environment fails.
+- The privacy rule is clear: use only the workshop project and workshop data with AI tools.
 
-## Teacher
+## Teacher Setup
 
-- [ ] Prepare the repository with Git history
-- [ ] Pin the exact starting commit
-- [ ] Prepare setup steps for the project
-- [ ] Prepare the target change and acceptance criteria
-- [ ] Prepare examples of good and poor AI coding workflows
-- [ ] Prepare a failing test, browser bug, or screenshot mismatch for the feedback loop demo
-- [ ] Prepare an example `AGENTS.md` or project instructions file
+- The teacher can complete the demo in 10 minutes.
+- The teacher has exact setup commands, check commands, demo prompts, and expected outputs.
+- The teacher has one example of a poor AI coding workflow and one example of the better loop.
+- The teacher has common setup failures and fixes ready.
 
-## Participants
+## Participant Setup
 
-- [ ] Have Git installed
-- [ ] Have an editor installed, such as VSCode
-- [ ] Know how to create a branch, commit, and view a diff
-- [ ] Have the workshop repository cloned
-- [ ] Have OpenCode installed and working
-- [ ] Have an OpenCode account, or access to the workshop's shared OpenRouter setup
-- [ ] Know not to paste private project or client data into AI tools unless explicitly allowed
+Participants need:
 
-Note: OpenCode is the default because it is more affordable than many coding agents. Check current pricing before sending setup instructions. If the price is still a barrier, use OpenRouter with a shared API key and a lower-cost model.
+- Git
+- an editor, such as VSCode
+- the workshop repository cloned
+- the agreed AI coding tool installed or available through the workshop fallback
+- a clear privacy rule: use only the workshop project and workshop data with AI tools
+
+Participants do not need to memorize Git commands. They should understand branches, diffs, and commits well enough to ask the agent for help and review what it does.
+
+## Facilitator and Reviewer Readiness
+
+- Helpers know the practice task, expected check, and stop point.
+- Helpers know how to review a small diff and a commit message.
+- Helpers use the [reviewer and facilitator guide](materials/reviewer-facilitator-guide.md) to support participants without taking over.
+- Participants receive the [AI coding checklist](materials/ai-coding-checklist.md) before practice.

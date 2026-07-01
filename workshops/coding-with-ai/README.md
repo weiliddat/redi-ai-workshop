@@ -37,8 +37,9 @@ The goal is to learn a professional way to code with AI.
 
 ```
 workshop.md          - Schedule, structure, and section goals
-requirements.md      - What coordinators, facilitators, reviewers, and participants need
+requirements.md      - Requirements for running the workshop
 reference.md         - Research and sources for this version
+TODO.md              - Remaining design work before the workshop is runnable
 contents/            - Section-by-section workshop drafts
 comms/               - Participant communications
 materials/           - Checklists and facilitator/reviewer support material

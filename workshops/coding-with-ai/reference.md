@@ -17,6 +17,8 @@ For people coding with AI, the lesson is practical:
 - read diffs before committing
 - use review and tests to check your understanding
 
+The same lesson applies to mental models. Participants need a working understanding of the problem, their tools, and the solution they are changing. AI can help by running small experiments, reading source code, and testing a hypothesis quickly, but the participant still needs to interpret the result.
+
 ---
 
 ## Humans Don't Just Sample

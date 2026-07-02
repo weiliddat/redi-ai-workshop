@@ -27,6 +27,7 @@ Avoid broad requests like:
 - [ ] I read the diff
 - [ ] I can explain what changed
 - [ ] I can explain why it changed
+- [ ] If something was unclear, I tested one assumption about the code or tools
 - [ ] I asked what could break
 
 Useful agent requests:
@@ -36,6 +37,10 @@ Useful agent requests:
 - "What could break because of this?"
 - "Ask me two questions to check whether I understand this diff."
 - "Point to the exact lines I should review carefully."
+- "I think this language feature works like this: [explain your guess]. Create a tiny temporary script to test it, run it, and explain the result."
+- "Find where this framework behavior is documented or implemented. Show me the relevant source, then explain the behavior in plain language."
+- "Before changing the app, make a tiny example that checks whether this API works the way I think."
+- "Turn what we learned from this experiment into a short note I could add to project docs."
 
 ## Verification
 

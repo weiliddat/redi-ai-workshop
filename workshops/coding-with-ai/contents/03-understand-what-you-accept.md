@@ -28,6 +28,18 @@ In the 60-minute version, use one practical rule:
 
 In a project, understanding is not extra work. It is part of the work.
 
+Good engineers build useful mental models:
+
+- the problem they are solving
+- the tools they are using
+- the solution they are changing
+
+A mental model is your working explanation of how something behaves. It does not need to be perfect at first. It needs to be strong enough that you can make a prediction, test it, and improve it.
+
+AI makes this easier. If a language feature, framework behavior, data tool, design tool, or command is unclear, ask the agent to test the idea with you. It can create a small temporary script, inspect source code, run a quick experiment, or explain what the result means.
+
+The goal is not to collect AI answers. The goal is to build understanding you can use later.
+
 It matters because:
 
 - you may need to maintain the code later
@@ -37,7 +49,7 @@ It matters because:
 
 ## Prompt Support
 
-Use the understanding prompts in the [AI coding checklist](../materials/ai-coding-checklist.md) when a diff looks correct but still feels unclear.
+Use the understanding and hypothesis-testing prompts in the [AI coding checklist](../materials/ai-coding-checklist.md) when a diff looks correct but still feels unclear.
 
 ## Exercise
 

@@ -4,7 +4,9 @@ This workshop is for people using AI to code on projects.
 
 Participants use one project during the workshop.
 
-This can be a small repo built for the workshop or a pinned commit from an open-source project. Using one project keeps everyone on the same task, setup, and debugging path.
+For this run, the project is a prepared browser chat client in `materials/project`. Participants receive it as a zip, initialize their own Git repo, and use it to practice the AI coding loop.
+
+Using one project keeps everyone on the same task, setup, and debugging path.
 
 The core version is a 60-minute session. It can also become part of a longer 3-hour workshop.
 
@@ -43,4 +45,6 @@ TODO.md              - Remaining design work before the workshop is runnable
 contents/            - Section-by-section workshop drafts
 comms/               - Participant communications
 materials/           - Checklists and facilitator/reviewer support material
+materials/participant-setup.md - Participant setup checklist
+materials/project/   - Shared chat client project for participant practice
 ```

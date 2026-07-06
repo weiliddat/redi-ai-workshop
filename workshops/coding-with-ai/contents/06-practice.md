@@ -6,13 +6,15 @@ Now participants try the AI coding loop on one small project task.
 
 The task should be small enough to finish in about 20 minutes, with a few minutes left to explain the diff to someone else.
 
-Everyone starts from the same commit. This makes it easier to compare approaches, debug setup problems, and review commits together.
+Everyone starts from the same baseline. This makes it easier to compare approaches, debug setup problems, and review commits together.
+
+For this workshop, everyone uses the prepared chat client in `materials/project`. Participants receive it as a zip before class, unzip it, initialize Git, and make the first commit themselves.
 
 ## AI Coding Loop
 
 Use this sequence as a guide. The point is not to move perfectly. The point is to notice when you skip a step and return to the loop.
 
-1. Confirm the starting commit.
+1. Confirm the starting baseline and a clean Git status.
 2. Create or confirm a branch.
 3. Ask AI to inspect the relevant files.
 4. Ask AI for a short plan.
@@ -29,7 +31,7 @@ Use the [AI coding checklist](../materials/ai-coding-checklist.md) during practi
 
 Give participants only what they need to act:
 
-- starting commit
+- starting baseline
 - target task
 - acceptance criteria
 - check command or manual check
@@ -39,7 +41,17 @@ If participants are less comfortable with Git or the agent, they can ask the age
 
 ## Practice Task
 
-Use the prepared task from the [shared project guide](../materials/shared-project-guide.md). Do not choose participant-owned projects during the workshop.
+Use the prepared chat client task: [Show Message Times](../materials/project/PRACTICE_TASK.md).
+
+Do not choose participant-owned projects during the workshop.
+
+Practice setup:
+
+Use the setup commands in the project README. Do not copy them into the lesson plan; the README is the canonical source for participant project setup.
+
+Then participants open `http://localhost:5173` and connect to the facilitator's chat server.
+
+If the facilitator wants a bug-fix exercise, use the rejected-connection bug described in the project README and `PRACTICE_TASK.md`: after a duplicate name or other rejected connection, the client should return to the join form so the participant can try again without refreshing.
 
 ## Helper Role
 

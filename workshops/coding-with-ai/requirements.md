@@ -6,11 +6,13 @@ Planning tasks belong in `TODO.md`. Project selection criteria belong in `materi
 
 ## Workshop Setup
 
-- One shared repository is ready for all participants.
-- The exact starting commit is pinned.
+- One shared project is ready for all participants in `materials/project`.
+- A zip of the shared chat client is prepared for distribution.
+- Participants initialize their own Git repo from the unzipped baseline.
 - Setup has been tested on common participant laptops.
 - The practice task is small enough for the 22-minute practice section.
 - The task has clear acceptance criteria and one useful check.
+- The facilitator can run the reused chat server from `workshops/learning-with-ai/materials/chat-server`.
 - A fallback is ready if the AI tool, account setup, or local environment fails.
 - The privacy rule is clear: use only the workshop project and workshop data with AI tools.
 
@@ -23,13 +25,9 @@ Planning tasks belong in `TODO.md`. Project selection criteria belong in `materi
 
 ## Participant Setup
 
-Participants need:
+Participants complete the [participant setup checklist](materials/participant-setup.md) before the workshop.
 
-- Git
-- an editor, such as VSCode
-- the workshop repository cloned
-- the agreed AI coding tool installed or available through the workshop fallback
-- a clear privacy rule: use only the workshop project and workshop data with AI tools
+The checklist is the canonical source for required tools, Git configuration, browser setup, AI tool access, and the privacy rule.
 
 Participants do not need to memorize Git commands. They should understand branches, diffs, and commits well enough to ask the agent for help and review what it does.
 

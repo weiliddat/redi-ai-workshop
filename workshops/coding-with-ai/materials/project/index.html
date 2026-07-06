@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workshop Chat</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="panel setup-panel" id="setup-panel">
+        <p class="eyebrow">Coding with AI workshop</p>
+        <h1>Join the chat</h1>
+        <p class="intro">
+          Connect to the facilitator's chat server. Use a workshop name, not private personal data.
+        </p>
+
+        <form id="connect-form" class="connect-form">
+          <label>
+            Server URL
+            <input id="server-url" name="serverUrl" value="ws://localhost:3000" autocomplete="off">
+          </label>
+
+          <label>
+            Display name
+            <input id="display-name" name="displayName" placeholder="Ada" autocomplete="name">
+          </label>
+
+          <button type="submit">Connect</button>
+          <p class="form-error" id="connect-error" role="alert"></p>
+        </form>
+      </section>
+
+      <section class="panel chat-panel hidden" id="chat-panel" aria-live="polite">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Workshop Chat</p>
+            <h1 id="chat-title">Disconnected</h1>
+          </div>
+          <div class="status" id="connection-status">Offline</div>
+        </header>
+
+        <div class="toolbar">
+          <button id="list-users" type="button">Show users</button>
+          <button id="disconnect" type="button" class="secondary">Disconnect</button>
+        </div>
+
+        <ol class="messages" id="messages"></ol>
+
+        <form id="message-form" class="message-form">
+          <label class="visually-hidden" for="message-input">Message</label>
+          <input id="message-input" placeholder="Type a message, or /nick NewName" autocomplete="off">
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

@@ -15,17 +15,17 @@ We will focus on how to use AI in a professional workflow:
 
 Everyone will use one workshop project. You do not need to bring your own project.
 
+We will send you a zip file for a small workshop chat client. In the workshop, you will unzip it, create a Git repo, and use AI to make one focused improvement.
+
 ## Before the Workshop
 
-Please prepare:
+Please complete the [participant setup checklist](../materials/participant-setup.md).
 
-- Git installed on your computer
-- an editor installed, such as VSCode
-- OpenCode installed and working
-- an OpenCode account, or the workshop OpenRouter setup if we provide one
-- the workshop repository cloned
+It covers the tools, AI access, and privacy rule for the workshop.
 
-We plan to use OpenCode because it is one of the more affordable coding agents. We will confirm the exact setup before the workshop. If needed, we may provide access through OpenRouter with a lower-cost model.
+You do not need to clone a repository before the workshop. We will create the Git repo from the unzipped project together.
+
+If any setup checklist item does not work, contact the facilitator before class so we can arrange a fallback.
 
 Important: do not paste private project or client data into an AI tool unless a mentor, teacher, coordinator, reviewer, or project owner has confirmed it is allowed.
 

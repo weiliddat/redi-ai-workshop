@@ -70,3 +70,46 @@ Useful agent requests:
 - "Show me the diff and explain it in plain language."
 - "Suggest a commit message that explains why this changed."
 - "Based on what happened in this task, suggest one small update to the project TODO, README, checklist, or agent instructions. Do not edit yet; show me the proposed note first."
+
+## FAQ
+
+**When should I start a new thread (conversation with the agent) instead of continuing?**  
+Start fresh when you begin a new task, or when the thread is long and the agent seems confused. A new thread with a clear request often works better than correcting an old one. Long threads are also slower and cost more.
+
+**Should I use one thread for the whole feature?**  
+Prefer one thread per small task. Commit, then start the next task in a new thread.
+
+**The agent forgot something I told it. Why?**  
+Long conversations get summarized or drop details. Repeat the important instruction, or put it in the project's agent instructions file (often `AGENTS.md`) so every thread sees it.
+
+**The agent broke something. Should I ask it to fix it, or undo?**  
+If the diff (the list of changed lines) is small and you understand the failure, ask for a fix. If you are lost or the agent keeps failing, undo with Git and retry with a smaller, clearer request. This is why you commit often.
+
+**The agent keeps trying the same failing fix. What now?**  
+Stop the loop. Ask it to explain the failure before changing code, or investigate one assumption yourself. After two or three failed attempts, step back and rethink the task.
+
+**How big a task can I give in one go?**  
+Small enough that you can read and understand the diff. If you cannot review it, it was too big. Split large tasks into steps and commit after each.
+
+**Should I tell the agent how to solve the problem, or just
+what I want?**  
+Start with what you want and how you will check it worked. Add the "how" only when you have a real preference.
+
+**The code works but I don't understand it. Can I commit?**  
+Not yet. Ask for an explanation at your level, or ask the agent to quiz you on the diff. Understanding is part of the job.
+
+**The agent changed files I didn't ask about. What should I
+do?**  
+Read the diff and ask why. If the extra changes are not needed, ask the agent to undo them and keep only the focused change.
+
+**How do I know the agent's explanation is correct?**  
+Confidence is not correctness. Check it with a test, a tiny experiment script, or the official documentation. You can also ask a second agent (for example Claude, ChatGPT, or Gemini on the web) to review the explanation. If you cannot verify it, treat it as a guess.
+
+**What if I don't know the right technical words?**  
+Describe the problem in plain language: what you did, what you expected, what happened. Asking "what does this term mean?" mid-task is normal and useful.
+
+**When do I commit?**  
+After every focused change that works. Small commits are easy to review, undo, and explain.
+
+**What belongs in project docs instead of the chat?**  
+Anything you want to remember next time: setup steps, lessons learned, project rules, verification commands. Chat threads disappear; docs and agent instructions persist.

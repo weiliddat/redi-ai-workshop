@@ -45,6 +45,7 @@ TODO.md              - Remaining design work before the workshop is runnable
 contents/            - Section-by-section workshop drafts
 comms/               - Participant communications
 materials/           - Checklists and facilitator/reviewer support material
+materials/opencode-model-testing.md - OpenCode and model testing questions
 materials/participant-setup.md - Participant setup checklist
 materials/project/   - Shared chat client project for participant practice
 ```

@@ -9,6 +9,7 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
 - [ ] Decide the AI tool setup now: OpenCode auth path, or the OpenRouter fallback.
   - The comms cannot go out with "we will confirm the setup later" again. This was the top failure in the last retro.
   - If using a shared OpenRouter key: set a spend cap and check per-key rate limits for 15-25 concurrent users.
+  - Use `materials/opencode-model-testing.md` to find the minimum acceptable OpenCode model before recommending it.
 
 - [x] Choose and pin the shared project.
   - Use `materials/project`: a prepared browser chat client distributed as a zip.
@@ -31,6 +32,7 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
 
 - [ ] Do a solo run of the practice task with the actual model before writing the runbook.
   - Latency and one-shot behavior will surprise you; this decides whether the 22-minute practice slot is realistic.
+  - Record model caveats using `materials/opencode-model-testing.md`.
 
 ## Wednesday — teacher runbook, ready for the dry run
 

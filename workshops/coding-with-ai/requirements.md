@@ -22,6 +22,7 @@ Planning tasks belong in `TODO.md`. Project selection criteria belong in `materi
 - The teacher has exact setup commands, check commands, demo prompts, and expected outputs.
 - The teacher has one example of a poor AI coding workflow and one example of the better loop.
 - The teacher has common setup failures and fixes ready.
+- The teacher has tested the planned OpenCode model path with the [OpenCode and model testing guide](materials/opencode-model-testing.md).
 
 ## Participant Setup
 

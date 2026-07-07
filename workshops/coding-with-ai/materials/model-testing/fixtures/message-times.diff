@@ -1,0 +1,68 @@
+diff --git a/src/app.js b/src/app.js
+index 73a195e..21e9a53 100644
+--- a/src/app.js
++++ b/src/app.js
+@@ -2,6 +2,7 @@ import {
+   buildConnectionUrl,
+   createOutgoingMessage,
+   describeChatEvent,
++  formatEventTime,
+ } from "./chat-protocol.js";
+ 
+ const setupPanel = document.querySelector("#setup-panel");
+@@ -101,7 +102,8 @@ function addMessage(event) {
+ 
+   const meta = document.createElement("div");
+   meta.className = "message-meta";
+-  meta.textContent = description.label;
++  const time = formatEventTime(event.timestamp);
++  meta.textContent = time ? `${description.label} · ${time}` : description.label;
+ 
+   const text = document.createElement("div");
+   text.className = "message-text";
+diff --git a/src/chat-protocol.js b/src/chat-protocol.js
+index 429f14e..d6612ed 100644
+--- a/src/chat-protocol.js
++++ b/src/chat-protocol.js
+@@ -15,6 +15,19 @@ export function buildConnectionUrl(serverUrl, displayName) {
+   return url.toString();
+ }
+ 
++export function formatEventTime(timestamp) {
++  if (!timestamp) {
++    return "";
++  }
++
++  const date = new Date(timestamp);
++  if (Number.isNaN(date.getTime())) {
++    return "";
++  }
++
++  return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
++}
++
+ export function createOutgoingMessage(text) {
+   const trimmedText = text.trim();
+ 
+diff --git a/test/chat-protocol.test.js b/test/chat-protocol.test.js
+index 9ebdb98..a089997 100644
+--- a/test/chat-protocol.test.js
++++ b/test/chat-protocol.test.js
+@@ -5,6 +5,7 @@ import {
+   buildConnectionUrl,
+   createOutgoingMessage,
+   describeChatEvent,
++  formatEventTime,
+ } from "../src/chat-protocol.js";
+ 
+ test("buildConnectionUrl adds the display name", () => {
+@@ -57,3 +58,9 @@ test("describeChatEvent describes server events", () => {
+     text: "Ada, Grace",
+   });
+ });
++
++test("formatEventTime formats a short local time", () => {
++  assert.equal(formatEventTime(""), "");
++  assert.equal(formatEventTime("not a date"), "");
++  assert.match(formatEventTime("2026-07-06T10:42:00.000Z"), /\d{1,2}:\d{2}/);
++});

@@ -1,32 +1,74 @@
-# Participant Update - One Week Before
+# Slack Setup Message
 
-Hi everyone,
+Hi everyone!
 
-Next week we will run a workshop on coding with AI.
+For Friday’s workshop, we need you to install some tools and subscribe to an affordable AI coding subscription.
 
-This workshop is for people using AI to code on projects.
+We will all work on the same provided project.
 
-We will focus on how to use AI in a professional workflow:
+The goal is to practice using an AI coding agent while still checking, understanding, and owning the code we accept.
 
-- making small Git commits
-- understanding the code AI suggests
-- testing and checking changes before accepting them
-- improving project instructions so future work gets easier
+I will post a setup screenshot in this thread showing the expected result for:
 
-Everyone will use one workshop project. You do not need to bring your own project.
+- `git --version`
+- `node --version`
+- `npm --version`
+- OpenCode
 
-We will send you a zip file for a small workshop chat client. In the workshop, you will unzip it, create a Git repo, and use AI to make one focused improvement.
+If your setup looks similar, you do not need to reply.
 
-## Before the Workshop
+If you get stuck or your output looks different, reply in this thread.
 
-Please complete the [participant setup checklist](../materials/participant-setup.md).
+## Install/check the required tools
 
-It covers the tools, AI access, and privacy rule for the workshop.
+- Git: <https://git-scm.com/downloads>
+- Node.js 20 or newer: <https://nodejs.org/>
+- A paid coding agent
+  - If you already subscribe to Claude Code or Codex, you can use those.
+  - Otherwise I recommend OpenCode: <https://opencode.ai/download>
+  - If you like using software in the terminal, install the CLI version.
+  - Otherwise, for ease of use, install the desktop version.
+- Optional: VSCode or another code editor: <https://code.visualstudio.com/download>
+- Browser, which you probably already have: Google Chrome: <https://www.google.com/chrome/>
 
-You do not need to clone a repository before the workshop. We will create the Git repo from the unzipped project together.
+## Instructions to install / subscribe to OpenCode
 
-If any setup checklist item does not work, contact the facilitator before class so we can arrange a fallback.
+1. Subscribe to OpenCode Go: <https://opencode.ai/go>
 
-Important: do not paste private project or client data into an AI tool unless a mentor, teacher, coordinator, reviewer, or project owner has confirmed it is allowed.
+   OpenCode Go is $5 for the first month, then $10/month. You can cancel immediately after the workshop if you are unsure.
 
-See you there.
+   Subscribe, then copy your OpenCode Go API key.
+
+2. Open OpenCode to connect it to OpenCode Go.
+
+   For the CLI version, type:
+
+   ```text
+   /connect
+   ```
+
+   You should see a popup letting you select **OpenCode Go**. Paste your API key there.
+
+   For the desktop version, click the gear icon on the bottom left, then click **Providers**. You should see **OpenCode Go** listed there. Paste your API key there.
+
+3. Test that OpenCode is working.
+
+   In the main chat window, type:
+
+   ```text
+   /model
+   ```
+
+   A popup should show different AI models.
+
+   Under **OpenCode Go**, select **MiniMax-M3**.
+
+   Type this in the chat window and hit enter:
+
+   ```text
+   Hello
+   ```
+
+   You should see it greet back.
+
+Setup problems are normal. Please send them early so we can fix them before Friday.

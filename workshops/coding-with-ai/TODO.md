@@ -6,10 +6,10 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
 
 ## Monday — decisions that block everything else
 
-- [ ] Decide the AI tool setup now: OpenCode auth path, or the OpenRouter fallback.
-  - The comms cannot go out with "we will confirm the setup later" again. This was the top failure in the last retro.
-  - If using a shared OpenRouter key: set a spend cap and check per-key rate limits for 15-25 concurrent users.
-  - Use `materials/opencode-model-testing.md` to find the minimum acceptable OpenCode model before recommending it.
+- [x] Decide the AI tool setup now: OpenCode auth path, or the OpenRouter fallback.
+  - Default: OpenCode Go with MiniMax M3.
+  - Fallbacks: MiMo V2.5 Pro, then MiMo V2.5 Free if paid access is a blocker.
+  - Keep browser validation and repeat runs in the solo run and dry run.
 
 - [x] Choose and pin the shared project.
   - Use `materials/project`: a prepared browser chat client distributed as a zip.
@@ -21,9 +21,9 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
 
 ## Tuesday — comms out, participant materials done
 
-- [ ] Send the participant setup email with a proof-of-success step.
-  - Exact install and auth steps, download the chat client zip, then: "run `opencode` and ask it to say hello; reply with a screenshot."
-  - This is the single highest-leverage item. Setup failure is the one risk that can sink the 60 minutes, and email-time is the last chance to catch it before Friday.
+- [x] Send the participant setup message in Slack.
+  - Include install/auth steps, the facilitator setup screenshot, and ask only blocked participants to reply in thread.
+  - This is the single highest-leverage item. Setup failure is the one risk that can sink the 60 minutes, and Slack is the last chance to catch it before Friday.
   - Keep `comms/participant-update-week-before.md` aligned with `materials/participant-setup.md`.
 
 - [ ] Write the participant exercise brief.
@@ -57,7 +57,7 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
 
 ## Friday morning — final checks
 
-- [ ] Chase participants who have not sent the setup screenshot; pair them with someone who has a working setup.
+- [ ] Check the Slack thread for setup problems; pair blocked participants with someone who has a working setup.
 - [ ] Confirm the pinned commit, key/auth, and fallback still work.
 
 ## Cut for this run (revisit for the next one)

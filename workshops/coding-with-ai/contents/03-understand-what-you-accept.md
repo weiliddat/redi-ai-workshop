@@ -16,12 +16,15 @@ The better pattern was active use:
 
 - ask for explanations
 - ask conceptual questions
+- write or actively shape your plan and decide which AI feedback to use
 - read the generated code
 - write or modify parts yourself
 - debug with understanding, not repeated guessing
 
-In the 60-minute version, use one practical rule:
+In the 60-minute version, use two practical rules:
 
+> Take ownership of the plan before AI edits.
+>
 > Read the diff and explain it before you commit.
 
 ## Why It Matters

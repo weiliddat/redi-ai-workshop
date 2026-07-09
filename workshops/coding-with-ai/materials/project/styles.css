@@ -77,8 +77,8 @@ h1 {
   line-height: 1.2;
 }
 
-.intro {
-  color: #111827;
+.setup-panel h1 {
+  margin-bottom: 1.5rem;
 }
 
 .connect-form,

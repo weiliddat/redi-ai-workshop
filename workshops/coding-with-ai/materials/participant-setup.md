@@ -164,12 +164,6 @@ http://localhost:5173
 
 It is okay if you cannot connect to the chat server yet. The facilitator will run the server during the workshop.
 
-## Privacy rule
-
-Use only the workshop project and workshop data with AI tools.
-
-Do not paste private project, client, or personal data into an AI tool unless the project owner has confirmed it is allowed.
-
 ## Setup help message
 
 If something fails, send this in Slack:

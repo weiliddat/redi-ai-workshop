@@ -24,13 +24,13 @@ The goal is to learn a professional way to code with AI.
 ## Core Ideas
 
 1. **Use the AI coding loop**  
-   Branch, inspect, plan, change, check, review the diff, commit, and record one lesson.
+   Start clean, inspect, write and revise a plan with AI feedback, implement it, check, review the diff, commit, and record one lesson.
 
 2. **Use version control liberally**  
    Work in small changes. Commit often. Keep each change focused on one topic.
 
 3. **Build your own understanding**  
-   AI can explain, suggest, and draft. You still need to understand the code you accept.
+   Stay involved in the decisions. Writing even a high-level plan, evaluating AI feedback, and understanding the code you accept are useful ways to keep control.
 
 4. **Improve the loop as you go**  
    Add tests, run the app, use the browser, take screenshots, and ask for reviews. If you get stuck, update the project instructions so the same problem is easier next time.

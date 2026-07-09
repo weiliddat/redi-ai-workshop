@@ -17,7 +17,7 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
 
 - [x] Define one practice task plus one stretch task.
   - Practice task: show short local times for chat events. See `materials/project/PRACTICE_TASK.md`.
-  - Stretch task: add one small follow-up in a separate commit. See `materials/shared-project-guide.md`.
+  - Stretch task: add one small follow-up in a separate commit. See `materials/project/PRACTICE_TASK.md`.
 
 ## Tuesday — comms out, participant materials done
 
@@ -26,14 +26,13 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
   - This is the single highest-leverage item. Setup failure is the one risk that can sink the 60 minutes, and Slack is the last chance to catch it before Friday.
   - Keep `comms/participant-update-week-before.md` aligned with `materials/participant-setup.md`.
 
-- [x] Write the participant exercise brief.
-  - Done: `materials/participant-exercise-brief.md`.
-  - Loop step 8 marked "if you have time"; the step-10 lesson note is the pair-review activity.
+- [x] Write the participant practice task.
+  - Done: `materials/project/PRACTICE_TASK.md`.
+  - Includes the main task, AI coding loop, stop point, and optional follow-up tasks.
 
 - [x] Do a solo run of the practice task with the actual model before writing the runbook.
   - Folded into the dry run: follow the "Before the workshop" playbook in `materials/teacher-runbook.md`.
   - It covers the browser checks the model evaluation could not run (G1 duplicate-name flow, G2 timestamp display) and records the fallback session.
-  - Fill in the `[DRY RUN]` markers in the runbook the same day.
 
 ## Wednesday — teacher runbook, ready for the dry run
 
@@ -41,7 +40,6 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
   - Done: `materials/teacher-runbook.md`.
   - The ONE demo: the rejected-connection bug fix (content 04's demo); the 02 contrast is one sentence inside it.
   - Includes diff-reading 60 seconds, the 0:50 hard call, prompts, commands, timing, failure table, room-check prompt.
-  - Expected outputs and latency have `[DRY RUN]` markers to fill during the dry run.
 
 - [x] Define the AI-failure fallback.
   - In the runbook: pair blocked participants; on wider failure, screen-share the recorded solo-run terminal session. Model fallback order included.

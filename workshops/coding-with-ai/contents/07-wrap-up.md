@@ -8,7 +8,7 @@ End with one habit participants can use the next time they code with AI.
 
 Point participants to the [AI coding checklist](../materials/ai-coding-checklist.md), then close with three questions:
 
-- What is the smallest useful change?
+- What is my plan for the smallest useful change?
 - How will I check it?
 - Can I explain the diff before I commit?
 
@@ -26,4 +26,4 @@ AI is useful when it helps you ship better work and become a stronger developer.
 
 You do not need to remember every prompt from today. Remember the loop:
 
-clean start, inspect, plan, change, check, review the diff, commit, and record one lesson.
+clean start, inspect, write and revise a plan with AI feedback, implement it, check, review the diff, commit, and record one lesson.

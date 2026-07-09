@@ -34,9 +34,11 @@ First, ask AI to fix it without running checks.
 Then repeat with the AI coding loop:
 
 - reproduce the bug
-- add or run a test
-- make the smallest fix
-- run the test again
+- decide how you will check the fix
+- write a short plan and ask AI to evaluate it
+- decide which feedback to use and revise the plan
+- ask AI to implement the revised plan
+- run the chosen check
 - inspect the diff
 - commit
 

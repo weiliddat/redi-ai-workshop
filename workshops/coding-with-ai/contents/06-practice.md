@@ -16,8 +16,8 @@ Use this sequence as a guide. The point is not to move perfectly. The point is t
 
 1. Confirm the starting baseline and a clean Git status.
 2. Ask AI to inspect the relevant files.
-3. Ask AI for a short plan.
-4. Make one focused change.
+3. Write a short plan, ask AI to evaluate it, and decide which feedback to use.
+4. Ask AI to implement your revised plan.
 5. Run the best available check.
 6. Read the diff.
 7. Ask AI to quiz you on the change.
@@ -28,7 +28,7 @@ Use the [AI coding checklist](../materials/ai-coding-checklist.md) during practi
 
 ## Before Practice Starts
 
-Share the [participant exercise brief](../materials/participant-exercise-brief.md). It gives participants only what they need to act:
+Share the [practice task](../materials/project/PRACTICE_TASK.md). It gives participants everything they need to act:
 
 - starting baseline
 - target task
@@ -50,7 +50,7 @@ Use the setup commands in the project README. Do not copy them into the lesson p
 
 Then participants open `http://localhost:5173` and connect to the facilitator's chat server.
 
-If the facilitator wants a bug-fix exercise, use the rejected-connection bug described in the project README and `PRACTICE_TASK.md`: after a duplicate name or other rejected connection, the client should return to the join form so the participant can try again without refreshing.
+If the facilitator wants a bug-fix exercise, use the rejected-connection task in `PRACTICE_TASK.md`.
 
 ## Helper Role
 
@@ -62,6 +62,7 @@ Helpers should ask questions, not take over the keyboard. Use the [reviewer and 
 
 By the end, each participant or pair should have:
 
+- a short plan and one AI suggestion they accepted or rejected
 - a focused diff they can explain
 - one check result
 - a commit or draft commit message

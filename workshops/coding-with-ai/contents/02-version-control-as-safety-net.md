@@ -23,7 +23,9 @@ During the demo, contrast one focused request with one broad request that asks t
 
 - Start from a clean Git status.
 - Ask the agent to inspect before editing.
-- Keep the change focused.
+- Write a short plan and ask the agent to evaluate it.
+- Decide which feedback to use and revise the plan.
+- Ask the agent to implement your revised plan as one focused change.
 - Read the diff before committing.
 - Commit with a message that explains why the change was made.
 

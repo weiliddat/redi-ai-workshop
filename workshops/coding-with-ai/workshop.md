@@ -31,25 +31,25 @@ The workshop focuses on one repeatable AI coding loop:
 
 1. confirm a clean start
 2. ask AI to inspect before editing
-3. make a short plan
-4. make one small change
+3. write a short plan, ask AI to evaluate it, and decide which feedback to use
+4. ask AI to implement your revised plan
 5. run one useful check
 6. review and explain the diff
 7. commit
 8. record one lesson for future work
 
-This loop uses Git, AI agents, checks, and project notes. Participants do not need to memorize every command. They should learn what to ask for and how good AI-assisted work looks.
+This loop uses Git, AI agents, checks, and project notes. Participants do not need to memorize every command. They should learn which decisions they own, what to ask for, and how good AI-assisted work looks.
 
 ## Schedule
 
 | Time | Duration | Section | Goal |
 | ---- | -------- | ------- | ---- |
 | 0:00 | 8 min | Why AI Coding Needs a Workflow | Set the context with the two research lessons: stay engaged and build feedback over time |
-| 0:08 | 7 min | The AI Coding Loop | Introduce the loop: clean start, inspect, plan, change, check, review the diff, commit, record one lesson |
+| 0:08 | 7 min | The AI Coding Loop | Introduce the loop: clean start, inspect, write and revise a plan with AI feedback, implement, check, review the diff, commit, record one lesson |
 | 0:15 | 5 min | Who Already Knows This? | Identify participants familiar with Git, agents, tests, or browser checks so they can pair and help |
 | 0:20 | 10 min | Facilitator Demo | Show one tiny AI-assisted change using the full AI coding loop |
 | 0:30 | 22 min | Practice | Participants apply the AI coding loop to a prepared task |
-| 0:52 | 5 min | Pair Review | Participants explain their diff, check, and commit message to someone else |
+| 0:52 | 5 min | Pair Review | Participants explain their plan, one AI suggestion they accepted or rejected, their diff, and their check |
 | 0:57 | 3 min | Wrap-up | Leave with the checklist and one habit to use in their own projects |
 
 ## Structure
@@ -64,7 +64,8 @@ This loop uses Git, AI agents, checks, and project notes. Participants do not ne
 
 By the end, participants should be able to:
 
-- ask an AI coding agent for one small, focused change
+- write a plan for one small change and use AI feedback to improve it
+- ask an AI coding agent to implement their plan
 - use small commits to keep work reversible
 - inspect and explain the diff before accepting it
 - ask the agent to run or suggest one useful check

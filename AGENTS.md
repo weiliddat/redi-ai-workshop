@@ -48,7 +48,7 @@ Main principles:
    Ask the agent to work in small steps and commit often. This builds the habit of focused work and makes changes easier to review, undo, and explain.
 
 2. **Build understanding while using AI.**  
-   Keep the useful lesson from the Anthropic learning paper: do not delegate the thinking. Ask for explanations, read diffs, and make sure participants understand the code they accept.
+   Keep the useful lesson from the Anthropic learning paper: do not delegate the thinking. Participants should stay involved by writing or shaping their plan, ask AI to evaluate it, decide which feedback to accept, and understand the code they accept.
 
 3. **Build the loop as you go.**  
    Use tests, browser checks, screenshots, logs, and review. When the participant or agent gets stuck, reflect on what happened and record the lesson in docs, `AGENTS.md`, checklists, or skills so the next task is easier.
@@ -102,4 +102,4 @@ workshops/
 - Put new AI coding workflow material under `workshops/coding-with-ai/`.
 - Keep shared repo-level files focused on navigation and contributor guidance.
 - Prefer small, focused content files over one large document.
-- When drafting exercises, use the prepared project and realistic project tasks: Git diffs, small bug fixes, tests, browser checks, review, project docs, and privacy constraints.
+- When drafting exercises, use the prepared project and realistic project tasks: Git diffs, small bug fixes, tests, browser checks, review, and project docs.

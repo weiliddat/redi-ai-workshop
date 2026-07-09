@@ -1,24 +1,10 @@
 # Workshop Chat Client
 
-This is the shared project for the Coding with AI workshop.
+This project is a browser chat client for the Coding with AI workshop.
 
-You will use it to practice a professional AI coding workflow:
+The facilitator runs the chat server. Participants run this client, connect to the server, and use it to send messages and practice small AI-assisted code changes.
 
-1. start from a clean project
-2. create a Git repo
-3. ask the AI to inspect before editing
-4. make one small change
-5. run a check
-6. read the diff
-7. commit your work
-
-The facilitator runs the chat server. You only run the client.
-
-## What this project does
-
-This is a browser chat client for the workshop chat server.
-
-It can:
+The client can:
 
 - connect to a WebSocket chat server
 - send and receive messages
@@ -29,9 +15,11 @@ It can:
 
 ## Requirements
 
-Before the workshop, complete the participant setup checklist from the workshop materials.
+- Node.js 20 or newer
+- Git
+- a browser
 
-## First setup
+## Set up the project
 
 After you unzip the project:
 
@@ -44,19 +32,21 @@ npm test
 npm start
 ```
 
-If `git commit` asks who you are, check the Git setup instructions in the participant setup checklist.
+If `git commit` asks who you are, check the Git setup instructions from the workshop.
 
-Then open:
+Open:
 
 ```text
 http://localhost:5173
 ```
 
-Use the server URL given by the facilitator. For local testing, the default is:
+The server field is prefilled with the workshop server:
 
 ```text
-ws://localhost:3000
+wss://quick-badly-amoeba.ngrok-free.app
 ```
+
+If this project is reused for another workshop, the facilitator may replace that address before creating the zip.
 
 ## Useful commands
 
@@ -64,7 +54,7 @@ ws://localhost:3000
 npm start
 ```
 
-Starts a small local web server for the client.
+Starts the client at `http://localhost:5173`.
 
 ```bash
 npm test
@@ -77,14 +67,25 @@ git status
 git diff
 ```
 
-Shows what changed before you commit.
+Shows the current Git state and uncommitted changes.
+
+## Project structure
+
+- `index.html` — page structure
+- `styles.css` — page styles
+- `src/app.js` — browser UI, WebSocket connection, and event handling
+- `src/chat-protocol.js` — connection URLs, outgoing commands, and server-event descriptions
+- `test/chat-protocol.test.js` — client tests
+- `server.js` — local web server for the client files
+- `PRACTICE_TASK.md` — workshop task, AI coding loop, and optional follow-up tasks
+- `AGENTS.md` — instructions for AI coding agents working in this project
 
 ## Chat server protocol
 
-Connect to the server with your name in the URL:
+Connect with your name in the URL:
 
 ```text
-ws://localhost:3000?name=YourName
+wss://quick-badly-amoeba.ngrok-free.app?name=YourName
 ```
 
 Send a chat message:
@@ -117,19 +118,3 @@ The server sends events like these:
 { "type": "list", "names": ["Samira", "Mina"], "timestamp": "2026-07-06T10:04:00.000Z" }
 { "type": "error", "message": "name already taken" }
 ```
-
-## Known bug for practice
-
-If the server rejects your connection, for example because the name is already taken, the client shows a disconnect message but does not return you to the join form.
-
-For the workshop baseline, this bug is intentional. It is useful for practicing the AI coding loop because it has clear user impact and a small fix.
-
-Workaround: refresh the page and connect again with a different name.
-
-If you click the **Disconnect** button yourself, the client does return you to the join form.
-
-## Privacy rule
-
-Use only this workshop project and workshop data with AI tools.
-
-Do not paste private project, client, or personal data into an AI tool unless the project owner has confirmed it is allowed.

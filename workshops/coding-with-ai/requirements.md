@@ -14,7 +14,6 @@ Planning tasks belong in `TODO.md`. Project selection criteria belong in `materi
 - The task has clear acceptance criteria and one useful check.
 - The facilitator can run the reused chat server from `workshops/learning-with-ai/materials/chat-server`.
 - A fallback is ready if the AI tool, account setup, or local environment fails.
-- The privacy rule is clear: use only the workshop project and workshop data with AI tools.
 
 ## Teacher Setup
 
@@ -28,7 +27,7 @@ Planning tasks belong in `TODO.md`. Project selection criteria belong in `materi
 
 Participants complete the [participant setup checklist](materials/participant-setup.md) before the workshop.
 
-The checklist is the canonical source for required tools, Git configuration, browser setup, AI tool access, and the privacy rule.
+The checklist is the canonical source for required tools, Git configuration, browser setup, and AI tool access.
 
 Participants do not need to memorize Git commands. They should understand diffs and commits well enough to ask the agent for help and review what it does.
 

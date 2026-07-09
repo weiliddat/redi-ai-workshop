@@ -8,9 +8,14 @@ The main test should be representative of participant use. Give each model a nor
 
 OpenCode Go may be an affordable coding-agent path for many students and participants. We should also test free OpenCode models in case paid access is a barrier.
 
+## Current workshop decision
+
+The July 7 model run predates the participant-written plan evaluation prompt in this guide. MiniMax M3 remains the practical choice for this workshop based on its broader results and the facilitator's practice runs. Do not treat the historical B2 score as evidence for the new planning step. Rework and rerun the evaluation before using it as a representative comparison of that workflow.
+
 For this workshop, the minimum model should be good enough to:
 
 - inspect before editing
+- evaluate a participant-written plan without taking ownership away from them
 - use the README, AGENTS.md, tests, and source code well
 - keep changes small
 - explain diffs accurately
@@ -280,7 +285,7 @@ Do not recommend a model only because it writes code quickly. A model that confi
 A model is acceptable for the workshop if it passes these checks:
 
 1. **Project inspection:** It looks at relevant files before proposing or making a change.
-2. **Small plan:** It gives a short, focused plan instead of a broad rewrite.
+2. **Plan feedback:** It evaluates the participant's plan, identifies focused gaps or risks, and respects the participant's revised plan.
 3. **Patch quality:** It makes a small change that fits the existing project.
 4. **Verification:** It suggests or runs `npm test` for JavaScript logic changes, and suggests browser checks for UI changes.
 5. **Diff explanation:** It explains the actual diff, not a generic version of the task.
@@ -463,23 +468,31 @@ Expected answer:
 - explains why those files matter
 - does not edit yet
 
-### B2. I want to show message times. Give me a short plan, not code yet.
+### B2. Evaluate my message-times plan, not code yet
 
 Student prompt to send:
 
 ```text
-I want to show message times in the chat client. Give me a short plan, not code yet.
+I inspected the chat client and wrote this plan:
+
+1. Add a small helper that formats the server event timestamp as a short local time.
+2. Include that time when describing chat and system events.
+3. Update the tests for events with timestamps.
+4. Run npm test and check the result in the browser.
+
+Evaluate my plan against the project. Tell me what I missed or should change. Do not edit yet.
 ```
 
 Workspace context: full project.
 
 Expected answer:
 
-- mentions using the existing `timestamp` field from server events
-- plans a small formatting function or display change
-- plans to update or add tests
-- plans `npm test` and a browser check
+- evaluates the participant's plan instead of replacing it with an unrelated plan
+- confirms using the existing `timestamp` field from server events
+- checks that events without timestamps, especially errors, still work
+- suggests only focused corrections or missing checks
 - does not propose a framework, backend change, or full rewrite
+- does not edit yet
 
 ### B3. What should I check before committing?
 
@@ -741,7 +754,7 @@ Workspace context: full project.
 
 Expected answer:
 
-- suggests a project instruction like “inspect first, make one focused change, and avoid rewrites unless asked”
+- suggests a project instruction like “inspect first, evaluate the participant's plan, and implement it without unrelated rewrites”
 - connects it to `AGENTS.md` or the checklist
 - does not blame the student
 
@@ -756,7 +769,15 @@ Run these in fresh workspaces. Save raw output, final diff, and test output.
 Student prompt to send:
 
 ```text
-When I join with a duplicate name, the app says disconnected and I cannot try again without refreshing. Please inspect the project, make the smallest fix, run the relevant check, and explain what changed.
+I inspected the duplicate-name retry bug and wrote this plan:
+
+1. Keep the server unchanged.
+2. Preserve the server's rejection message.
+3. Return the client to the join form after a rejected connection closes.
+4. Keep the normal Disconnect button behavior working.
+5. Add or update the smallest useful test if the logic can be tested without a browser.
+
+Implement my plan, run the relevant check, and explain the diff. Keep the change focused.
 ```
 
 Workspace context: full project.
@@ -765,6 +786,7 @@ Expected result:
 
 - inspects README and relevant code before editing
 - keeps server behavior unchanged
+- follows the participant's plan or clearly explains any necessary correction
 - updates client behavior so the user can try again after rejection
 - preserves or shows the server error clearly
 - keeps the change small
@@ -800,7 +822,14 @@ Score first-turn G1 and follow-up recovery separately. A model that fixes an inc
 Student prompt to send:
 
 ```text
-I want the chat client to show message times. Please inspect the project, make a small implementation, run the relevant check, and explain what changed.
+I inspected the message-times task and wrote this plan:
+
+1. Add a small helper that formats the server event timestamp as a short local time.
+2. Include that time when describing chat and system events.
+3. Keep events without timestamps working.
+4. Update the tests.
+
+Implement my plan, run the relevant check, and explain the diff. Keep the change focused.
 ```
 
 Workspace context: full project.

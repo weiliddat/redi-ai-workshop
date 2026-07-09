@@ -18,16 +18,19 @@ Starting point:
 - participant project setup commands: see [`materials/project/README.md`](project/README.md)
 - check command: `npm test`
 - browser check: open `http://localhost:5173` and connect to the facilitator's WebSocket server
+- workshop server URL: `wss://quick-badly-amoeba.ngrok-free.app`
 - server protocol: same as `workshops/learning-with-ai/materials/chat-server`
 - practice task: [`materials/project/PRACTICE_TASK.md`](project/PRACTICE_TASK.md)
 
 Packaging command:
 
+Before packaging, confirm that the server URL in `project/index.html` and the practice slide points to the workshop's ngrok destination. Replace it when this material is reused for another workshop.
+
 ```bash
 cd workshops/coding-with-ai/materials
 rm -rf workshop-chat-client workshop-chat-client.zip
 cp -R project workshop-chat-client
-zip -r workshop-chat-client.zip workshop-chat-client -x "*/node_modules/*"
+zip -r workshop-chat-client.zip workshop-chat-client -x "*/node_modules/*" "*/.DS_Store"
 rm -rf workshop-chat-client
 ```
 
@@ -68,7 +71,7 @@ Choose a project that:
 - has a clear README
 - has at least one useful test, linter, or browser check
 - has a task small enough for a 20-minute exercise
-- does not require private data or paid services
+- does not require paid services
 - works on common student laptops
 
 ## Starting Baseline
@@ -87,30 +90,8 @@ Write down:
 - acceptance criteria
 - expected files participants may inspect
 
-## Good Practice Task
+## Task Documentation
 
-The task should require understanding, not only editing one obvious line.
+[`materials/project/PRACTICE_TASK.md`](project/PRACTICE_TASK.md) is the canonical participant task document. It contains the main task, requirements, AI coding loop, stop point, and optional follow-up tasks.
 
-For this run, the default practice task asks participants to show short local times for chat events. It is small, but it touches the real client flow: server event data, display text, tests, and a browser check.
-
-There is also an intentional reconnect bug in the baseline: after a rejected connection, such as a duplicate name, the client does not return to the join form. Use this as the bug-fix exercise if you want participants to practice fixing a visible user problem instead of adding timestamps.
-
-Good examples:
-
-- fix a small UI bug
-- add one validation rule
-- improve one error message
-- add one missing test
-- update one setup instruction
-- refactor one confusing function without changing behavior
-
-Avoid tasks that need large product decisions, secrets, deployment access, or long debugging.
-
-## Stretch Task
-
-If participants finish early, ask them to add one small follow-up in a separate commit:
-
-- show a clearer empty-state message before the first chat event, or
-- add one extra test for an event type they did not touch, or
-- fix the rejected-connection bug in a separate commit, or
-- improve the README with one setup problem they hit and how they fixed it.
+Keep task instructions there instead of repeating them in this facilitator guide.

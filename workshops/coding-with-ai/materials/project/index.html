@@ -3,22 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Workshop Chat</title>
+    <title>Chat Client</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
     <main class="app-shell">
       <section class="panel setup-panel" id="setup-panel">
-        <p class="eyebrow">Coding with AI workshop</p>
+        <p class="eyebrow">Chat Client</p>
         <h1>Join the chat</h1>
-        <p class="intro">
-          Connect to the facilitator's chat server. Use a workshop name, not private personal data.
-        </p>
 
         <form id="connect-form" class="connect-form">
           <label>
             Server URL
-            <input id="server-url" name="serverUrl" value="ws://localhost:3000" autocomplete="off">
+            <input id="server-url" name="serverUrl" value="wss://quick-badly-amoeba.ngrok-free.app" autocomplete="off">
           </label>
 
           <label>
@@ -34,7 +31,7 @@
       <section class="panel chat-panel hidden" id="chat-panel" aria-live="polite">
         <header class="chat-header">
           <div>
-            <p class="eyebrow">Workshop Chat</p>
+            <p class="eyebrow">Chat Client</p>
             <h1 id="chat-title">Disconnected</h1>
           </div>
           <button id="disconnect" type="button">Disconnect</button>

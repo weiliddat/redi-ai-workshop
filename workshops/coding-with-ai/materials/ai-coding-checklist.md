@@ -12,14 +12,27 @@ Use this checklist when working with an AI coding agent.
 
 Useful agent requests:
 
-- "Make only the validation change first. Do not refactor anything else. After the change, show me the diff and suggest a commit message."
 - "Check that my Git status is clean before we start. If not, explain what changed."
 - "Before editing, inspect the relevant files and tell me what you found."
-- "Make only the smallest useful change. Do not refactor unrelated code."
 
 Avoid broad requests like:
 
 > Improve this page and fix anything you find.
+
+## Plan
+
+- [ ] I stayed involved by writing at least a high-level plan in my own words
+- [ ] I asked the agent to evaluate my plan before editing
+- [ ] I decided which feedback to accept and revised my plan
+- [ ] I asked the agent to implement my revised plan
+
+Writing your own plan is a useful default, not a rule that AI can never help. Your first plan can be rough. If you are unsure, ask AI questions or ask it to explain a few options. Then decide what makes sense and write the plan you want to follow.
+
+Useful agent requests:
+
+- "Here is my plan: [write your plan]. Evaluate it against the task and the code you inspected. Tell me what I missed or should change. Do not edit yet."
+- "I am not sure how to plan this yet. Ask me questions and explain two small options. Do not edit. I will choose and write the plan."
+- "Implement my revised plan. Keep the change focused and do not refactor unrelated code."
 
 ## During the Change
 
@@ -93,7 +106,7 @@ Small enough that you can read and understand the diff. If you cannot review it,
 
 **Should I tell the agent how to solve the problem, or just
 what I want?**  
-Start with what you want and how you will check it worked. Add the "how" only when you have a real preference.
+Start with what you want and how you will check it worked. Ask the agent to inspect and explain the relevant code. Then write a tentative plan—even a high-level one—and ask for feedback. The plan is a way to stay involved, not proof that you already know the perfect solution.
 
 **The code works but I don't understand it. Can I commit?**  
 Not yet. Ask for an explanation at your level, or ask the agent to quiz you on the diff. Understanding is part of the job.

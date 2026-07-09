@@ -20,6 +20,7 @@ They should show a professional workflow:
 
 - What is the smallest version of this change?
 - Which files did the agent inspect before editing?
+- What was your plan, and what AI feedback did you accept or reject?
 - Can you explain this diff without reading the agent response?
 - What did you run to check the change?
 - What could break because of this?
@@ -35,8 +36,8 @@ Helpers should not take over the keyboard. They should help the participant use 
 
 1. start from a clean Git status
 2. ask the agent to inspect first
-3. make a short plan
-4. make one small change
+3. write a short plan, ask the agent to evaluate it, and decide which feedback to use
+4. ask the agent to implement the participant's revised plan
 5. run or choose a check
 6. review the diff
 7. commit

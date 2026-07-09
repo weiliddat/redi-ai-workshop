@@ -188,15 +188,21 @@ layout: section
 
 1. Confirm a **clean start**
 2. Ask the agent to **inspect before editing**
-3. Ask for a short **plan**
-4. Make **one small change** — a 1–2 hour chunk of work, not a whole feature
+3. Write a short **plan**, get AI feedback, and decide what to use
+4. Ask the agent to **implement your revised plan**
 5. Run one useful **check**
 6. Read the **diff** — can you explain it?
 7. **Commit** with a message that says why
 8. Record one **lesson** for next time
 
+<div class="punchline">
+
+AI feedback is input. **You decide what to use.**
+
+</div>
+
 <!--
-Participants don't memorize this — they get it again in the exercise brief and the checklist. The skill is noticing when you skip a step and going back.
+Participants don't memorize this — they get it again in the practice task and the checklist. The skill is noticing when you skip a step and going back.
 -->
 
 ---
@@ -260,7 +266,7 @@ Not a Git lesson. Keep it to diffs and commits. Small commits make AI work safer
 
 ---
 
-# Ask for a specific, scoped change
+# Bring a specific, scoped plan
 
 <div class="grid grid-cols-2 gap-4 mt-6">
 
@@ -274,7 +280,7 @@ Ten changed files. No idea which one mattered.
 
 <div class="p-4 bg-green-500 bg-op-10 rounded">
 
-✅ *"Make only the smallest change so a rejected connection shows the error and lets me retry. Do not refactor anything else."*
+✅ *"My plan is to preserve the error and return to the join form. Evaluate it before editing."*
 
 One focused diff you can actually read.
 
@@ -283,7 +289,7 @@ One focused diff you can actually read.
 </div>
 
 <!--
-This is the 02 contrast, compressed. The size test: if you can't review the diff, the task was too big.
+This is the 02 contrast, compressed. The participant brings the plan; AI can challenge it, but the participant decides what to use. The size test: if you can't review the diff, the task was too big.
 -->
 
 ---
@@ -325,7 +331,7 @@ Connect with a name that's already taken → the client shows a disconnect and a
 Watch for the loop steps.
 
 <!--
-0:20–0:30. Switch to terminal + two browser tabs. Full script in the teacher runbook: show bug, clean status, inspect (already running), smallest change, npm test + browser, diff, commit. Hard stop at 0:30.
+0:20–0:30. Switch to terminal + two browser tabs. Full script in the teacher runbook: show bug, clean status, inspect, write a plan, evaluate feedback, decide and revise, implement, npm test + browser, diff, commit, record one lesson. Hard stop at 0:30.
 -->
 
 ---
@@ -366,10 +372,10 @@ Make events show a short local time, like `10:42`.
 
 - messages and events show a time
 - errors still work without one
-- `npm test` passes, one new test
+- `npm test` passes, one new or updated test
 - it looks right in the browser
 
-Follow the **exercise brief** — it has the setup, prompts, and the full loop.
+Follow the **practice task** — it has the task, requirements, prompts, and the full loop.
 
 ::right::
 
@@ -421,9 +427,10 @@ Show them your diff and explain it in your own words.
 
 Do not read the agent's output aloud. Explain:
 
-1. **What** changed
-2. **How** you checked it
-3. One **lesson** you'd write down for next time
+1. Your **plan** and one AI suggestion you accepted or rejected
+2. **What** changed
+3. **How** you checked it
+4. One **lesson** you'd write down for next time
 
 <!--
 0:52–0:57. This is where understanding becomes visible: participants explain the diff to another person without relying on the agent's wording. The lesson note counts as the final loop step for anyone who skipped it.
@@ -435,7 +442,7 @@ Do not read the agent's output aloud. Explain:
 
 <div class="text-xl mt-8">
 
-What is the **smallest useful change**?
+What is my **plan** for the smallest useful change?
 
 How will I **check** it?
 
@@ -465,7 +472,7 @@ layout: two-cols
 
 This loop is not just for the workshop.
 Engineers use these habits every day:
-start clean, inspect, check, review, commit, and write down what changed.
+start clean, inspect, plan, get feedback, implement, check, review, commit, and write down what changed.
 
 Over time, this helps you build:
 

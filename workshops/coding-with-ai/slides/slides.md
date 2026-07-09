@@ -78,7 +78,11 @@ AI can write a lot of code, quickly.
 
 <v-click>
 
+<div class="punchline">
+
 **Research lesson 1:** people move faster with AI, but they learn more when they stay active — asking questions, reading code, explaining changes.
+
+</div>
 
 </v-click>
 
@@ -100,8 +104,12 @@ That is why professionals use:
 
 <v-click>
 
+<div class="punchline">
+
 The agent generates options.
 **You** bring project context, judgment, and the decision of what to keep.
+
+</div>
 
 </v-click>
 
@@ -168,7 +176,7 @@ Participants don't memorize this — they get it again in the exercise brief and
 
 <v-click>
 
-<div class="mt-8">
+<div class="punchline">
 
 Forgot the command? **Ask the agent.** Knowing what the step is for matters more.
 
@@ -221,8 +229,12 @@ Hands up:
 
 <v-click>
 
+<div class="punchline">
+
 If you raised a hand: **sit near someone newer** and help during practice.
 Guide with questions — don't take the keyboard.
+
+</div>
 
 </v-click>
 
@@ -359,7 +371,11 @@ Can I **explain the diff** before I commit?
 
 <v-click>
 
+<div class="punchline">
+
 Take the **AI coding checklist** with you — it has the loop and the prompts for your own projects.
+
+</div>
 
 </v-click>
 

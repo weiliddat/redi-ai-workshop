@@ -1,3 +1,32 @@
+/* Use Berkeley Mono SemiCondensed for the deck. Keep width separate from
+   weight so medium/bold variants still resolve from the Berkeley Mono family. */
+:root {
+  --berkeley-mono-stack: "Berkeley Mono", ui-monospace,
+    SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  --slidev-code-font-family: var(--berkeley-mono-stack);
+}
+
+.slidev-layout,
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3,
+.slidev-layout p,
+.slidev-layout li,
+.slidev-layout blockquote,
+.slidev-layout table,
+.slidev-layout div,
+.slidev-layout span {
+  font-family: "Google Sans", sans-serif;
+}
+
+.slidev-layout code,
+.slidev-layout code span,
+.slidev-layout pre,
+.slidev-layout svg text {
+  font-family: var(--berkeley-mono-stack);
+}
+
 /* Punchline: the one-line takeaway at the bottom of a slide.
    Visually distinct from body content and anchored to the bottom edge. */
 .punchline {

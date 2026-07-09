@@ -6,7 +6,7 @@ We want participants to see Git as a safety net, not as an expert-only tool.
 
 Small commits make AI work safer because they make changes easier to inspect, explain, undo, and review.
 
-This is not a full Git lesson. Participants need the idea of branches, diffs, and commits. If they forget the exact command, they can ask the agent.
+This is not a full Git lesson. Participants need the idea of diffs and commits. If they forget the exact command, they can ask the agent.
 
 ## Core Message
 
@@ -16,13 +16,12 @@ During the demo, contrast one focused request with one broad request that asks t
 
 ## Minimal Git Concepts
 
-- **Branch:** a safe workspace for one task.
 - **Diff:** the exact change before you accept it.
 - **Commit:** a checkpoint you can explain, review, and return to.
 
 ## What to Show
 
-- Start from a branch.
+- Start from a clean Git status.
 - Ask the agent to inspect before editing.
 - Keep the change focused.
 - Read the diff before committing.

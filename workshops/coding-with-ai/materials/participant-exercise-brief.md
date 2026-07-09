@@ -39,20 +39,19 @@ Full task details: [PRACTICE_TASK.md](project/PRACTICE_TASK.md) in your project 
 ## Work the loop
 
 1. Confirm a clean `git status`.
-2. Create a branch: ask the agent for the command if unsure.
-3. Ask the agent to inspect before editing. Try this prompt:
+2. Ask the agent to inspect before editing. Try this prompt:
 
    ```text
    Inspect this chat client before editing. I want to show a short local time for server events that include a timestamp. Keep the change small. First explain which files you would change and why. Do not edit yet.
    ```
 
-4. Ask for a short plan.
-5. Ask for the smallest change.
-6. Run the check: `npm test`, then look at the result in the browser.
-7. Read the diff: `git diff`. Can you explain every changed line?
-8. If you have time: ask the agent to quiz you on the change.
-9. Commit with a message that says why.
-10. Note one lesson you learned. You will share it in pair review.
+3. Ask for a short plan.
+4. Ask for the smallest change.
+5. Run the check: `npm test`, then look at the result in the browser.
+6. Read the diff: `git diff`. Can you explain every changed line?
+7. If you have time: ask the agent to quiz you on the change.
+8. Commit with a message that says why.
+9. Note one lesson you learned. You will share it in pair review.
 
 The [AI coding checklist](ai-coding-checklist.md) has more useful prompts for each step.
 

@@ -29,7 +29,7 @@ This keeps the workshop manageable and realistic: participants first understand 
 
 The workshop focuses on one repeatable AI coding loop:
 
-1. create or confirm a branch
+1. confirm a clean start
 2. ask AI to inspect before editing
 3. make a short plan
 4. make one small change
@@ -45,7 +45,7 @@ This loop uses Git, AI agents, checks, and project notes. Participants do not ne
 | Time | Duration | Section | Goal |
 | ---- | -------- | ------- | ---- |
 | 0:00 | 8 min | Why AI Coding Needs a Workflow | Set the context with the two research lessons: stay engaged and build feedback over time |
-| 0:08 | 7 min | The AI Coding Loop | Introduce the loop: branch, inspect, plan, change, check, review the diff, commit, record one lesson |
+| 0:08 | 7 min | The AI Coding Loop | Introduce the loop: clean start, inspect, plan, change, check, review the diff, commit, record one lesson |
 | 0:15 | 5 min | Who Already Knows This? | Identify participants familiar with Git, agents, tests, or browser checks so they can pair and help |
 | 0:20 | 10 min | Facilitator Demo | Show one tiny AI-assisted change using the full AI coding loop |
 | 0:30 | 22 min | Practice | Participants apply the AI coding loop to a prepared task |
@@ -65,7 +65,7 @@ This loop uses Git, AI agents, checks, and project notes. Participants do not ne
 By the end, participants should be able to:
 
 - ask an AI coding agent for one small, focused change
-- use a branch and commit to keep work reversible
+- use small commits to keep work reversible
 - inspect and explain the diff before accepting it
 - ask the agent to run or suggest one useful check
 - record one lesson that helps future work

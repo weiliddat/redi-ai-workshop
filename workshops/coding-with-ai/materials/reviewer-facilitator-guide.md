@@ -8,7 +8,7 @@ The participant should not only produce code.
 
 They should show a professional workflow:
 
-- safe branch or safe starting point
+- clean starting point
 - small scoped changes
 - clear diffs
 - regular commits
@@ -33,7 +33,7 @@ Invite those participants to pair with someone nearby during practice.
 
 Helpers should not take over the keyboard. They should help the participant use the AI coding loop:
 
-1. start from a safe branch
+1. start from a clean Git status
 2. ask the agent to inspect first
 3. make a short plan
 4. make one small change

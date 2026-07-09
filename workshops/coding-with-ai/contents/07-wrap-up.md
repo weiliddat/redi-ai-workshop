@@ -26,4 +26,4 @@ AI is useful when it helps you ship better work and become a stronger developer.
 
 You do not need to remember every prompt from today. Remember the loop:
 
-branch, inspect, plan, change, check, review the diff, commit, and record one lesson.
+clean start, inspect, plan, change, check, review the diff, commit, and record one lesson.

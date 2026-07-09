@@ -30,7 +30,7 @@ Participants complete the [participant setup checklist](materials/participant-se
 
 The checklist is the canonical source for required tools, Git configuration, browser setup, AI tool access, and the privacy rule.
 
-Participants do not need to memorize Git commands. They should understand branches, diffs, and commits well enough to ask the agent for help and review what it does.
+Participants do not need to memorize Git commands. They should understand diffs and commits well enough to ask the agent for help and review what it does.
 
 ## Facilitator and Reviewer Readiness
 

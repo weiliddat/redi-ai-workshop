@@ -15,15 +15,14 @@ For this workshop, everyone uses the prepared chat client in `materials/project`
 Use this sequence as a guide. The point is not to move perfectly. The point is to notice when you skip a step and return to the loop.
 
 1. Confirm the starting baseline and a clean Git status.
-2. Create or confirm a branch.
-3. Ask AI to inspect the relevant files.
-4. Ask AI for a short plan.
-5. Make one focused change.
-6. Run the best available check.
-7. Read the diff.
-8. Ask AI to quiz you on the change.
-9. Commit with a clear message.
-10. Write one lesson you would add to project notes or instructions.
+2. Ask AI to inspect the relevant files.
+3. Ask AI for a short plan.
+4. Make one focused change.
+5. Run the best available check.
+6. Read the diff.
+7. Ask AI to quiz you on the change.
+8. Commit with a clear message.
+9. Write one lesson you would add to project notes or instructions.
 
 Use the [AI coding checklist](../materials/ai-coding-checklist.md) during practice.
 

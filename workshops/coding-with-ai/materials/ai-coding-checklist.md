@@ -4,7 +4,7 @@ Use this checklist when working with an AI coding agent.
 
 ## Start
 
-- [ ] I am on the right branch
+- [ ] I have a clean Git status
 - [ ] I know the smallest useful change
 - [ ] I told the agent what should stay unchanged
 - [ ] I asked the agent to inspect before editing
@@ -13,7 +13,7 @@ Use this checklist when working with an AI coding agent.
 Useful agent requests:
 
 - "Make only the validation change first. Do not refactor anything else. After the change, show me the diff and suggest a commit message."
-- "Check that I am on a safe branch for this task. If not, suggest the Git command."
+- "Check that my Git status is clean before we start. If not, explain what changed."
 - "Before editing, inspect the relevant files and tell me what you found."
 - "Make only the smallest useful change. Do not refactor unrelated code."
 

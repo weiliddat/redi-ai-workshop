@@ -50,9 +50,9 @@ Teach from [contents/01](../contents/01-ai-in-project-work.md). One idea to land
 
 ## 0:08 — The AI coding loop (7 min)
 
-Teach from [contents/02](../contents/02-version-control-as-safety-net.md)–[05](../contents/05-improve-the-working-agreement.md), compressed to the loop itself: branch, inspect, plan, change, check, review the diff, commit, record one lesson.
+Teach from [contents/02](../contents/02-version-control-as-safety-net.md)–[05](../contents/05-improve-the-working-agreement.md), compressed to the loop itself: clean start, inspect, plan, change, check, review the diff, commit, record one lesson.
 
-Name the three Git concepts in one breath each: branch (safe workspace), diff (the exact change before you accept it), commit (a checkpoint you can explain and return to).
+Name the two Git concepts in one breath each: diff (the exact change before you accept it), commit (a checkpoint you can explain and return to).
 
 ## 0:15 — Room check (5 min)
 
@@ -69,10 +69,9 @@ Fix the rejected-connection bug using the full loop. Narrate each loop step by n
 Setup on screen: `workshop-chat-client` fresh from the zip, first commit made, server running, two browser tabs open.
 
 1. **Show the bug (1 min).** Connect in tab one as `Sam`. Connect in tab two as `Sam`. Tab two shows a disconnect message and a dead end. Say: "Real bug, clear user impact, small fix. This is the size of task you give an agent."
-2. **Branch (30 s).**
+2. **Clean status (30 s).**
    ```bash
    git status
-   git switch -c fix-rejected-connection
    ```
 3. **Inspect before editing (2 min).** Show the response to the prompt you started at 0:15:
    ```text

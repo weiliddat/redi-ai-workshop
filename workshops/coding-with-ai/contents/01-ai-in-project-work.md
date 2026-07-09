@@ -30,7 +30,7 @@ At the end of each piece of work (feature, bugfix, small change), can you:
 Ask participants:
 
 - Have you already used an AI coding agent on a real project?
-- Are you comfortable with branches, commits, and diffs?
+- Are you comfortable with commits and diffs?
 - Have you asked an agent to run tests or check a page in the browser?
 
 Participants who answer yes can help during practice. Ask them to guide with questions, not take over the keyboard. Use the [reviewer and facilitator guide](../materials/reviewer-facilitator-guide.md) for the detailed helper role.

@@ -24,7 +24,7 @@ Do this once against the real model before the dry run, and again Friday morning
 1. Package and verify the zip per [shared-project-guide.md](shared-project-guide.md): unzip fresh, `npm test`, `npm start`.
 2. Start the chat server from `workshops/learning-with-ai/materials/chat-server`. Note the URL to share: `ws://<facilitator-ip>:3000`.
 3. Confirm OpenCode auth works and `/model` shows **MiniMax-M3** under OpenCode Go.
-4. Run the full demo script below with the real model. Record the terminal session (`asciinema rec` or a screen recording); this recording is the AI-failure fallback.
+4. Run the full demo script below with the real model. Record the terminal session (`asciinema rec` or a screen recording); this recording is the AI-failure fallback. Write down the bug context first — what the bug is, how to reproduce it (two tabs, same name), and the expected behavior — and show or narrate it at the start of the recording so the video works standalone.
 5. Browser-check both flows the evaluation could not:
    - Duplicate name: two tabs, same name. Before the fix: client shows disconnect, join form does not return. After the fix: error visible near the join form, retry works without refresh.
    - Timestamps (do the practice task once yourself): times come from the server `timestamp` field, look readable, and error messages without timestamps still work.

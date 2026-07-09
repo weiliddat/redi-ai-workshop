@@ -29,6 +29,24 @@ Welcome. 60 minutes, hands-on. Most of the time you will be coding, not listenin
 
 ---
 
+# Who am I
+
+- **[Your name]** — [role / company]
+- [One line: what you build or work on]
+- [One line: how AI fits into your daily coding work]
+
+<div class="punchline">
+
+I use this loop every day — today you'll leave with the same workflow.
+
+</div>
+
+<!--
+FILL IN before presenting. Keep it under a minute: name, what you do, and that you use AI daily on real work — that's the credibility the room needs, not a CV.
+-->
+
+---
+
 # Before we start
 
 You should have:
@@ -91,6 +109,8 @@ Anthropic study (Shen & Tamkin 2026), mentioned briefly. Speed without engagemen
 -->
 
 ---
+layout: two-cols
+---
 
 # Projects are long-horizon work
 
@@ -102,19 +122,25 @@ That is why professionals use:
 - small commits and review
 - docs and project instructions
 
+::right::
+
+<div class="pl-4 pt-16">
+  <HumanAiGraph />
+</div>
+
 <v-click>
 
 <div class="punchline">
 
-The agent generates options.
-**You** bring project context, judgment, and the decision of what to keep.
+This is where humans beat AI: the agent generates options.
+**You** compound — context, judgment, and a workflow that improves every week.
 
 </div>
 
 </v-click>
 
 <!--
-"Humans Don't Just Sample" — the human role is the feedback loop across tasks, not just this task. References are in the workshop reference list.
+"Humans Don't Just Sample" — the human role is the feedback loop across tasks, not just this task. The graph is illustrative: AI output per task is roughly flat, while a human who keeps memory, feedback, and reflection compounds over the life of a project. We show it again at the end. References are in the workshop reference list.
 -->
 
 ---
@@ -129,8 +155,18 @@ The agent generates options.
 
 </v-clicks>
 
+<v-click>
+
+<div class="punchline">
+
+This is how developers build judgment — **taste**. Juniors and seniors alike: every diff you can explain sharpens what "good" looks like to you.
+
+</div>
+
+</v-click>
+
 <!--
-These three questions are the whole motivation for the loop we teach next. Everything in the workshop serves one of them.
+These three questions are the whole motivation for the loop we teach next. Everything in the workshop serves one of them. Emphasize: this is not homework for juniors — it's how anyone contributing to a codebase learns the decisions behind it and develops taste.
 -->
 
 ---
@@ -150,7 +186,7 @@ layout: section
 1. Confirm a clean start, create a **branch**
 2. Ask the agent to **inspect before editing**
 3. Ask for a short **plan**
-4. Make **one small change**
+4. Make **one small change** — a 1–2 hour chunk of work, not a whole feature
 5. Run one useful **check**
 6. Read the **diff** — can you explain it?
 7. **Commit** with a message that says why
@@ -160,6 +196,8 @@ layout: section
 Participants don't memorize this — they get it again in the exercise brief and the checklist. The skill is noticing when you skip a step and going back.
 -->
 
+---
+layout: two-cols
 ---
 
 # Git is your safety net
@@ -171,6 +209,36 @@ Participants don't memorize this — they get it again in the exercise brief and
 **Diff** — the exact change, before you accept it
 
 **Commit** — a checkpoint you can explain and return to
+
+</div>
+
+::right::
+
+<div class="pl-4 pt-14">
+
+<svg viewBox="0 0 420 190" class="w-full" style="max-width: 440px; font-size: 13px">
+  <!-- main line -->
+  <line x1="30" y1="60" x2="390" y2="60" stroke="#5b8a9e" stroke-width="2.5" />
+  <circle cx="60" cy="60" r="8" fill="#5b8a9e" />
+  <circle cx="130" cy="60" r="8" fill="#5b8a9e" />
+  <circle cx="200" cy="60" r="8" fill="#5b8a9e" />
+  <text x="30" y="40" fill="#5b8a9e" style="font-size: 14px; font-weight: bold">main</text>
+  <!-- branch -->
+  <path d="M 200 60 Q 235 60 250 95 L 260 110" fill="none" stroke="#c08552" stroke-width="2.5" />
+  <line x1="260" y1="110" x2="380" y2="110" stroke="#c08552" stroke-width="2.5" />
+  <circle cx="280" cy="110" r="8" fill="#c08552" />
+  <circle cx="350" cy="110" r="8" fill="#c08552" />
+  <text x="240" y="140" fill="#c08552" style="font-size: 14px; font-weight: bold">fix-message-times</text>
+  <!-- diff tag on latest branch commit -->
+  <rect x="322" y="150" width="56" height="26" rx="5" fill="none" stroke="#999" stroke-width="1.5" />
+  <text x="332" y="168" fill="#7cb87c" style="font-size: 13px; font-family: monospace">+3</text>
+  <text x="354" y="168" fill="#d47c7c" style="font-size: 13px; font-family: monospace">−1</text>
+  <line x1="350" y1="150" x2="350" y2="122" stroke="#999" stroke-width="1" stroke-dasharray="3,3" />
+  <text x="386" y="168" fill="#999" style="font-size: 12px">diff</text>
+  <!-- commit label -->
+  <line x1="280" y1="98" x2="280" y2="78" stroke="#999" stroke-width="1" stroke-dasharray="3,3" />
+  <text x="272" y="70" fill="#999" style="font-size: 12px">commit</text>
+</svg>
 
 </div>
 
@@ -232,6 +300,7 @@ Hands up:
 <div class="punchline">
 
 If you raised a hand: **sit near someone newer** and help during practice.
+In a non-technical role? **Sit next to a technical person** and pair.
 Guide with questions — don't take the keyboard.
 
 </div>
@@ -381,6 +450,38 @@ Take the **AI coding checklist** with you — it has the loop and the prompts fo
 
 <!--
 0:57–1:00. The three closing questions from the wrap-up. Checklist link goes in Slack.
+-->
+
+---
+layout: two-cols
+---
+
+# This is the day job
+
+The loop is not training wheels.
+Branch, inspect, check, review, commit, record —
+**this is what engineers do every day.**
+
+The difference over a career:
+
+- your judgment compounds
+- your project memory compounds
+- your workflow compounds
+
+::right::
+
+<div class="pl-4 pt-16">
+  <HumanAiGraph />
+</div>
+
+<div class="punchline">
+
+AI gives everyone the same options. The feedback loop is what makes **you** better every week.
+
+</div>
+
+<!--
+Close the arc: same graph as the opening. The loop isn't a junior exercise — it's the daily professional workflow, and it's exactly the part AI doesn't do for you.
 -->
 
 ---

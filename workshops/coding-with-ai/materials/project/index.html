@@ -37,19 +37,14 @@
             <p class="eyebrow">Workshop Chat</p>
             <h1 id="chat-title">Disconnected</h1>
           </div>
-          <div class="status" id="connection-status">Offline</div>
+          <button id="disconnect" type="button">Disconnect</button>
         </header>
-
-        <div class="toolbar">
-          <button id="list-users" type="button">Show users</button>
-          <button id="disconnect" type="button" class="secondary">Disconnect</button>
-        </div>
 
         <ol class="messages" id="messages"></ol>
 
         <form id="message-form" class="message-form">
           <label class="visually-hidden" for="message-input">Message</label>
-          <input id="message-input" placeholder="Type a message, or /nick NewName" autocomplete="off">
+          <input id="message-input" placeholder="Type a message, /users, or /nick NewName" autocomplete="off">
           <button type="submit">Send</button>
         </form>
       </section>

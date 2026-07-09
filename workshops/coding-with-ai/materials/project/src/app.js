@@ -11,14 +11,13 @@ const connectError = document.querySelector("#connect-error");
 const serverUrlInput = document.querySelector("#server-url");
 const displayNameInput = document.querySelector("#display-name");
 const chatTitle = document.querySelector("#chat-title");
-const connectionStatus = document.querySelector("#connection-status");
 const messages = document.querySelector("#messages");
 const messageForm = document.querySelector("#message-form");
 const messageInput = document.querySelector("#message-input");
-const listUsersButton = document.querySelector("#list-users");
 const disconnectButton = document.querySelector("#disconnect");
 
 let socket;
+let disconnectRequested = false;
 
 connectForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -30,16 +29,14 @@ messageForm.addEventListener("submit", (event) => {
   sendMessage();
 });
 
-listUsersButton.addEventListener("click", () => {
-  sendToServer({ type: "list" });
-});
-
 disconnectButton.addEventListener("click", () => {
+  disconnectRequested = true;
   socket?.close();
 });
 
 function connect() {
   connectError.textContent = "";
+  disconnectRequested = false;
 
   let connectionUrl;
   try {
@@ -55,7 +52,7 @@ function connect() {
     setupPanel.classList.add("hidden");
     chatPanel.classList.remove("hidden");
     chatTitle.textContent = `Connected as ${displayNameInput.value.trim()}`;
-    connectionStatus.textContent = "Online";
+    messages.replaceChildren();
     messageInput.focus();
   });
 
@@ -65,12 +62,22 @@ function connect() {
   });
 
   socket.addEventListener("close", () => {
-    connectionStatus.textContent = "Offline";
+    if (disconnectRequested) {
+      setupPanel.classList.remove("hidden");
+      chatPanel.classList.add("hidden");
+      chatTitle.textContent = "Disconnected";
+      socket = undefined;
+      return;
+    }
+
+    chatTitle.textContent = "Disconnected";
     addMessage({ type: "error", message: "Disconnected from server" });
     socket = undefined;
   });
 
   socket.addEventListener("error", () => {
+    setupPanel.classList.remove("hidden");
+    chatPanel.classList.add("hidden");
     connectError.textContent = "Could not connect to the server.";
   });
 }
@@ -101,7 +108,7 @@ function addMessage(event) {
 
   const meta = document.createElement("div");
   meta.className = "message-meta";
-  meta.textContent = description.label;
+  meta.textContent = `${description.label}: `;
 
   const text = document.createElement("div");
   text.className = "message-text";

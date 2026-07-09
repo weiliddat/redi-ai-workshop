@@ -58,5 +58,13 @@ Acceptance criteria:
 
 - A rejected connection shows a useful error near the join form.
 - The participant can change the name or server URL and try again without refreshing the page.
+- Clicking the **Disconnect** button still returns to the join form.
 - Existing tests pass.
 - Add or update a small test if the changed logic can be tested without browser automation.
+
+Good practice tasks have:
+
+- a clear user impact
+- a small code change
+- a check you can run
+- a diff you can explain before committing

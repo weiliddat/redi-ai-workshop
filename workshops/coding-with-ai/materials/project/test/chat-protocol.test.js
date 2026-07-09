@@ -33,6 +33,12 @@ test("createOutgoingMessage creates a nickname change", () => {
   });
 });
 
+test("createOutgoingMessage creates a user list request", () => {
+  assert.deepEqual(createOutgoingMessage("/users"), {
+    type: "list",
+  });
+});
+
 test("createOutgoingMessage ignores blank messages", () => {
   assert.equal(createOutgoingMessage("   "), null);
   assert.equal(createOutgoingMessage("/nick   "), null);

@@ -24,7 +24,7 @@ It can:
 - send and receive messages
 - show join and leave events
 - show server errors
-- request the current user list
+- request the current user list with `/users`
 - change your nickname with `/nick NewName`
 
 ## Requirements
@@ -105,6 +105,8 @@ Request the user list:
 { "type": "list" }
 ```
 
+In the browser client, type `/users` to send this request.
+
 The server sends events like these:
 
 ```json
@@ -123,6 +125,8 @@ If the server rejects your connection, for example because the name is already t
 For the workshop baseline, this bug is intentional. It is useful for practicing the AI coding loop because it has clear user impact and a small fix.
 
 Workaround: refresh the page and connect again with a different name.
+
+If you click the **Disconnect** button yourself, the client does return you to the join form.
 
 ## Privacy rule
 

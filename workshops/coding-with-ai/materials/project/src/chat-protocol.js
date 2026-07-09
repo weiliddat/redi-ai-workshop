@@ -27,6 +27,10 @@ export function createOutgoingMessage(text) {
     return name ? { type: "nick", name } : null;
   }
 
+  if (trimmedText === "/users") {
+    return { type: "list" };
+  }
+
   return { type: "message", text: trimmedText };
 }
 

@@ -77,7 +77,7 @@ Setup on screen: `workshop-chat-client` fresh from the zip, first commit made, s
    ```text
    When the server rejects my connection because the name is already taken, the client shows a disconnect message but does not return me to the join form. Inspect the client before editing and tell me which files are involved and why. Do not edit yet.
    ```
-   Expected: it names `src/app.js` (connection state and join form handling) and possibly `src/chat-protocol.js`. `[DRY RUN: paste actual first response summary]`
+   Expected: it names `src/app.js` for connection state, close handling, and join form visibility. `[DRY RUN: paste actual first response summary]`
    One-sentence contrast (this is the 02 demo, compressed): "The lazy version is 'improve this page and fix anything you find.' You'd get ten changed files and no idea which one fixed the bug."
 4. **Smallest change (2 min).**
    ```text

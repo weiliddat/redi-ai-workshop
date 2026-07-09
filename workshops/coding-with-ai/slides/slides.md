@@ -336,7 +336,7 @@ Watch for the loop steps.
 --- a/src/app.js
 +++ b/src/app.js
 -  showStatus("Disconnected from server");
-+  showStatus(lastServerError || "Disconnected from server");
++  showStatus(serverErrorMessage || "Disconnected from server");
 +  showJoinForm();
 ```
 

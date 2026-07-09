@@ -377,7 +377,7 @@ Follow the **exercise brief** — it has the setup, prompts, and the full loop.
 
 ```text
 Server URL:
-ws://REPLACE-ME:3000
+wss://quick-badly-amoeba.ngrok-free.app
 ```
 
 ```bash

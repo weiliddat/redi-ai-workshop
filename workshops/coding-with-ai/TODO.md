@@ -30,7 +30,7 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
   - Done: `materials/participant-exercise-brief.md`.
   - Loop step 8 marked "if you have time"; the step-10 lesson note is the pair-review activity.
 
-- [ ] Do a solo run of the practice task with the actual model before writing the runbook.
+- [x] Do a solo run of the practice task with the actual model before writing the runbook.
   - Folded into the dry run: follow the "Before the workshop" playbook in `materials/teacher-runbook.md`.
   - It covers the browser checks the model evaluation could not run (G1 duplicate-name flow, G2 timestamp display) and records the fallback session.
   - Fill in the `[DRY RUN]` markers in the runbook the same day.
@@ -51,16 +51,16 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
 
 ## Thursday — dry run
 
-- [ ] Run the full 60 minutes against the runbook.
+- [x] Run the full 60 minutes against the runbook.
   - Confirm setup, timing, task size, check commands, fallback path, stretch task, and participant instructions.
   - If using a shared key, test concurrent load during the dry run.
 
-- [ ] Same day: fix only what the dry run breaks. Timing trims and instruction wording first; no new content.
+- [x] Same day: fix only what the dry run breaks. Timing trims and instruction wording first; no new content.
 
 ## Friday morning — final checks
 
 - [ ] Check the Slack thread for setup problems; pair blocked participants with someone who has a working setup.
-- [ ] Confirm the pinned commit, key/auth, and fallback still work.
+- [ ] Confirm the distributed zip, ngrok server, AI authentication, and fallback still work.
 
 ## Cut for this run (revisit for the next one)
 

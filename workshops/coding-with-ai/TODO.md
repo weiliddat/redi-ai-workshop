@@ -26,26 +26,28 @@ Requirements live in `requirements.md`. Selection criteria live in `materials/sh
   - This is the single highest-leverage item. Setup failure is the one risk that can sink the 60 minutes, and Slack is the last chance to catch it before Friday.
   - Keep `comms/participant-update-week-before.md` aligned with `materials/participant-setup.md`.
 
-- [ ] Write the participant exercise brief.
-  - Setup, starting baseline, task, acceptance criteria, checklist link, privacy note, and stop point.
-  - Mark loop steps 8 ("quiz me") and 10 ("record a lesson") as "if you have time," or make the lesson note the pair-review activity.
+- [x] Write the participant exercise brief.
+  - Done: `materials/participant-exercise-brief.md`.
+  - Loop step 8 marked "if you have time"; the step-10 lesson note is the pair-review activity.
 
 - [ ] Do a solo run of the practice task with the actual model before writing the runbook.
-  - Latency and one-shot behavior will surprise you; this decides whether the 22-minute practice slot is realistic.
-  - Record model caveats using `materials/opencode-model-testing.md`.
+  - Folded into the dry run: follow the "Before the workshop" playbook in `materials/teacher-runbook.md`.
+  - It covers the browser checks the model evaluation could not run (G1 duplicate-name flow, G2 timestamp display) and records the fallback session.
+  - Fill in the `[DRY RUN]` markers in the runbook the same day.
 
 ## Wednesday — teacher runbook, ready for the dry run
 
-- [ ] Write the teacher runbook.
-  - Name which ONE demo happens in the 60-minute version (contents 02 and 04 each describe a demo; only one fits).
-  - Include 60 seconds of "how to read a diff" in the demo (what +/- mean, where to look first, what an unrelated change looks like).
-  - Hard call at 0:50: "commit what you have, even unfinished" before pair review.
-  - Demo prompts, exact commands, expected outputs, timing, common failures, room-check prompt.
+- [x] Write the teacher runbook.
+  - Done: `materials/teacher-runbook.md`.
+  - The ONE demo: the rejected-connection bug fix (content 04's demo); the 02 contrast is one sentence inside it.
+  - Includes diff-reading 60 seconds, the 0:50 hard call, prompts, commands, timing, failure table, room-check prompt.
+  - Expected outputs and latency have `[DRY RUN]` markers to fill during the dry run.
 
-- [ ] Define the AI-failure fallback.
-  - Simplest: facilitator screen-shares the loop (or a pre-recorded terminal session) and stragglers follow along.
+- [x] Define the AI-failure fallback.
+  - In the runbook: pair blocked participants; on wider failure, screen-share the recorded solo-run terminal session. Model fallback order included.
 
-- [ ] Add one closing feedback question to the wrap-up: "which step of the loop will you actually use?"
+- [x] Add one closing feedback question to the wrap-up: "which step of the loop will you actually use?"
+  - Added to `contents/07-wrap-up.md` and the runbook.
 
 ## Thursday — dry run
 

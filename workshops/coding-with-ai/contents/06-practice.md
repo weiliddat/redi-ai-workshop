@@ -29,7 +29,7 @@ Use the [AI coding checklist](../materials/ai-coding-checklist.md) during practi
 
 ## Before Practice Starts
 
-Give participants only what they need to act:
+Share the [participant exercise brief](../materials/participant-exercise-brief.md). It gives participants only what they need to act:
 
 - starting baseline
 - target task

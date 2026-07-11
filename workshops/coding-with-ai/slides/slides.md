@@ -143,7 +143,7 @@ You need habits that carry context forward:
 </v-click>
 
 <!--
-"Humans Don't Just Sample" — the human role is the feedback loop across tasks, not just this task. The graph is illustrative: AI output per task is roughly flat, while a human who keeps memory, feedback, and reflection compounds over the life of a project. We show it again at the end. References are in the workshop reference list.
+"Humans Still Beat AI in the Long Horizon" — the human role is the feedback loop across tasks, not just this task. The graph is illustrative: AI output per task is roughly flat, while a human who keeps memory, feedback, and reflection compounds over the life of a project. We show it again at the end. References are in the workshop reference list.
 -->
 
 ---
@@ -495,17 +495,24 @@ Close the arc: same graph as the opening. The loop is not a junior exercise — 
 -->
 
 ---
-layout: end
----
 
-# One question before you go
+<h1 class="text-center"> One question before you go </h1>
 
-**Which step of the loop will you actually use next week?**
+<div class="text-xl mt-8 text-center">
 
-Say it out loud or drop it in Slack.
+Which step of the loop will you actually use next week?
 
 Thank you 🙌
+
+</div>
 
 <!--
 The feedback answers tell us which habit landed and what to emphasize next run.
 -->
+
+---
+
+# References
+
+- [How AI Assistance Impacts the Formation of Coding Skills](https://arxiv.org/abs/2601.20245)
+- [Humans Still Beat AI in the Long Horizon](https://joyemang33.github.io/blog/2026/humans-dont-just-sample/)

@@ -53,7 +53,7 @@ Main principles:
 3. **Build the loop as you go.**  
    Use tests, browser checks, screenshots, logs, and review. When the participant or agent gets stuck, reflect on what happened and record the lesson in docs, `AGENTS.md`, checklists, or skills so the next task is easier.
 
-Also include the 2026 post "Humans Don't Just Sample" as a reference for long-horizon work, adaptation, project memory, and feedback loops.
+Also include the 2026 post "Humans Still Beat AI in the Long Horizon" as a reference for long-horizon work, adaptation, project memory, and feedback loops.
 
 ## Writing Style Instructions
 

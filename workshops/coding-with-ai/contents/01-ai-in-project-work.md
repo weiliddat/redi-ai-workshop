@@ -13,7 +13,7 @@ The agent can generate options. The participant connects the project context, ch
 Mention these briefly. Use the research to motivate the workflow, not to give a research lecture.
 
 - **AI assistance and coding skills:** people can move faster with AI, but they learn more when they stay active: asking questions, reading code, explaining changes, and writing or adjusting parts themselves.
-- **Humans Don't Just Sample:** strong project work depends on memory, feedback, reflection, and adaptation. Humans bring long-term knowledge, judgment, and the ability to improve the workflow over time. That is why we use tests, browser checks, reviews, commits, docs, and project instructions.
+- **Humans Still Beat AI in the Long Horizon:** strong project work depends on memory, feedback, reflection, and adaptation. Humans bring long-term knowledge, judgment, and the ability to improve the workflow over time. That is why we use tests, browser checks, reviews, commits, docs, and project instructions.
 
 The papers are in [`reference.md`](../reference.md) for anyone who wants to read more.
 

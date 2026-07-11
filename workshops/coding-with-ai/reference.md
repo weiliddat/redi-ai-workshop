@@ -21,7 +21,7 @@ The same lesson applies to mental models. Participants need a working understand
 
 ---
 
-## Humans Don't Just Sample
+## Humans Still Beat AI in the Long Horizon
 
 - **Source:** joyemang33.github.io (2026)
 - **Link:** https://joyemang33.github.io/blog/2026/humans-dont-just-sample/
